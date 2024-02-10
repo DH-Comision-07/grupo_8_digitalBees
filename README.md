@@ -10,6 +10,9 @@
 🧩*URL del Repositorio*
  https://github.com/DH-Comision-07/grupo_8_digitalBees
 
+ 🧩*URL de Figma-Diseño Wireframes*
+https://www.figma.com/file/ExPCXH0CqneGxxxqX1n34W/Grupo-8---Digital-Bees---WireFrames?type=design&node-id=0%3A1&mode=design&t=q8FdmkFCxT4yLPW1-1
+
 🚀 *Integrantes del Equipo:*
 - Athala Umaña
 - Cindy Cardona
