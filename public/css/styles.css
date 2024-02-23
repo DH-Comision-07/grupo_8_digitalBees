@@ -53,9 +53,97 @@ header{
 }
 
 /*seccion main*/
+main{
+    background-color: #ebebeb;
+    text-align: center;
+}
+
+.imagen__banner{
+    width: 100%;
+    padding: 0px;
+}
+
+.ultimaVisita{
+    padding: 15px;
+}
+
+.titulares__busquedas{
+    font-size: 15px;
+    padding-bottom: 16px;
+}
+
+.producto-delivery-icono{
+    display: block;
+    font-size: 16px;
+    color: black;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    position: absolute;
+    right: 14px;
+    top: -15px;
+}
+
+.ultimaVisita__producto1,
+.ultimaVisita__producto2,
+.ultimaVisita__producto3,
+.ultimaVisita__producto4{
+    box-shadow: 0px 0px 7px rgb(100, 100, 100);
+    background-color: white;
+    margin: 16px;
+    border-radius: 7px;
+}
+
+
+.descripcionArticulos{
+    border: solid 1px #ebebeb;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+
+
+.titulares-precio{
+    font-size: 14px;
+    font-weight: lighter;
+    margin-left: 37%;
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.titulares-descripcion{
+    font-size: 13px;
+    font-weight: lighter;
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 90%;
+    align-self: center;
+    padding-bottom: 2px;
+}
+
+.titulares-producto{
+   font-size: 13px;
+   margin-left: 20px;
+   color: #666;
+   padding-bottom: 20px;
+   text-align: center;
+   margin-top: 12px;
+}
+
+.imagenes-producto{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+   
+}
+
 
 /*seccion footer*/
-
 footer{
     width: 100%;
     display: flex;
@@ -113,7 +201,6 @@ footer{
     padding-left: 15px; 
 }
 
-
 @media(min-width: 460px){
     .encabezado__logo{
         width: 20%;
@@ -134,33 +221,78 @@ footer{
         color: black;
         text-decoration: none;
     }
+
+/*seccion main*/
+
+.imagen__banner{
+    width: 100%;
+    padding: 0px;
+}
+
+.titulares__busquedas{
+    padding-bottom: 20px;
+    font-size: 20px;
+    padding-top: 15px;
+}
+
+.titulares-producto{
+    font-size: 13px;
+    margin-left: 15px;
+    color: #666;
+    padding-bottom: 8px;
+    text-align: center;
+ }
+
+ .titulares-precio{
+    margin-left: 37%;
+ }
+
+
+.ultimaVisita__producto1,
+.ultimaVisita__producto2,
+.ultimaVisita__producto3,
+.ultimaVisita__producto4{
+    width: 40%;
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.ultimaVisita__producto1 img{
+    display: flex;
+    width: 77%;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+   
 }
 
 /*footer*/
-    .pie-pagina__logo{
-        width: 30%;
-    }
 
-    .pie-pagina__seccion1{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 10px;
-        flex-direction: column;
-    }
+.pie-pagina__logo{
+    width: 30%;
+}
 
-    .pie-pagina__seccion2 h4{
-        padding-right: 5px; 
-    }
+.pie-pagina__seccion1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.pie-pagina__seccion2 h4{
+    padding-right: 5px; 
+}
+}
+
+@media(min-width: 750px){
     
-@media(min-width: 768px){
-    
-    .encabezado{
+  .encabezado{
         gap:50%;
         justify-content: center;
     }
     
-    .encabezado__logo{
+   .encabezado__logo{
         width: 10%;
     }
 
@@ -181,7 +313,69 @@ footer{
         text-decoration: none;
         font-size: 20px;
     }
+    /*main*/
+    .ultimaVisita{
+        text-align: center;
+        left: 40px;
+        display:flex;
+        flex-direction: column;
+        width: 103%;
+        margin-left: -18px;
+    }
 
+
+    .titulares__busquedas{
+        font-size: 24px;  
+    }
+
+    .titulares__ofertas{
+        font-size: 24px;   
+    }
+
+    .descripcionArticulos{
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        width: 195px;
+        right: 6px;
+        padding-bottom: 10px;
+    }
+
+    .imagenes-producto{
+        width: 80%;
+        height: 180px;
+    }
+
+   
+    .titulares-precio{
+        padding-top: 20px;
+        margin-left: 73px;
+    }
+   
+    .titulares-producto{
+        text-align: left;
+        font-size: 15px;
+        margin-left: 11px;
+        color: #666;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .ultimaVisita__producto1,
+    .ultimaVisita__producto2,
+    .ultimaVisita__producto3,
+    .ultimaVisita__producto4{
+        width: 250px;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+        justify-content: space-between;
+        margin: 30px;
+        border-radius: 7px;
+        height: 380px;
+    }
+   
+
+    
     /*footer*/
     .pie-pagina__logo{
         width: 10%;
@@ -197,7 +391,5 @@ footer{
 
     .pie-pagina__seccion2 h4{
         padding-left: 27px; 
-    }
-    
+    }   
 }
-
