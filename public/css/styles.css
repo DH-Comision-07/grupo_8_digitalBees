@@ -63,11 +63,27 @@ main{
     padding: 0px;
 }
 
-.ultimaVisita{
+.iconos-iniciales{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    padding-top: 20px;
+    margin-top: -3px;
+    background-color: white;
+    width: 100%;
+}
+
+.iconos-iniciales i{
+    color:#CF5C36 ;
+}
+
+.destacados{
     padding: 15px;
 }
 
-.titulares__busquedas{
+.titulo__destacados{
     font-size: 15px;
     padding-bottom: 16px;
 }
@@ -85,10 +101,10 @@ main{
     top: -15px;
 }
 
-.ultimaVisita__producto1,
-.ultimaVisita__producto2,
-.ultimaVisita__producto3,
-.ultimaVisita__producto4{
+.destacados__producto1,
+.destacados__producto2,
+.destacados__producto3,
+.destacados__producto4{
     box-shadow: 0px 0px 7px rgb(100, 100, 100);
     background-color: white;
     margin: 16px;
@@ -139,7 +155,7 @@ main{
     justify-content: center;
     margin: auto;
     padding: 10px;
-   
+    padding-top: 30px;
 }
 
 
@@ -229,7 +245,25 @@ footer{
     padding: 0px;
 }
 
-.titulares__busquedas{
+.iconos-iniciales{
+    padding: 31px;
+    padding-top: 34px;
+    margin-top: -3px;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    gap: 72px;
+}
+
+.iconos-iniciales i{
+    font-size: 35px;
+}
+
+.iconos-iniciales p{
+    font-size: 15px;
+}
+
+.titulo__destacados{
     padding-bottom: 20px;
     font-size: 20px;
     padding-top: 15px;
@@ -247,22 +281,27 @@ footer{
     margin-left: 37%;
  }
 
+ .titulares-descripcion{
+    padding-right: 8px;
+ }
 
-.ultimaVisita__producto1,
-.ultimaVisita__producto2,
-.ultimaVisita__producto3,
-.ultimaVisita__producto4{
+
+.destacados__producto1,
+.destacados__producto2,
+.destacados__producto3,
+.destacados__producto4{
     width: 40%;
     display: inline-block;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-.ultimaVisita__producto1 img{
+.destacados__producto1 img{
     display: flex;
     width: 77%;
     justify-content: center;
     margin: auto;
     padding: 10px;
+    padding-top: 32px;
    
 }
 
@@ -314,7 +353,25 @@ footer{
         font-size: 20px;
     }
     /*main*/
-    .ultimaVisita{
+    .iconos-iniciales{
+        padding: 76px;
+        padding-top: 54px;
+        margin-top: -3px;
+        background-color: white;
+        width: 100%;
+        justify-content: center;
+        gap: 72px;
+    }
+    
+    .iconos-iniciales i{
+        font-size: 42px;
+    }
+
+    .iconos-iniciales p{
+        font-size: 20px;
+    }
+
+    .destacados{
         text-align: center;
         left: 40px;
         display:flex;
@@ -324,14 +381,11 @@ footer{
     }
 
 
-    .titulares__busquedas{
+    .titulo__destacados{
         font-size: 24px;  
     }
 
-    .titulares__ofertas{
-        font-size: 24px;   
-    }
-
+   
     .descripcionArticulos{
         flex-direction: column;
         position: relative;
@@ -361,10 +415,10 @@ footer{
         text-align: center;
     }
 
-    .ultimaVisita__producto1,
-    .ultimaVisita__producto2,
-    .ultimaVisita__producto3,
-    .ultimaVisita__producto4{
+    .destacados__producto1,
+    .destacados__producto2,
+    .destacados__producto3,
+    .destacados__producto4{
         width: 250px;
         padding: 30px;
         box-shadow: 0px 0px 10px rgb(100, 100, 100);
