@@ -123,10 +123,10 @@ main{
 
 .titulares-precio{
     font-size: 14px;
-    font-weight: lighter;
+    color: #666;
     margin-left: 37%;
     width: 30%;
-    padding-top: 20px;
+    padding-top: 11px;
     padding-bottom: 10px;
 }
 
@@ -156,6 +156,30 @@ main{
     margin: auto;
     padding: 10px;
     padding-top: 30px;
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+    padding-bottom: 16px;
+}
+
+.botones button{
+    background-color: #CF5C36;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 7px;
+    border: none;
+    height: 27px;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+.botones button:hover{
+    background-color: #EEBA0B;
+    color: #050517;
 }
 
 
@@ -279,6 +303,8 @@ footer{
 
  .titulares-precio{
     margin-left: 37%;
+    margin-bottom: 2px;
+    margin-top: -10px;
  }
 
  .titulares-descripcion{
@@ -304,6 +330,15 @@ footer{
     padding-top: 32px;
    
 }
+
+.botones{
+    padding-bottom: 22px;
+}
+
+.botones button{
+    height: 27px;
+}
+
 
 /*footer*/
 
@@ -402,7 +437,7 @@ footer{
 
    
     .titulares-precio{
-        padding-top: 20px;
+        padding-top: 15px;
         margin-left: 73px;
     }
    
@@ -427,9 +462,31 @@ footer{
         border-radius: 7px;
         height: 380px;
     }
-   
+
+    .destacados__producto1:hover{
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.877);
+        transition: ease 0.4s;
+    }
+    .destacados__producto2:hover{
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.877);
+        transition: ease 0.4s;
+    }
+    .destacados__producto3:hover{
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.877);
+        transition: ease 0.4s;
+    }
+    .destacados__producto4:hover{
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.877);
+        transition: ease 0.4s;
+    }
 
     
+    .botones{
+        margin-bottom: -23px;
+        margin-top: -4px;
+        margin-left: 10px;
+    }
+
     /*footer*/
     .pie-pagina__logo{
         width: 10%;
