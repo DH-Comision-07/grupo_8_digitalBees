@@ -73,7 +73,14 @@ main{
     margin-top: -3px;
     background-color: white;
     width: 100%;
+   
 }
+
+.iconos-iniciales a{
+    text-decoration: none;
+    color: black;
+}
+
 
 .iconos-iniciales i{
     color:#CF5C36 ;
