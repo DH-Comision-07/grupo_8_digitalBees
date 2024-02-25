@@ -1,64 +1,70 @@
+.titulo-registro{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
 .form-container {
     padding: 10px;
-  }
-  
-  .input-text,
-  .input-email,
-  .input-password,
-  .input-date {
+}
+
+.input-text,
+.input-email,
+.input-password,
+.input-date {
     width: 90vw;
     font-size: 18px;
     padding: 5px;
-  }
-  
-  form div,
-  form p {
+}
+
+form div,
+form p {
     margin-bottom: 10px;
-  }
-  
-  .user-profile-container,
-  .intereses-container {
+}
+
+.user-profile-container,
+.intereses-container {
     margin-left: 15px;
-  }
-  
-  form button {
+}
+
+form button {
     width: 90vw;
     padding: 10px 20px;
     background-color: #EEBA0B;
     color: black;
-    font-weight: bold   ;
+    font-weight: bold;
     font-size: 15px;
     cursor: pointer;
     transition: all 450ms;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #EEBA0B;
-  }
-  
-  @media (min-width: 750px) {
-  
+}
+
+@media (min-width: 750px) {
+
     .form-container {
-      text-align: center;
+        text-align: center;
     }
-  
+
     .input-text,
     .input-email,
     .input-password,
     .input-date {
-      width: 40vw;
-      font-size: 18px;
-      padding: 5px;
+        width: 40vw;
+        font-size: 18px;
+        padding: 5px;
     }
-  
+
     form button {
-      width: 40vw;
+        width: 40vw;
     }
-  
+
     .user-profile-container,
     .intereses-container {
-      text-align: justify;
-      margin-left: 40%;
-      margin-bottom: 20px;
+        text-align: justify;
+        margin-left: 40%;
+        margin-bottom: 20px;
     }
-  }
+}
