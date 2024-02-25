@@ -7,6 +7,7 @@
 
 body {
     background-color: #ebebeb;
+    
 }
 
 /*seccion header*/
@@ -196,7 +197,7 @@ footer{
     text-align: center;
     justify-content: space-between;
     background-color: #050517;
-    border: solid 1px white;
+    box-sizing: border-box;
 }
 .pie-pagina__logo{
     width: 30%;
@@ -265,6 +266,7 @@ footer{
         color: black;
         text-decoration: none;
     }
+   
 
 /*seccion main*/
 
@@ -370,6 +372,10 @@ footer{
         margin-right: 25px;
     }
     
+    .main {
+        padding: 55px;
+    }
+
    .encabezado__logo{
         width: 10%;
     }
