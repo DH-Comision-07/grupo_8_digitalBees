@@ -13,6 +13,9 @@
  🧩*URL de Figma-Diseño Wireframes*
 https://www.figma.com/file/ExPCXH0CqneGxxxqX1n34W/Grupo-8---Digital-Bees---WireFrames?type=design&node-id=0%3A1&mode=design&t=q8FdmkFCxT4yLPW1-1
 
+🧩*URL de trello*
+https://trello.com/b/Hd0ZHb0v/proyecto-apicultura
+
 🚀 *Integrantes del Equipo:*
 - Athala Umaña
 - Cindy Cardona
