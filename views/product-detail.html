@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital_Bees</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+  <body class="cuerpo">
+    <header class="encabezado">
+      <div class="contenedor contenedor--encabezado">
+        <nav class="encabezado__nav">
+          <section class="encabezado__nav__seccion seccion--logo">
+            <a class="link link--logo" href="/">
+              <img class="image image--logo" src="../img/logoDhBees.png" alt="" />
+            </a>
+          </section>
+          <section class="encabezado__nav__seccion seccion--vistas">
+            <ul class="lista lista--vistas">
+              <li class="lista__item">
+                <a class="link link--vistas" href="/">Home</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/productos">Productos</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/registro">Registrate</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/login">Login</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--carrito fa-solid fa-cart-shopping"></i
+                ></a>
+              </li>
+            </ul>
+            <ul class="lista lista--user">
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--usuario fa-solid fa-user"></i
+                ></a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--carrito fa-solid fa-cart-shopping"></i
+                ></a>
+              </li>
+              <li class="lista__item">
+                <button class="boton boton--hamburguesa">
+                  <i class="icono icono--hamburguesa fas fa-bars"></i>
+                </button>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </header>
+    <main class="principal">
+      
+        <section class="principal__section section--migadepan">
+          <div class="contenedor contenedor--migadepan">
+            <ol class="lista lista--migadepan">
+                <li class="item__lista"><i class="fa-solid fa-house"></i></li>
+                <li class="item__lista">Tienda Virtual</li>
+            </ol> 
+          </div>
+        </section>
+
+        <section>
+          <h1>Detalle del producto</h1>
+          <div class="contenedor-image">
+            <img src="/img/miel_5kg.jpg" alt="frasco de miel" class="image">
+          </div>
+          <div class="descripcion-producto">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae, inventore ab quibusdam culpa? At quas itaque libero reiciendis mollitia nemo molestiae magni.</p>
+          </div>
+
+          <div class="boton-cantidad">
+            <select class="compra__cantidad" name="Cantidad">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="precio-producto">
+            <p>$9500</p>
+          </div>
+
+          <div class="boton-agregar-carro">
+            <a class="link" href="/carrito">
+              <button class="tarjeta__boton boton--buy boton">
+                <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+                Agregar al carro
+              </button>
+            </a>
+          </div>
+
+        </section>
+
+
+    </main>
+    <footer class="pie">
+      <div class="contenedor contenedor--pie">
+        <section class="pie__seccion seccion--pie-logo">
+          <a class="link link--logo" href="/">
+            <img
+              class="image image--logo"
+              src="../img/logoDhBees.png"
+              alt="logo digital Bees"
+            />
+          </a>
+        </section>
+        <section class="pie__seccion seccion--informacion">
+          <h4 class="pie__informacion__titulo">Quienes somos</h4>
+          <p class="pie__informacion__parrafo">
+            Lorem ipsum dolor sit amet.Irure quis voluptate laborum elit
+            aliquip. Proident ex nisi aliquip enim sint ad exercitation
+            reprehenderit esse. Qui magna elit velit occaecat. Do est tempor
+            minim sunt eiusmod mollit sit duis aliqua quis est enim culpa
+            excepteur.
+          </p>
+        </section>
+        <section class="pie__seccion seccion--redes-sociales">
+          <ul class="lista lista--redes-sociales">
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-instagram"></i
+                ><span class="redes-sociales__name">Instagram</span></a
+              >
+            </li>
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-x-twitter"></i
+                ><span class="redes-sociales__name">Twitter</span></a
+              >
+            </li>
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-youtube"></i
+                ><span class="redes-sociales__name">Youtube</span></a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="pie__seccion seccion--copyright">
+          <small class="pie__seccion__copyright"
+            >Copyright © 2024 grupo 8 - digital house</small
+          >
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -213,23 +213,11 @@
   margin: 0 auto;
 }
 
-.lista--vistas,
-.redes-sociales__name {
-  display: none;
-}
-
 @media (768px <= width) {
   body {
     width: auto;
   }
 
-  .lista--user {
-    display: none;
-  }
-
-  .lista--vistas {
-    display: flex;
-  }
   .tarjeta {
     max-width: calc((1200px / 4) - 40px);
   }

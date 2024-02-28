@@ -166,7 +166,21 @@ body {
   color: #f1f1f1;
 }
 
+.lista--vistas,
+.redes-sociales__name {
+  display: none;
+}
+
 @media (768px <= width) {
+
+  .lista--user {
+    display: none;
+  }
+
+  .lista--vistas {
+    display: flex;
+  }
+
 }
 
 @media (1024px <= width) {
