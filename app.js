@@ -13,7 +13,7 @@ app.get("/login", (req, res) => res.sendFile(path.resolve("./views/login.html"))
 app.get("/carrito", (req, res) => res.sendFile(path.resolve("./views/productCart.html")));
 app.get("/productos", (req, res) => res.sendFile(path.resolve("./views/productDetail.html")));
 app.get("/registro", (req, res) => res.sendFile(path.resolve("./views/register.html")));
-app.get("/producto/detalles", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));
+app.get("/detalle", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));
 
 app.get("*", (req, res) => res.status(404).send("404 not found. <br> ¡Houston, tenemos un problema!"));
 
