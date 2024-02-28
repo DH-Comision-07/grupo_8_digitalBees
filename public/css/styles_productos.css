@@ -121,6 +121,7 @@ main{
     background-color: white;
     margin: 16px;
     border-radius: 7px;
+    margin-left: 32px;
 }
 
 .descripcionArticulos{
