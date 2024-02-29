@@ -121,6 +121,7 @@ main{
     background-color: white;
     margin: 16px;
     border-radius: 7px;
+    margin-left: 32px;
 }
 
 .descripcionArticulos{
@@ -175,24 +176,36 @@ main{
     justify-content: center;
     gap: 19px;
     padding-bottom: 16px;
-    color: white;
 }
 
-.botones button:hover{
-    background-color: #EEBA0B;
-    color: #050517;
-    
-}
-
-
-.botones button{
+.botones .comprar{
     background-color: #CF5C36;
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 7px;
     border: none;
-    height: 27px;
+    height: 32px;
     color: white;
+    transition: background-color 0.5s;
+}
+
+.botones .ver-mas{
+    background-color: #FFF;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 7px;
+    border: none;
+    height: 27px;
+    color: #bd431a;
+    transition: background-color 0.5s;
+}
+
+.botones .comprar:hover{
+    background-color: #bd431a;
+}
+
+.botones .ver-mas:hover{
+    background-color: #ececec;
 }
 
 /*seccion footer*/
@@ -351,7 +364,6 @@ footer{
     height: 27px;
 }
 
-
 /*footer*/
     .pie-pagina__logo{
         width: 30%;
@@ -482,11 +494,46 @@ footer{
         transition: ease 0.4s;
     }
 
-
     .botones{
-        margin-bottom: -23px;
-        margin-top: -4px;
-        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding-bottom: 16px;
+        padding-right: 20px;
+
+    }
+    
+    .botones .comprar{
+        background-color: #CF5C36;
+        padding-left: 14px;
+        padding-right: 16px;
+        border-radius: 7px;
+        border: none;
+        height: 32px;
+        color: white;
+        transition: background-color 0.5s;
+        width: 123%;
+    }
+    
+    .botones .ver-mas{
+        background-color: #FFF;
+        padding-left: 16px;
+        border-radius: 7px;
+        height: 32px;
+        color: #bd431a;
+        transition: background-color 0.5s;
+        width: 58%;
+        margin-right: -5px;
+        margin-left: 7px;
+    }
+    
+    .botones .comprar:hover{
+        background-color: #bd431a;
+    }
+    
+    .botones .ver-mas:hover{
+        background-color: #ececec;
     }
     
 
