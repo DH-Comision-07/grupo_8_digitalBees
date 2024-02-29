@@ -86,4 +86,7 @@ button:hover {
         margin-left: 40%;
         margin-bottom: 20px;
     }
+    .pie-pagina__seccion2 h4 {
+        text-align: center;
+    }
 }

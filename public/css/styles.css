@@ -444,7 +444,7 @@ footer{
         left: 40px;
         display:flex;
         flex-direction: column;
-        width: 103%;
+        width: 100%;
         margin-left: -18px;
     }
 
@@ -572,6 +572,6 @@ footer{
     }
 
     .pie-pagina__seccion2 h4{
-        padding-left: 27px; 
+        text-align: center; 
     }   
 }
