@@ -14,6 +14,7 @@ app.get("/carrito", (req, res) => res.sendFile(path.resolve("./views/productCart
 app.get("/productos", (req, res) => res.sendFile(path.resolve("./views/productDetail.html")));
 app.get("/producto", (req, res) => res.sendFile(path.resolve("./views/product.html")));
 app.get("/registro", (req, res) => res.sendFile(path.resolve("./views/register.html")));
+app.get("/detalle", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));
 
 app.get("*", (req, res) => res.status(404).send("404 not found. <br> ¡Houston, tenemos un problema!"));
 
