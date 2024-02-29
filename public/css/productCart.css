@@ -1,0 +1,259 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> BODY <<<<<<<< */
+
+.section--productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.compra {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.compra:last-child {
+  margin-bottom: 0;
+}
+
+.compra__columna{
+  display: flex;
+  width: calc(100% / 3);
+  padding: 0 10px;
+}
+
+.columna--imagen {
+  display: none;
+}
+
+.columna--precio {
+  width: 50%;
+}
+
+.compra__precio,
+.compra__titulo {
+  font-size: 16px;
+}
+
+.columna--informacion {
+  flex-direction: column;
+}
+.columna--cantidad {
+  justify-content: center;
+}
+
+.compra__cantidad {
+  border-radius: 8px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.columna--precio {
+  justify-content: space-around;
+}
+
+.compra__precio {
+  display: flex;
+  align-items: center;
+}
+
+.compra__icon {
+  font-size: 30px;
+  color: #CF5C36;
+}
+
+.imagen--compra {
+  max-width: 50px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.section--destacados {
+  background-color: #c5c5c5;
+}
+
+.contenedor--tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40px 20px;
+}
+
+.contenedor__productos {
+  width: 100%;
+}
+
+.contenedor__pago {
+  background-color: #ebebeb;
+  width: 100%;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pago__boton {
+  background-color: #CF5C36;
+  padding: 10px;
+  border: 0;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.pago__texto {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.pago__costo {
+  font-size: 18px;
+}
+
+.texto--total,
+.costo--total{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.principal__titulo-section {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: calc((1200px / 3) - 40px);
+  display: block;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.tarjeta__encabezado {
+  margin-bottom: 15px;
+}
+
+.tarjeta__titulo {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tarjeta__descripcion{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.imagen--producto{
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.contenedor--botones{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  gap: 10px;
+}
+
+.tarjeta__precio {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.boton--more{
+  background-color: transparent;
+  color: #CF5C36;
+}
+.boton--more:hover{
+  color: #bd431a;
+  background-color: #ebebeb;
+}
+
+.boton--buy{
+  background-color: #CF5C36;
+  color: white;
+}
+
+.boton--buy:hover{
+  background-color: #bd431a;
+  color: white;
+}
+
+.pago__subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 20px;
+}
+
+.pago__line {
+  width: 100%;
+  height: 1px;
+}
+
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (768px <= width) {
+  body {
+    width: auto;
+  }
+
+  .tarjeta {
+    max-width: calc((1200px / 4) - 40px);
+  }
+  .contenedor--tarjetas {
+    padding: 40px 0;
+  }
+
+  .compra__columna{
+    width: calc(100% / 4);
+    padding: 0 20px;
+  }
+  
+  .columna--imagen {
+    display: flex;
+  }
+
+  .imagen--compra {
+    max-width: 80px;
+  }
+}
+
+@media (1024px <= width) {
+  .contenedor__productos{
+    width: calc(100% - 320px);
+  }
+
+  .contenedor__pago {
+    max-width: 300px;
+  }
+
+  .section--productos {
+    margin: 0px auto 40px;
+  }
+
+  .compra:last-child {
+    margin-bottom: 0;
+  }
+}

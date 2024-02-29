@@ -10,8 +10,11 @@
 🧩*URL del Repositorio*
  https://github.com/DH-Comision-07/grupo_8_digitalBees
 
- 🧩*URL de Figma-Diseño Wireframes*
-https://www.figma.com/file/ExPCXH0CqneGxxxqX1n34W/Grupo-8---Digital-Bees---WireFrames?type=design&node-id=0%3A1&mode=design&t=q8FdmkFCxT4yLPW1-1
+🧩*URL de Figma-Diseño Wireframes*
+ https://www.figma.com/file/ExPCXH0CqneGxxxqX1n34W/Grupo-8---Digital-Bees---WireFrames?type=design&node-id=0%3A1&mode=design&t=q8FdmkFCxT4yLPW1-1
+
+🧩*URL de trello*
+ https://trello.com/b/Hd0ZHb0v/proyecto-apicultura
 
 🚀 *Integrantes del Equipo:*
 - Athala Umaña
@@ -30,3 +33,7 @@ https://www.figma.com/file/ExPCXH0CqneGxxxqX1n34W/Grupo-8---Digital-Bees---WireF
   3. https://www.latiendadelapicultor.com/
   4. https://www.apinal.com/
   5. http://www.campoapicola.com/
+
+### Iniciar servidor
+ npm start
+ cuando se haga deploy hay que cambiar el package.json
