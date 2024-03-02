@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital_Bees</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -16,153 +17,257 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Digital_Bees</title>
   </head>
-  <body>
-    <header>
-      <section class="encabezado">
-        <img class="encabezado__logo" src="img/logoDhBees.png" alt="" />
-        <nav class="encabezado__menu-navegacion">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/productos">Productos</a></li>
-            <li><a href="/registro">Registrate</a></li>
-            <li><a href="/login">Login</a></li>
-            <li>
-              <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-            </li>
-          </ul>
+  <body class="cuerpo">
+    <header class="encabezado">
+      <div class="contenedor contenedor--encabezado">
+        <nav class="encabezado__nav">
+          <section class="encabezado__nav__seccion seccion--logo">
+            <a class="link link--logo" href="/">
+              <img class="image image--logo" src="img/logoDhBees.png" alt="" />
+            </a>
+          </section>
+          <section class="encabezado__nav__seccion seccion--vistas">
+            <ul class="lista lista--vistas">
+              <li class="lista__item">
+                <a class="link link--vistas" href="/">Home</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/productos">Productos</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/registro">Registrate</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="/login">Login</a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--carrito fa-solid fa-cart-shopping"></i
+                ></a>
+              </li>
+            </ul>
+            <ul class="lista lista--user">
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--usuario fa-solid fa-user"></i
+                ></a>
+              </li>
+              <li class="lista__item">
+                <a class="link link--vistas" href="#"
+                  ><i class="icono icono--carrito fa-solid fa-cart-shopping"></i
+                ></a>
+              </li>
+              <li class="lista__item">
+                <button class="boton boton--hamburguesa">
+                  <i class="icono icono--hamburguesa fas fa-bars"></i>
+                </button>
+              </li>
+            </ul>
+          </section>
         </nav>
-
-        <div class="encabezado__iconos-acceso">
-          <li>
-            <a href="#"><i class="fa-solid fa-user"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          <i class="fas fa-bars"></i>
-        </div>
-      </section>
+      </div>
     </header>
 
-    <main>
-      <img
-        class="imagen__banner"
-        src="img/imagenesHome/banner_home.png"
-        alt="Banner Home"
-      />
+    <main class="principal">
+
+        <!--primera parte-->
+        <img class="imagen__banner" src="img/imagenesHome/banner_home.png" alt="Banner Home"/>
 
       <section class="iconos-iniciales">
         <div>
-          <i class="fa-solid fa-heart"></i>
+          <a href="/productos#salud"><i class="fa-solid fa-heart"></i></a>
           <p><a href="/productos#salud">Salud</a></p>
         </div>
 
         <div>
-          <i class="fa-solid fa-utensils"></i>
+          <a href="/productos#alimentos"><i class="fa-solid fa-utensils"></i></a>
           <p><a href="/productos#alimentos">Alimentos</a></p>
         </div>
 
         <div>
-          <i class="fa-solid fa-bag-shopping"></i>
+          <a href="/productos#belleza"><i class="fa-solid fa-bag-shopping"></i></a>
           <p><a href="/productos#belleza">Belleza</a></p>
         </div>
       </section>
+        <!--primera parte-->
+      
+        <section class="principal__section section--destacados">
+        <div class="contenedor contenedor--tarjetas">
+          <h2 class="principal__titulo-section">Productos destacados</h2>
 
-      <!--seccion destacados-->
-      <section class="destacados">
-        <h1 class="titulo__destacados">Productos Destacados</h1>
-            <section class="descripcion-busquedas">
-                    <section class="destacados__producto1">
-                        <img class="imagenes-producto" src="img/imagenesHome/img1-miel.jpg" alt="Miel">
-                    <article class="descripcionArticulos">
-                        <h2 class="titulares-producto">Miel</h2>
-                        <h2 class="titulares-descripcion"></h2>
-                        <h2 class="titulares-precio">$10.000</h2>
-                        <div class="botones">
-                            <button class="ver-mas">ver mas</button>
-                            <a class="link" href="/carrito">
-                              <button class="comprar">
-                                <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
-                                comprar
-                              </button>
-                            </a>
-                        </div>
-                    </article>
-                </section>
-                <section class="destacados__producto2">
-                        <img class="imagenes-producto" src="img/imagenesProductos/salud/jalea_real.png" alt="Jalea Real">
-                    <article class="descripcionArticulos">
-                        <h2 class="titulares-producto">Jalea Real</h2>
-                        <h2 class="titulares-descripcion"></h2>
-                        <h2 class="titulares-precio">$85.000</h2>
-                        <div class="botones">
-                          <button class="ver-mas">ver mas</button>
-                          <a class="link" href="/carrito">
-                            <button class="comprar">
-                              <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
-                              comprar
-                            </button>
-                          </a>
-                    </article>
-                </section>
-        
-                <section class="destacados__producto3">
-                        <img class="imagenes-producto" src="img/imagenesProductos/belleza/jabon_miel.png" alt="Jabón de Miel">
-                    <article class="descripcionArticulos">
-                        <h2 class="titulares-producto">Jabon de Miel</h2>
-                        <h2 class="titulares-descripcion"></h2>
-                        <h2 class="titulares-precio">$6.000</h2>
-                        <div class="botones">
-                          <button class="ver-mas">ver mas</button>
-                          <a class="link" href="/carrito">
-                            <button class="comprar">
-                              <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
-                              comprar
-                            </button>
-                          </a>
-                    </article>
-                </section>
-        
-                <section class="destacados__producto4">
-                        <img class="imagenes-producto" src="img/imagenesHome/img4-polen.jpg" alt="Polen">
-                    <article class="descripcionArticulos">
-                        <h2 class="titulares-producto">Polen</h2>
-                        <h2 class="titulares-descripcion"></h2>
-                        <h2 class="titulares-precio">$26.000</h2>
-                        <div class="botones">
-                          <button class="ver-mas">ver mas</button>
-                          <a class="link" href="/carrito">
-                            <button class="comprar">
-                              <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
-                              comprar
-                            </button>
-                          </a>
-                    </article>
-                </section>
+          <article class="tarjeta tarjeta--destacados">
+            <header class="tarjeta__encabezado">
+              <picture class="tarjeta__imagen">
+                <img class="image imagen--producto" src="img/imagenesHome/img1-miel.jpg" alt="Miel">
+              </picture>
+            </header>
+            <footer class="tarjeta__pie">
+              <section class="tarjeta__pie-seccion seccion--informacion">
+                <h2 class="tarjeta__titulo">Miel</h2>
+                <!--<p class="tarjeta__descripcion"></p>-->
+                <h3 class="tarjeta__precio">$60.000</h3>
+              </section>
+              <section class="tarjeta__pie-seccion seccion--precio">
+                <div class="contenedor--botones">
+                  <a class="link" href="">
+                    <button class="tarjeta__boton boton--more boton" >
+                      ver mas
+                    </button>
+                  </a>
+                  <a class="link" href="/carrito">
+                    <button class="tarjeta__boton boton--buy boton">
+                      <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+                      comprar
+                    </button>
+                  </a>
+                </div>
+              </section>
+            </footer>
+          </article>
+
+          <article class="tarjeta tarjeta--destacados">
+            <header class="tarjeta__encabezado">
+              <picture class="tarjeta__imagen">
+                <img class="image imagen--producto" src="img/imagenesProductos/salud/jalea_real.png" alt="Jalea Real">
+              </picture>
+            </header>
+            <footer class="tarjeta__pie">
+              <section class="tarjeta__pie-seccion seccion--informacion">
+                <h2 class="tarjeta__titulo">Jalea Real</h2>
+                <!--<p class="tarjeta__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>-->
+                <h3 class="tarjeta__precio">$30.000</h3>
+              </section>
+              <section class="tarjeta__pie-seccion seccion--precio">
+                <div class="contenedor--botones">
+                  <a class="link" href="">
+                    <button class="tarjeta__boton boton--more boton" >
+                      ver mas
+                    </button>
+                  </a>
+                  <a class="link" href="/carrito">
+                    <button class="tarjeta__boton boton--buy boton">
+                      <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+                      comprar
+                    </button>
+                  </a>
+                </div>
+              </section>
+            </footer>
+          </article>
+
+          <article class="tarjeta tarjeta--destacados">
+            <header class="tarjeta__encabezado">
+              <picture class="tarjeta__imagen">
+                <img class="image imagen--producto" src="img/imagenesProductos/belleza/jabon_miel.png" alt="Jabón de Miel">
+              </picture>
+            </header>
+            <footer class="tarjeta__pie">
+              <section class="tarjeta__pie-seccion seccion--informacion">
+                <h2 class="tarjeta__titulo">Jabon de Miel</h2>
+                <!--<p class="tarjeta__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>-->
+                <h3 class="tarjeta__precio">$130.000</h3>
+              </section>
+              <section class="tarjeta__pie-seccion seccion--precio">
+                <div class="contenedor--botones">
+                  <a class="link" href="">
+                    <button class="tarjeta__boton boton--more boton" >
+                      ver mas
+                    </button>
+                  </a>
+                  <a class="link" href="/carrito">
+                    <button class="tarjeta__boton boton--buy boton">
+                      <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+                      comprar
+                    </button>
+                  </a>
+                </div>
+              </section>
+            </footer>
+          </article>
+
+          <article class="tarjeta tarjeta--destacados">
+            <header class="tarjeta__encabezado">
+              <picture class="tarjeta__imagen">
+                <img class="image imagen--producto" src="img/imagenesHome/img1-miel.jpg" alt="Miel">
+              </picture>
+            </header>
+            <footer class="tarjeta__pie">
+              <section class="tarjeta__pie-seccion seccion--informacion">
+                <h2 class="tarjeta__titulo">Miel</h2>
+                <!--<p class="tarjeta__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>-->
+                <h3 class="tarjeta__precio">$70.000</h3>
+              </section>
+              <section class="tarjeta__pie-seccion seccion--precio">
+                <div class="contenedor--botones">
+                  <a class="link" href="">
+                    <button class="tarjeta__boton boton--more boton" >
+                      ver mas
+                    </button>
+                  </a>
+                  <a class="link" href="/carrito">
+                    <button class="tarjeta__boton boton--buy boton">
+                      <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+                      comprar
+                    </button>
+                  </a>
+                </div>
+              </section>
+            </footer>
+          </article>
+
+        </div>
+        </section>
+      </div>
     </main>
-
-    <footer>
-      <section class="pie-pagina__seccion1">
-        <img class="pie-pagina__logo" src="img/logoDhBees.png" alt="" />
-
-        <article class="pie-pagina__informacion">
-            <h4>Quienes somos</h4><br>
-            <p> En este proyecto vamos a estar construyendo desde</p>
-            <p>cero una página de e-commerce cuya temática principal sería</p>
-            <p>la venta de productos derivados de la apicultura.</p>
-        </article>
-
-        <article class="pie-pagina__redes">
-          <br /><a href=""><i class="fa-brands fa-instagram"></i></a>
-          <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-          <a href=""><i class="fa-brands fa-youtube"></i></a>
-        </article>
-      </section>
-      <div class="pie-pagina__seccion2">
-        <h4>Copyright © 2024 grupo 8 - digital house</h4>
+    <footer class="pie">
+      <div class="contenedor contenedor--pie">
+        <section class="pie__seccion seccion--pie-logo">
+          <a class="link link--logo" href="/">
+            <img
+              class="image image--logo"
+              src="img/logoDhBees.png"
+              alt="logo digital Bees"
+            />
+          </a>
+        </section>
+        <section class="pie__seccion seccion--informacion">
+          <h4 class="pie__informacion__titulo">Quienes somos</h4>
+          <p class="pie__informacion__parrafo">
+            En este proyecto vamos a estar construyendo desde cero una página
+            de e-commerce cuya temática principal sería la venta
+            de productos derivados de la apicultura.
+          </p>
+        </section>
+        <section class="pie__seccion seccion--redes-sociales">
+          <ul class="lista lista--redes-sociales">
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-instagram"></i
+                ><span class="redes-sociales__name">Instagram</span></a
+              >
+            </li>
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-x-twitter"></i
+                ><span class="redes-sociales__name">Twitter</span></a
+              >
+            </li>
+            <li class="lista__item">
+              <a class="redes-sociales" href=""
+                ><i class="fa-brands fa-youtube"></i
+                ><span class="redes-sociales__name">Youtube</span></a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="pie__seccion seccion--copyright">
+          <small class="pie__seccion__copyright"
+            >Copyright © 2024 grupo 8 - digital house</small
+          >
+        </section>
       </div>
     </footer>
   </body>
