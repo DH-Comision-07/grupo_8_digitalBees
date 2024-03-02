@@ -1,0 +1,61 @@
+
+<%- include('./partials/head'); -%>
+  <body class="cuerpo">
+
+    <%- include('./partials/header'); -%>
+
+    <main class="principal">
+      
+        <section class="principal__section section--migadepan">
+          <div class="contenedor contenedor--migadepan">
+            <%- include('./partials/breadcrumb', {local: 'Carrito de compras'}); -%>
+          </div>
+        </section>
+        <section class="principal__section section--productos">
+          <div class="contenedor__productos">
+
+            <% products.forEach(function(product){ %>
+              <%- include('./partials/products-shopping-cart', {products: product}); %>
+            <% }); %>
+            
+          </div>
+          <div class="contenedor__pago">
+            <h3 class="pago__titulo">Resumen del pedido</h3>
+            <div class="pago__subtotal">
+              <p class="pago__texto">Subtotal</p>
+              <hr class="pago__line">
+              <h4 class="pago__costo">$5000</h4>
+            </div>
+
+            <div class="pago__subtotal">
+              <p class="pago__texto">Promo</p>
+              <hr class="pago__line">
+              <h4 class="pago__costo">$0</h4>
+            </div>
+
+            <div class="pago__subtotal">            
+              <p class="pago__texto texto--total">Total</p>
+              <hr class="pago__line">
+              <h4 class="pago__costo costo--total">$5000</h4>
+            </div>
+
+            <button class="pago__boton">Pagar</button>
+          </div>
+        </section>
+        <section class="principal__section section--destacados">
+        <div class="contenedor contenedor--tarjetas">
+          <h2 class="principal__titulo-section">También te puede interesar</h2>
+
+          <% products.forEach(function(product){ %>
+            <%- include('./partials/products', {products: product}); %>
+          <% }); %>
+
+        </div>
+        </section>
+      </div>
+    </main>
+
+    <%- include('./partials/footer'); -%>
+
+  </body>
+</html>
