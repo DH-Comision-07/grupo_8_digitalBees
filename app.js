@@ -13,9 +13,7 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views" );
 app.use(express.static(path.join(__dirname + '/public')));
 
-//app.get("/", (req, res) => res.sendFile(path.resolve("./views/index.html")));
 app.get("/", (req, res) => res.render("index", {listaDeProductos}));
-
 app.get("/login", (req, res) => res.sendFile(path.resolve("./views/login.html")));
 app.get("/carrito", (req, res) => res.render("productCart", {
     products : [
@@ -63,7 +61,7 @@ app.get("/carrito", (req, res) => res.render("productCart", {
         }
     ]
 }));
-app.get("/productos", (req, res) => res.sendFile(path.resolve("./views/productDetail.html")));
+app.get("/productos", (req, res) => res.render("listaProductos", {listaDeProductos}));
 app.get("/producto", (req, res) => res.sendFile(path.resolve("./views/product.html")));
 app.get("/registro", (req, res) => res.sendFile(path.resolve("./views/register.html")));
 app.get("/detalle", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));

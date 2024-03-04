@@ -1,26 +1,89 @@
 [
     {
-       "title": "Miel",
+        "title": "Miel 50gr",
         "cost":"$230.000",
         "img": "img/imagenesHome/img1-miel.jpg",
-        "destacado": true
+        "destacado": true,
+        "categoria":"alimentos"
     },
     {
         "title": "Jabon miel",
         "cost": "$75.000",
         "img": "img/imagenesProductos/belleza/jabon_miel.png",
-        "destacado": true
+        "destacado": true,
+        "categoria":"belleza"
     },
     {
         "title": "Jalea real",
         "cost": "$168.000",
         "img": "img/imagenesProductos/salud/jalea_real.png",
-        "destacado": true
+        "destacado": true,
+        "categoria":"salud"
     },
     {
-        "title": "Miel",
-        "cost": "$190.000",
+        "title": "Miel 300gr",
+        "cost": "$70.000",
         "img": "img/miel.jpg",
-        "destacado": true
+        "destacado": true,
+        "categoria":"alimentos"
+    },
+
+    {
+        "title": "Gel de Miel",
+        "cost": "$30.000",
+        "img": "img/imagenesProductos/salud/gelMiel.jpg",
+        "destacado": false,
+        "categoria":"salud"
+    },
+    {
+        "title": "Polen",
+        "cost": "$130.000",
+        "img": "img/imagenesProductos/salud/polen_frasco.jpg",
+        "destacado": false,
+        "categoria":"salud"
+    },
+    {
+        "title": "Propoleo",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/salud/propoleo.png",
+        "destacado": false,
+        "categoria":"salud"
+    },
+
+    {
+        "title": "Miel 1000gr",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/alimentos/miel_1000gr.jpg",
+        "destacado": false,
+        "categoria":"alimentos"
+    },
+
+    {
+        "title": "Miel cristalizada",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/alimentos/miel_cristalizada.png",
+        "destacado": false,
+        "categoria":"alimentos"
+    },
+    {
+        "title": "cera pura de abejas",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/cera_abeja.png",
+        "destacado": false,
+        "categoria":"belleza"
+    },
+    {
+        "title": "crema facial",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/crema_corporal_facial.jpg",
+        "destacado": false,
+        "categoria":"belleza"
+    },
+    {
+        "title": "Shampoo de Miel",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/shampoo_miel_polen.jpg",
+        "destacado": false,
+        "categoria":"belleza"
     }
 ]
