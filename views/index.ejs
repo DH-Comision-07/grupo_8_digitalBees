@@ -38,9 +38,12 @@
         <section class="principal__section section--destacados">
           <div class="contenedor contenedor--tarjetas">
             <h2 class="principal__titulo-section">También te puede interesar</h2>
-  
-            <% products.forEach(function(product){ %>
-              <%- include('./partials/products', {products: product}); %>
+            
+            
+            <% listaDeProductos.filter(function(product){
+               return product.destacado == true
+            }).forEach(function(product){ %>
+              <%- include('./partials/products', {listaDeProductos: product}); %>
             <% }); %>
 
         </div>

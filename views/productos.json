@@ -1,0 +1,26 @@
+[
+    {
+       "title": "Miel",
+        "cost":"$230.000",
+        "img": "img/imagenesHome/img1-miel.jpg",
+        "destacado": true
+    },
+    {
+        "title": "Jabon miel",
+        "cost": "$75.000",
+        "img": "img/imagenesProductos/belleza/jabon_miel.png",
+        "destacado": true
+    },
+    {
+        "title": "Jalea real",
+        "cost": "$168.000",
+        "img": "img/imagenesProductos/salud/jalea_real.png",
+        "destacado": true
+    },
+    {
+        "title": "Miel",
+        "cost": "$190.000",
+        "img": "img/miel.jpg",
+        "destacado": true
+    }
+]
