@@ -24,7 +24,7 @@
           <% listaDeProductos.filter(function(product){
             return product.destacado == true
          }).forEach(function(product){ %>
-           <%- include('../partials/products-shopping-cart', {listaDeProductos: product}); %>
+           <%- include('../partials/products-shopping-cart', {producto: product}); %>
          <% }); %>
           
         </div>
@@ -58,7 +58,7 @@
         <% listaDeProductos.filter(function(product){
           return product.destacado == true
        }).forEach(function(product){ %>
-         <%- include('../partials/products', {listaDeProductos: product}); %>
+         <%- include('../partials/products', {producto: product}); %>
        <% }); %>
 
       </div>

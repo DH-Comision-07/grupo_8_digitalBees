@@ -43,7 +43,7 @@
             <% listaDeProductos.filter(function(product){
                return product.destacado == true
             }).forEach(function(product){ %>
-              <%- include('./partials/products', {listaDeProductos: product}); %>
+              <%- include('./partials/products', {producto: product}); %>
             <% }); %>
 
         </div>
