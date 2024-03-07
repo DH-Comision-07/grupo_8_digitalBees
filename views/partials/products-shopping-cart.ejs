@@ -1,11 +1,11 @@
 <article class="compra">
     <section class="compra__columna columna--imagen">
       <picture class="compra__imagen">
-        <img class="image imagen--compra" src="<%= products.img %>" alt="Miel">
+        <img class="image imagen--compra" src="<%= listaDeProductos.img %>" alt="Miel">
       </picture>
     </section>
     <section class="compra__columna columna--informacion">
-      <h2 class="compra__titulo"><%= products.title %></h2>
+      <h2 class="compra__titulo"><%= listaDeProductos.title %></h2>
     </section>
     <section class="compra__columna columna--cantidad">
         <select class="compra__cantidad" name="Cantidad">
@@ -16,7 +16,7 @@
         </select>
     </section>
     <section class="compra__columna columna--precio">
-      <h3 class="compra__precio"><%= products.cost %></h3>
+      <h3 class="compra__precio"><%= listaDeProductos.cost %></h3>
       <i class="compra__icon fa-solid fa-trash-can"></i>
     </section>
 </article>
