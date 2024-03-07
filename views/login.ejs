@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--head partial-->
+    <%- include('./partials/head'); -%>
+    <!--fin partial-->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/register-login.css" />
+</head>
+<body>
+  <%- include('./partials/header'); -%>
+  <main>
+    <div class="main">
+      
+      <h2 class="titulo-registro">Mi Cuenta</h2>
+
+      <form action="/" class="form-container">
+        <div>
+          <label for="">
+            <input
+              type="text"
+              name="username"
+              placeholder="E-mail"
+              class="input-text"
+            />
+          </label>
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="Ingrese su contraseña"
+            class="input-password"
+            />
+        </div>
+
+        <div>
+          <button type="submit">Iniciar Sesión</button>
+        </div>
+        <div class="recuerdame">
+        <label  for="Recuerdame">Recuerdame</label>
+        <input type="checkbox" name="Recuerdame">
+        </div>
+        <p class="restablecer-contraseña"><a href="">Restablecer mi Contraseña</a></p>
+        <p class="link-register-login">¿No tiene una cuenta? Registrate<a href="/registro"> acá</a></p>
+      </form>
+    </div>
+  </main>
+
+  <%- include('./partials/footer'); -%>
+
+</body>
+</html>

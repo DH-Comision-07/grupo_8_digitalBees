@@ -1,3 +1,11 @@
+body{
+    width: auto;
+}
+
+.pie{
+    width: 100%;
+}
+
 .titulo-registro{
     display: flex;
     justify-content: center;
@@ -44,11 +52,14 @@ button:hover {
 }
 
 .link-register-login{
+    display: flex;
+    justify-content: center;
     font-weight: bold;
 }
 
 .link-register-login a{
     color: orangered;
+    margin-left: 5px;
 }
 
 .recuerdame {

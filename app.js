@@ -4,7 +4,7 @@ const app = express();
 
 const path = require("path");
 
-const importarArchivoProductos = require("./views/datosProductos");
+const importarArchivoProductos = require("./views/database/datosProductos");
 const listaDeProductos= importarArchivoProductos()
 
 const port = 3030;
@@ -14,7 +14,11 @@ app.set("views", __dirname + "/views" );
 app.use(express.static(path.join(__dirname + '/public')));
 
 app.get("/", (req, res) => res.render("index", {listaDeProductos}));
-app.get("/login", (req, res) => res.sendFile(path.resolve("./views/login.html")));
+app.get("/productos", (req, res) => res.render("listaProductos", {listaDeProductos}));
+/* app.get("/producto", (req, res) => res.sendFile(path.resolve("./views/product.html"))); */
+app.get("/login", (req, res) => res.render("login"));
+app.get("/registro", (req, res) => res.render("register"));
+app.get("/detalle", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));
 app.get("/carrito", (req, res) => res.render("productCart", {
     products : [
         {
@@ -61,10 +65,6 @@ app.get("/carrito", (req, res) => res.render("productCart", {
         }
     ]
 }));
-app.get("/productos", (req, res) => res.render("listaProductos", {listaDeProductos}));
-app.get("/producto", (req, res) => res.sendFile(path.resolve("./views/product.html")));
-app.get("/registro", (req, res) => res.sendFile(path.resolve("./views/register.html")));
-app.get("/detalle", (req, res) => res.sendFile(path.resolve("./views/product-detail.html")));
 
 app.get("*", (req, res) => res.status(404).send("404 not found. <br> ¡Houston, tenemos un problema!"));
 
