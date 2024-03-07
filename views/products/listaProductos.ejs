@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <!--head partial-->
-    <%- include('./partials/head'); -%>
+    <%- include('../partials/head'); -%>
     <!--fin partial-->
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/styles_listaProductos.css" />
 </head>
   <body class="cuerpo">
 
-    <%- include('./partials/header'); -%>
+    <%- include('../partials/header'); -%>
 
     <main class="principal">
 
       <section class="principal__section section--migadepan">
         <div class="contenedor contenedor--migadepan">
-           <%- include('./partials/breadcrumb', {local: 'Categorias de productos'}); -%> 
+           <%- include('../partials/breadcrumb', {local: 'Categorias de productos'}); -%> 
         </div>
       </section>
 
@@ -31,7 +31,7 @@
               <% listaDeProductos.filter(function(product){
                 return product.categoria == "salud"
             }).forEach(function(product){ %>
-              <%- include('./partials/products', {listaDeProductos: product}); %>
+              <%- include('../partials/products', {listaDeProductos: product}); %>
             <% }); %>
            </div>
           </section>
@@ -43,7 +43,7 @@
               <% listaDeProductos.filter(function(product){
                 return product.categoria == "alimentos"
              }).forEach(function(product){ %>
-               <%- include('./partials/products', {listaDeProductos: product}); %>
+               <%- include('../partials/products', {listaDeProductos: product}); %>
              <% }); %>
             </div>
           </section>
@@ -56,13 +56,13 @@
               <% listaDeProductos.filter(function(product){
                 return product.categoria == "belleza"
              }).forEach(function(product){ %>
-               <%- include('./partials/products', {listaDeProductos: product}); %>
+               <%- include('../partials/products', {listaDeProductos: product}); %>
              <% }); %>
         
             </div>
           </section>
         </div>
       </main>
-      <%- include('./partials/footer'); -%>
+      <%- include('../partials/footer'); -%>
     </body>
   </html>
