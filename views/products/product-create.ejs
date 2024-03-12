@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../partials/head', {css:'css/product-create.css'}); %>
+    <%- include('../partials/head', {css:'css/product-create-edit.css'}); %>
 </head>
-    <body>
-        <%- include('../partials/header'); %>
-        <main class="principal"></main>
+
+<body>
+    <%- include('../partials/header'); %>
+        <main class="principal">
             <h2 class="title">Crear producto</h2>
             <section>
                 <form action="/" class="form-create">
@@ -18,8 +20,8 @@
                         </div>
                         <div>
                             <label for="description">
-                                <input type="text" class="input-text" placeholder="Descripcion" name="description" id="description"
-                                    required />
+                                <input type="text" class="input-text" placeholder="Descripcion" name="description"
+                                    id="description" required />
                             </label>
                         </div>
                         <div>
@@ -30,14 +32,14 @@
                         </div>
                         <div>
                             <label for="weight">
-                                <input type="number" class="input-text" placeholder="Peso" name="weight"
-                                    id="weight" required />
+                                <input type="number" class="input-text" placeholder="Peso" name="weight" id="weight"
+                                    required />
                             </label>
                         </div>
                         <div>
                             <label for="price">
-                                <input type="number" class="input-text" placeholder="Precio" name="price"
-                                    id="price" required />
+                                <input type="number" class="input-text" placeholder="Precio" name="price" id="price"
+                                    required />
                             </label>
                         </div>
                         <div>
@@ -49,5 +51,6 @@
                 </form>
         </main>
         <%- include('../partials/footer'); %>
-    </body>
+</body>
+
 </html>
