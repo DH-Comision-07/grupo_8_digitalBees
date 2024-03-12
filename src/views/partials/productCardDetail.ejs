@@ -1,0 +1,34 @@
+<article class="tarjeta tarjeta--destacados">
+    <section>
+      <h1><%= producto.title %></h1>
+        <div class="contenedor-image">
+            <img src="/<%= producto.img %>" alt="Miel">
+        </div>
+        <div class="descripcion-producto">
+          <p><%= producto.descripcion %></p>
+        </div>
+    
+        <div class="boton-cantidad">
+          <select class="compra__cantidad" name="Cantidad">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+    
+        <div class="precio-producto">
+          <p><%= producto.cost %></p>
+        </div>
+    
+        <div class="boton-agregar-carro">
+          <a class="link" href="/carrito">
+            <button class="tarjeta__boton boton--buy boton">
+              <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
+              Agregar al carro
+            </button>
+          </a>
+        </div>
+      </section>
+</article>
+
