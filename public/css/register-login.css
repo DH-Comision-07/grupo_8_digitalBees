@@ -15,6 +15,7 @@ body{
 
 .form-container {
     padding: 10px;
+    text-align: center;
 }
 
 .input-text,
@@ -96,10 +97,6 @@ button:hover {
         text-align: center;
     }
 
-    footer {
-        position: absolute;
-        bottom: 0%;
-    }
 }
 
 @media (min-height:850px){
