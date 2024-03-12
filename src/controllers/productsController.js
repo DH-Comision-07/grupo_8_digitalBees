@@ -4,7 +4,6 @@ let producto;
 const path = require('path');
 
 const productsController={
-    // esto es un comentario
     getAll:(req, res) =>res.render("products/listaProductos", {"listaDeProductos" : listaDeProductos}),
     getMain:(req, res) =>res.render("products/productCart", {listaDeProductos}),
     getOne: (req, res) => {
