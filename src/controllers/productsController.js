@@ -11,7 +11,7 @@ const productsController={
             productoFiltrado = listaDeProductos.filter(function(producto){
                 return producto.id == idProducto
             })
-        
+
         res.render('products/product-detail', {"producto": productoFiltrado[0]} )
     }
     
