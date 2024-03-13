@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'css/styles_listaProductos.css'}); %>
+    <!--fin partial-->
+</head>
+  <body class="cuerpo">
+
+    <%- include('../partials/header'); %>
+
+    <main class="principal">
+
+      <section class="principal__section section--migadepan">
+        <div class="contenedor contenedor--migadepan">
+           <%- include('../partials/breadcrumb', {local: 'Categorias de productos'}); %> 
+        </div>
+      </section>
+
+        <!--primera parte-->
+        <img class="imagen__banner" src="img/imagenesProductos/banner_productos.png" alt="Banner Productos">
+        <!--primera parte-->
+        
+        <!--seccion salud-->
+        <section class="principal__section section--destacados">
+          <div class="contenedor contenedor--tarjetas">
+            <h2 class="principal__titulo-section">Salud</h2>
+
+              <% listaDeProductos.filter(function(product){
+                return product.categoria == "salud"
+            }).forEach(function(product){ %>
+              <%- include('../partials/products', {producto: product}); %>
+            <% }); %>
+           </div>
+          </section>
+          <!--seccion alimentos-->
+          <section class="principal__section section--destacados">
+            <div class="contenedor contenedor--tarjetas">
+              <h2 class="principal__titulo-section">Alimentos</h2>
+              
+              <% listaDeProductos.filter(function(product){
+                return product.categoria == "alimentos"
+             }).forEach(function(product){ %>
+               <%- include('../partials/products', {producto: product}); %>
+             <% }); %>
+            </div>
+          </section>
+
+          <!--seccion belleza-->
+          <section class="principal__section section--destacados">
+            <div class="contenedor contenedor--tarjetas">
+              <h2 class="principal__titulo-section">Belleza</h2>
+
+              <% listaDeProductos.filter(function(product){
+                return product.categoria == "belleza"
+             }).forEach(function(product){ %>
+               <%- include('../partials/products', {producto: product}); %>
+             <% }); %>
+        
+            </div>
+          </section>
+        </div>
+      </main>
+      <%- include('../partials/footer'); %>
+    </body>
+  </html>

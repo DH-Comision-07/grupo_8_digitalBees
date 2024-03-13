@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--head partial-->
+    <%- include('../partials/head'); %>
+    <!--fin partial-->
+    <title>detalle del producto <%= producto.id  %></title>
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/product-detail.css" />
+</head>
+  <body class="cuerpo">
+      <%- include('../partials/header'); %>
+    <main class="principal">
+      
+        <section class="principal__section section--migadepan">
+          <div class="contenedor contenedor--migadepan">
+            <ol class="lista lista--migadepan">
+                <li class="item__lista"><i class="fa-solid fa-house"></i></li>
+                <li class="item__lista">Tienda Virtual</li>
+            </ol> 
+          </div>
+        </section>
+        <section>
+          <%- include('../partials/productCardDetail'); %> 
+        </section>
+    </main>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>

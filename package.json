@@ -4,14 +4,15 @@
   "description": "🍯 *Descripción del proyecto:*\r En este proyecto vamos a estar construyendo desde cero una página de e-commerce cuya temática principal sería la venta de productos derivados de la apicultura (con una variedad de productos similar a la de esta web: https://www.apinal.com/tienda-virtual ), estéticamente hablando, buscamos crear una web práctica de utilizar y minimalista/\"limpia\" a la vista de los clientes (tomando como ejemplo la siguiente web https://www.latiendadelapicultor.com/ ).\r Nuestro público objetivo no solo abarca las tiendas naturistas, sino también a la población general con poder adquisitivo y personas preocupadas por obtener una alimentación saludable con un alto valor nutricional y con un profundo interés por temas orgánicos y de conciencia ambiental.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch app.js"
+    "test": "nodemon app.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
     "nodemon": "^3.0.3"
   }
 }

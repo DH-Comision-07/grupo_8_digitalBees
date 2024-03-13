@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!--head partial-->
+      <%- include('./partials/head', {css:'css/styles.css'}); %>
+      <!--fin partial-->
+  </head>
+
+  <body class="cuerpo">
+
+    <%- include('./partials/header'); %>
+
+    <main class="principal">
+
+        <!--primera parte-->
+        <img class="imagen__banner" src="img/imagenesHome/banner_home.png" alt="Banner Home"/>
+
+      <section class="iconos-iniciales">
+        <div>
+          <a href="/productos#salud"><i class="fa-solid fa-heart"></i></a>
+          <p><a href="/productos#salud">Salud</a></p>
+        </div>
+
+        <div>
+          <a href="/productos#alimentos"><i class="fa-solid fa-utensils"></i></a>
+          <p><a href="/productos#alimentos">Alimentos</a></p>
+        </div>
+
+        <div>
+          <a href="/productos#belleza"><i class="fa-solid fa-bag-shopping"></i></a>
+          <p><a href="/productos#belleza">Belleza</a></p>
+        </div>
+      </section>
+        <!--primera parte-->
+      
+        <section class="principal__section section--destacados">
+          <div class="contenedor contenedor--tarjetas">
+            <h2 class="principal__titulo-section">También te puede interesar</h2>
+            
+            
+            <% listaDeProductos.filter(function(product){
+               return product.destacado == true
+            }).forEach(function(product){ %>
+              <%- include('./partials/products', {producto: product}); %>
+            <% }); %>
+
+        </div>
+        </section>
+      </div>
+    </main>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>
