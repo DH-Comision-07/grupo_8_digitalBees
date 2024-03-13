@@ -6,6 +6,7 @@ main{
   }
 
   .imagen__banner{
+    display: block;
     width: 100%;
     padding: 0px;
   }
