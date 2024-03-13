@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'css/register-login.css'}); %>
+    <!--fin partial-->
+</head>
+<body>  
+    <%- include('../partials/header'); %>
+
+    <main>
+        <div class="main">
+
+            <h2 class="titulo-registro">REGISTRATE</h2>
+
+            <section>
+                <form action="/" class="form-container">
+                    <div>
+                        <div>
+                            <label for="user-full-name">
+                                <input type="text" class="input-text" placeholder="Nombre y apellido"
+                                    name="user-full-name" id="user-full-name" required />
+                            </label>
+                        </div>
+                        <div>
+                            <label for="email">
+                                <input type="email" class="input-email" placeholder="E-mail" name="email" id="email"
+                                    required />
+                            </label>
+                        </div>
+                        <div>
+                            <label for="domicilio">
+                                <input type="text" class="input-text" placeholder="Domicilio" name="domicilio"
+                                    id="domicilio" />
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="">
+                                <input type="password" class="input-password" name="password" placeholder="Contraseña"
+                                    required />
+                            </label>
+                        </div>
+                        <div>
+                            <label for="">
+                                <input type="password" class="input-password" name="password"
+                                    placeholder="Confirmar contraseña" required />
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit">ENVIAR</button>
+                    </div>
+
+                    <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/login"> acá</a></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <%- include('../partials/footer'); %>
+
+</body>
+</html>

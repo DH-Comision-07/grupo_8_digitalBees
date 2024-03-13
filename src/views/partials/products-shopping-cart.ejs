@@ -1,0 +1,22 @@
+<article class="compra">
+    <section class="compra__columna columna--imagen">
+      <picture class="compra__imagen">
+        <img class="image imagen--compra" src="<%= producto.img %>" alt="Miel">
+      </picture>
+    </section>
+    <section class="compra__columna columna--informacion">
+      <h2 class="compra__titulo"><%= producto.title %></h2>
+    </section>
+    <section class="compra__columna columna--cantidad">
+        <select class="compra__cantidad" name="Cantidad">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+    </section>
+    <section class="compra__columna columna--precio">
+      <h3 class="compra__precio"><%= producto.cost %></h3>
+      <i class="compra__icon fa-solid fa-trash-can"></i>
+    </section>
+</article>
