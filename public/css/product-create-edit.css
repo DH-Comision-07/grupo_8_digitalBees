@@ -1,0 +1,107 @@
+body{
+    width: auto;
+}
+
+.pie{
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    padding-top: 15px;
+}
+
+.form-create {
+    padding: 10px;
+    text-align: center;
+}
+
+.input-text,
+.input-email,
+.input-password,
+.input-date {
+    width: 90vw;
+    font-size: 18px;
+    padding: 5px;
+}
+
+form div,
+form p {
+    margin-bottom: 10px;
+}
+
+.user-profile-container,
+.intereses-container {
+    margin-left: 15px;
+}
+
+form button {
+    width: 90vw;
+    padding: 10px 20px;
+    background-color: #EEBA0B;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 450ms;
+}
+
+button:hover {
+    background-color: #EEBA0B;
+}
+
+.link-register-login{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.link-register-login a{
+    color: orangered;
+    margin-left: 5px;
+}
+
+.recuerdame {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+@media (min-width: 750px) {
+
+    .input-text,
+    .input-email,
+    .input-password,
+    .input-date {
+        width: 40vw;
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    form button {
+        width: 40vw;
+    }
+
+    .user-profile-container,
+    .intereses-container {
+        text-align: justify;
+        margin-left: 40%;
+        margin-bottom: 20px;
+    }
+    .pie-pagina__seccion2 h4 {
+        text-align: center;
+    }
+
+    footer {
+        bottom: 0%;
+    }
+}
+
+@media (min-height:850px){
+
+    footer {
+        position: absolute;
+        bottom: 0%;
+    }
+}
