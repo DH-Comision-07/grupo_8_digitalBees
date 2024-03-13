@@ -21,8 +21,8 @@ app.use('/detalle', productDetailRouter);
 
 app.get("/login", (req, res) => res.render("users/login"));
 app.get("/registro", (req, res) => res.render("users/register"));
-app.get("/detalle", (req, res) => res.render("products/product-detail"));
-app.get("/carrito", (req, res) => res.render("products/productCart", {listaDeProductos}));
+//app.get("/detalle/:id", (req, res) => res.render("products/product-detail"));
+//app.get("/carrito", (req, res) => res.render("products/productCart", {listaDeProductos}));
 app.get("/create", (req, res) => res.render("products/product-create"));
 app.get("/edit", (req, res) => res.render("products/product-edit"));
 

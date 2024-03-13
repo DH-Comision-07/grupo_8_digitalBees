@@ -2,11 +2,8 @@
 <html lang="en">
   <head>
     <!--head partial-->
-    <%- include('../partials/head'); %>
+    <%- include('../partials/head', {css:'/css/product-detail.css'}); %>
     <!--fin partial-->
-    <title>detalle del producto <%= producto.id  %></title>
-    <link rel="stylesheet" href="/css/base.css" />
-    <link rel="stylesheet" href="/css/product-detail.css" />
 </head>
   <body class="cuerpo">
       <%- include('../partials/header'); %>
