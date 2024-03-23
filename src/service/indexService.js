@@ -8,7 +8,7 @@ let indexService = {
     //paso los productos al atributo products
     products: products,
     getMain: function(){
-        return this.products.filter((product) => product.destacado == true);
+        return this.products.filter((product) => product.popular == true);
     }
 }
 

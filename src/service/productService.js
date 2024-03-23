@@ -14,7 +14,7 @@ let productService = {
     },
 
     getMain: function(){
-        return this.products.filter((product) => product.destacado == true);
+        return this.products.filter((product) => product.popular == true);
     },
 
     // Detail - Detail from one product

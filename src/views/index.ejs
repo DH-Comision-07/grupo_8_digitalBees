@@ -39,7 +39,7 @@
             
             
             <% listaDeProductos.filter(function(product){
-               return product.destacado == true
+               return product.popular == true
             }).forEach(function(product){ %>
               <%- include('./partials/products', {producto: product}); %>
             <% }); %>
