@@ -1,9 +1,7 @@
-let productos = require('../views/database/datosProductos');
-const listaDeProductos= productos()
-const path = require('path');
+const productService= require("../service/indexService")
 
 const indexController={
-    getMain:(req, res) =>res.render("index", {listaDeProductos})
+    mainProducts:(req, res) => res.render("index", {'listaDeProductos': productService.getMain()}) 
 }
 
 module.exports = indexController;

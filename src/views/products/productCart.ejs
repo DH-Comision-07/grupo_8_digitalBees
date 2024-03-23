@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!--head partial-->
-    <%- include('../partials/head', {css:'css/productCart.css'}); %>
+    <%- include('../partials/head', {css:'/css/productCart.css'}); %>
     <!--fin partial-->
 </head>
 <body class="cuerpo">
@@ -19,7 +19,7 @@
       <section class="principal__section section--productos">
         <div class="contenedor__productos">
 
-          <% listaDeProductos.filter(function(product){
+          <% listaDeCarrito.filter(function(product){
             return product.destacado == true
          }).forEach(function(product){ %>
            <%- include('../partials/products-shopping-cart', {producto: product}); %>
@@ -53,7 +53,7 @@
       <div class="contenedor contenedor--tarjetas">
         <h2 class="principal__titulo-section">También te puede interesar</h2>
 
-        <% listaDeProductos.filter(function(product){
+        <% listaDeCarrito.filter(function(product){
           return product.destacado == true
        }).forEach(function(product){ %>
          <%- include('../partials/products', {producto: product}); %>
