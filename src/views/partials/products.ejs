@@ -1,7 +1,7 @@
 <article class="tarjeta tarjeta--destacados">
     <header class="tarjeta__encabezado">
       <picture class="tarjeta__imagen">
-        <img class="image imagen--producto" src="/<%= producto.img %>" alt="Miel">
+        <img class="image imagen--producto" src="/<%= producto.img ? producto.img : 'default.png' %>" alt="Miel">
       </picture>
     </header>
     <footer class="tarjeta__pie">

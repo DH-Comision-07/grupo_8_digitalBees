@@ -12,9 +12,16 @@ const productsController={
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		productService.save(req.body);
-		res.render("products/listaProductos", {'listaDeProductos': productService.getAll()})
-		//res.send("producto creado!!")
+		if (req.file) {
+			let product = req.body;
+			product.img = 'img/groups/' + req.file.filename;
+			productService.save(req.body);
+			res.render("products/listaProductos", {'listaDeProductos': productService.getAll()})
+			//res.send("producto creado!!")
+		}else{
+			res.render("products/listaProductos", {'listaDeProductos': productService.getAll()})
+			
+		}
 	},
 
 	// Update - Form to edit
