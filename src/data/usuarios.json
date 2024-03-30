@@ -31,7 +31,7 @@
   "subscription_date": "2/23/2020",
   "last_login": "7/22/2022",
   "account_status": "active",
-  "user_role": "Area Manager"
+  "user_role": "Manager"
 }, {
   "user_id": 3,
   "email": "athalaumana@digitalbees.com",
@@ -48,7 +48,7 @@
   "subscription_date": "12/13/2021",
   "last_login": "4/13/2022",
   "account_status": "active",
-  "user_role": "Seller"
+  "user_role": "Sales"
 }, {
   "user_id": 4,
   "email": "cgreg3@odnoklassniki.ru",
