@@ -17,8 +17,8 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 
-app.get("/login", (req, res) => res.render("users/login"));
-app.get("/registro", (req, res) => res.render("users/register"));
+//app.get("/login", (req, res) => res.render("users/login"));
+//app.get("/registro", (req, res) => res.render("users/register"));
 //app.get("/admin", (req, res) => res.render("users/admin/admin"));
 
 app.get("*", (req, res) => res.status(404).send("404 not found. <br> ¡Houston, tenemos un problema!"));
