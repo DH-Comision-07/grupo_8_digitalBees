@@ -10,7 +10,7 @@
         <main class="principal">
             <h2 class="title">Editar producto</h2>
             <section>
-                <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create">
+                <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
                     <div>
                         <div>
                             <label for="title">Nombre del producto:
@@ -25,6 +25,13 @@
                             </label>
                         </div>
                         <div>
+                            
+                            <label for="popular">Destacado </label>   
+                            <!--variable que activa la propiedad checked en una etiqueta-->
+                            <% let checked = producto.popular ? "checked" : "" %>                      
+                                <input id="popular" type="checkbox"  name="popular"  <%= checked %>/>
+                        </div>
+                        <div>
                             <label for="category" class="form-label">Categoría:</label>
 						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required>
 							    <option value="">Elegí</option>
@@ -35,13 +42,12 @@
                         </div>
                         <div>
                             <label for="cost">Precio
-                                <input type="number" class="input-text" placeholder="Precio" name="cost" value="<%= producto.cost %>" id="cost"
-                                    required />
+                                <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
                             </label>
                         </div>
                         <div>
                             <label for="img">Foto de producto</label>
-                            <input type="file" name="img"/>
+                            <input type="file" name="img" />
                         </div>
                         <button type="submit" class="submit">Editar producto</button>
                     </div>

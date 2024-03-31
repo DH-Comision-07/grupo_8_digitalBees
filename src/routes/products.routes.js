@@ -24,14 +24,19 @@ router.get('/', productsController.getAll);
 router.get('/carrito', productsController.mainProducts);
 /*** GET DETAIL ONE PRODUCT ***/
 router.get('/detalle/:id', productsController.detail);
-/*** CREATE ONE PRODUCT ***/ 
-router.get('/create/', productsController.create); 
+
+
+
+/*** GET ALL PRODUCTS ADMIN ***/ 
+router.get('/admin', productsController.getAllAdmin);
+/*** CREATE ONE PRODUCT ADMIN ***/ 
+router.get('/admin/create/', productsController.create); 
 router.post('/', upload.single('img') ,productsController.store); 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
-router.put('/:id', productsController.update); 
+router.get('/admin/edit/:id', productsController.edit); 
+router.put('/:id', upload.single('img'), productsController.update); 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/:id', productsController.destroy); 
+router.delete('/admin/:id', productsController.destroy); 
 
 
 module.exports = router;

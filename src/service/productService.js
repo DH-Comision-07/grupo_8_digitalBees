@@ -38,6 +38,7 @@ let productService = {
             cost: product.cost,
             img: product.img,
             description: product.description,
+            popular:product.popular =='on'?true:false,
             category: product.category
         };     
 
@@ -50,17 +51,16 @@ let productService = {
     update: function(formProductUpdate,id){
        
         let productSearch = products.find(productSearch => productSearch.id == id)
-        
         if (productSearch) {
             productSearch.title = formProductUpdate.title;
             productSearch.cost = formProductUpdate.cost;
             productSearch.img = formProductUpdate.img;
             productSearch.description= formProductUpdate.description;
+            productSearch.popular=formProductUpdate.popular =='on'? true : false;
             productSearch.category= formProductUpdate.category;
         }
 
         fs.writeFileSync(path.join(__dirname, '../data/productos.json'), JSON.stringify(this.products))
-        
         return productSearch;
 
     },

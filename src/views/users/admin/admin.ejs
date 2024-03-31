@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
       <!--head partial-->
-      <%- include('../../partials/head', {css:'css/productCart.css'}); %>
+      <%- include('../../partials/head', {css:'/css/productCart.css'}); %>
       <!--fin partial-->
   </head>
 
@@ -19,10 +19,10 @@
       <section class="principal__section section--productos">
         <div class="contenedor">
 
-          <h1 class="principal__titulo-section">Crear productos</h1>
+          <h1 class="principal__titulo-section">PRODUCTOS</h1>
 
           <div class="buttons__page">
-            <a class="link" href="/productos/carrito">
+            <a class="link" href="/productos/admin/create/">
               <button class="tarjeta__boton boton--buy boton">
                 Crear productos
               </button>
@@ -70,22 +70,23 @@
                 <p>Eliminar</p>
               </section>
           </div>
+          <% listaDeProductos.forEach((producto) => { %>
           <div class="productos__item productos--size">
               <section class="productos__item-col">
-                <p>23</p>
+                <p><%= producto.id %></p>
               </section>
               <section class="productos__item-col">
-                <p>Jalea real</p>
+                <p><%= producto.title %></p>
               </section>
               <section class="productos__item-col">
-                <p class="productos__paragraph">La jalea real, como la miel, es producida por las abejas. Sin embargo, a diferencia de la miel, se utiliza para las necesidades de la colonia y, en particular, está destinada a la alimentación de las larvas (de abejas) y de la abeja reina.</p>
+                <p class="productos__paragraph"><%= producto.description %></p>
               </section>
               <section class="productos__item-col">
-                <p>$70.000</p>
+                <p><%= producto.cost %></p>
               </section>
               <section class="productos__item-col">
                 <picture class="compra__imagen">
-                  <img class="image imagen--productos" src="img/imagenesProductos/salud/jalea_real.png" alt="Miel">
+                  <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
                 </picture>
               </section>
               <section class="productos__item-col">
@@ -93,105 +94,31 @@
               </section>
               <section class="productos__item-col">
                 <div class="checkbox-container yellow">
-                  <input type="checkbox" checked id="toggle" />
-                  <label for="toggle"></label>
+                  <!--<input type="checkbox" checked id="toggle" />
+                  <label for="toggle"></label>-->
+                  <% if(producto.popular == true){ %>
+                    <p>true</p>
+                  <% } else if (producto.popular == false){ %>  
+                    <p>false</p>
+                 <% } %>
                 </div>
               </section>
               <section class="productos__item-col">
-                <p>Categoria</p>
+                <p><%= producto.category %></p>
               </section>
               <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-eye"></i></button>
+                <button class="productos__button"><a href="/productos/detalle/<%= producto.id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
               </section>
               <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-pen-to-square"></i></button>
+                <button class="productos__button"><a href="/productos/admin/edit/<%=producto.id%>?_method=PUT" class="action-button edit"><i class="compra__icon fa-solid fa-pen-to-square"></a></i></button>
               </section>
               <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-trash-can"></i></button>
-              </section>
+                <form action="/productos/admin/<%=producto.id%>?_method=DELETE" method="POST">
+                <button class="action-button delete"><i class="compra__icon fa-solid fa-trash-can"></i></button>
+              </form>
+            </section>
             </div>
-
-            <div class="productos__item productos--size">
-              <section class="productos__item-col">
-                <p>23</p>
-              </section>
-              <section class="productos__item-col">
-                <p>Jalea real</p>
-              </section>
-              <section class="productos__item-col">
-                <p class="productos__paragraph">La jalea real, como la miel, es producida por las abejas. Sin embargo, a diferencia de la miel, se utiliza para las necesidades de la colonia y, en particular, está destinada a la alimentación de las larvas (de abejas) y de la abeja reina.</p>
-              </section>
-              <section class="productos__item-col">
-                <p>$70.000</p>
-              </section>
-              <section class="productos__item-col">
-                <picture class="compra__imagen">
-                  <img class="image imagen--productos" src="img/imagenesProductos/salud/jalea_real.png" alt="Miel">
-                </picture>
-              </section>
-              <section class="productos__item-col">
-                <p>7</p>
-              </section>
-              <section class="productos__item-col">
-                <div class="checkbox-container yellow">
-                  <input type="checkbox" checked id="toggle" />
-                  <label for="toggle"></label>
-                </div>
-              </section>
-              <section class="productos__item-col">
-                <p>Categoria</p>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-eye"></i></button>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-pen-to-square"></i></button>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-trash-can"></i></button>
-              </section>
-            </div>
-
-            <div class="productos__item productos--size">
-              <section class="productos__item-col">
-                <p>23</p>
-              </section>
-              <section class="productos__item-col">
-                <p>Jalea real</p>
-              </section>
-              <section class="productos__item-col">
-                <p class="productos__paragraph">La jalea real, como la miel, es producida por las abejas. Sin embargo, a diferencia de la miel, se utiliza para las necesidades de la colonia y, en particular, está destinada a la alimentación de las larvas (de abejas) y de la abeja reina.</p>
-              </section>
-              <section class="productos__item-col">
-                <p>$70.000</p>
-              </section>
-              <section class="productos__item-col">
-                <picture class="compra__imagen">
-                  <img class="image imagen--productos" src="img/imagenesProductos/salud/jalea_real.png" alt="Miel">
-                </picture>
-              </section>
-              <section class="productos__item-col">
-                <p>7</p>
-              </section>
-              <section class="productos__item-col">
-                <div class="checkbox-container yellow">
-                  <input type="checkbox" checked id="toggle" />
-                  <label for="toggle"></label>
-                </div>
-              </section>
-              <section class="productos__item-col">
-                <p>Categoria</p>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-eye"></i></button>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-pen-to-square"></i></button>
-              </section>
-              <section class="productos__item-col">
-                <button class="productos__button"><i class="compra__icon fa-solid fa-trash-can"></i></button>
-              </section>
-            </div>
+            <%})%>
           </article>
         </div>
       </section>
