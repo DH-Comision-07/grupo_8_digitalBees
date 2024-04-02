@@ -2,12 +2,18 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head', {css:'css/product-create-edit.css'}); %>
+    <%- include('../partials/head', {css:'/css/product-create-edit.css'}); %>
 </head>
 
 <body>
     <%- include('../partials/header'); %>
         <main class="principal">
+            <section class="principal__section section--migadepan">
+                <div class="contenedor contenedor--migadepan">
+                  <%- include('../partials/breadcrumb', {local: 'Editar'}); %>
+                </div>
+              </section>
+              <div class="contenedor contenedor--crear">
             <h2 class="title">Editar producto</h2>
             <section>
                 <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
@@ -33,6 +39,7 @@
                         </div>
                         <div>
                             <label for="category" class="form-label">Categoría:</label>
+                            
 						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required>
 							    <option value="">Elegí</option>
 							    <option value="salud">Salud</option>
@@ -40,6 +47,7 @@
                                 <option value="belleza">Belleza</option>
 						    </select>
                         </div>
+                        <p><%= producto.category %></p>
                         <div>
                             <label for="cost">Precio
                                 <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
@@ -47,12 +55,16 @@
                         </div>
                         <div>
                             <label for="img">Foto de producto</label>
+                            <picture class="compra__imagen">
+                                <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
+                            </picture>
                             <input type="file" name="img" />
                         </div>
                         <button type="submit" class="submit">Editar producto</button>
                     </div>
                     
                 </form>
+            </div>
         </main>
         <%- include('../partials/footer'); %>
 </body>
