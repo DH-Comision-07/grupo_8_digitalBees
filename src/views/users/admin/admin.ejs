@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <!--head partial-->
+      <%- include('../../partials/head', {css:'/css/productCart.css'}); %>
+      <!--fin partial-->
+  </head>
+
+  <body class="cuerpo">
+
+    <%- include('../../partials/header.ejs'); %>
+
+    <main class="principal">
+      <section class="principal__section section--migadepan">
+        <div class="contenedor contenedor--migadepan">
+          <%- include('../../partials/breadcrumb', {local: 'Administrador'}); %>
+        </div>
+      </section>
+      <section class="principal__section section--productos">
+        <div class="contenedor">
+
+          <h1 class="principal__titulo-section">PRODUCTOS</h1>
+
+          <div class="buttons__page">
+            <a class="link" href="/productos/admin/create/">
+              <button class="tarjeta__boton boton--buy boton">
+                Crear productos
+              </button>
+            </a>
+            <a class="link" href="/productos/carrito">
+              <button class="tarjeta__boton boton--buy boton">
+                Usuarios
+              </button>
+            </a>
+          </div>
+
+          <article class="lista__productos productos--scrolls">
+            <div class="productos__item productos--size">
+              <section class="productos__item-col item--header">
+                <p>ID</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Producto</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Descripción</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Precio</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>imagen</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Stock</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Destacado</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Categoria</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Ver</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Editar</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Eliminar</p>
+              </section>
+          </div>
+          <% listaDeProductos.forEach((producto) => { %>
+          <div class="productos__item productos--size">
+              <section class="productos__item-col">
+                <p><%= producto.id %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= producto.title %></p>
+              </section>
+              <section class="productos__item-col">
+                <p class="productos__paragraph"><%= producto.description %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= producto.cost %></p>
+              </section>
+              <section class="productos__item-col">
+                <picture class="compra__imagen">
+                  <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
+                </picture>
+              </section>
+              <section class="productos__item-col">
+                <p>7</p>
+              </section>
+              <section class="productos__item-col">
+                <div class="checkbox-container yellow">
+                  <!--<input type="checkbox" checked id="toggle" />
+                  <label for="toggle"></label>-->
+                  <% if(producto.popular == true){ %>
+                    <input type="checkbox" checked id="toggle" disabled />
+                    <label for="toggle"></label>
+                  <% } else if (producto.popular == false){ %>  
+                    <input type="checkbox" id="toggle" disabled/>
+                    <label for="toggle"></label>
+                 <% } %>
+                </div>
+              </section>
+              <section class="productos__item-col">
+                <p><%= producto.category %></p>
+              </section>
+              <section class="productos__item-col">
+                <button class="productos__button"><a href="/productos/detalle/<%= producto.id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
+              </section>
+              <section class="productos__item-col">
+                <button class="productos__button"><a href="/productos/admin/edit/<%=producto.id%>?_method=PUT" class="action-button edit"><i class="compra__icon fa-solid fa-pen-to-square"></a></i></button>
+              </section>
+              <section class="productos__item-col">
+                <form action="/productos/admin/<%=producto.id%>?_method=DELETE" method="POST">
+                <button class="productos__button action-button delete"><i class="compra__icon fa-solid fa-trash-can"></i></button>
+              </form>
+            </section>
+            </div>
+            <%})%>
+          </article>
+        </div>
+      </section>
+    </main>
+    <%- include('../../partials/footer'); %>
+  </body>
+</html>
