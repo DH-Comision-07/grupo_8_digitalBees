@@ -138,12 +138,6 @@ main{
   }
   
   
-  .contenedor {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
   @media (768px <= width) {
     body {
       width: auto;

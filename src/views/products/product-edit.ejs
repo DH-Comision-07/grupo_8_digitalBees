@@ -2,53 +2,76 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head', {css:'css/product-create-edit.css'}); %>
+    <%- include('../partials/head', {css:'/css/product-create-edit.css'}); %>
 </head>
 
 <body>
     <%- include('../partials/header'); %>
         <main class="principal">
+            <section class="principal__section section--migadepan">
+                <div class="contenedor contenedor--migadepan">
+                  <%- include('../partials/breadcrumb', {local: 'Editar'}); %>
+                </div>
+              </section>
+              <div class="contenedor contenedor--crear">
             <h2 class="title">Editar producto</h2>
             <section>
-                <form action="/" class="form-create">
+                <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
                     <div>
                         <div>
-                            <label for="product-name">
+                            <label for="title">Nombre del producto:
                                 <input type="text" class="input-text" placeholder="Nombre del producto"
-                                    name="product-name" id="product-name" required />
+                                    name="title" value="<%= producto.title %>" id="title" required />
                             </label>
                         </div>
                         <div>
-                            <label for="description">
+                            <label for="description">Descripción
                                 <input type="text" class="input-text" placeholder="Descripcion" name="description"
-                                    id="description" required />
+                                    value="<%= producto.description %>" id="description" required />
                             </label>
                         </div>
                         <div>
-                            <label for="category">
-                                <input type="text" class="input-text" placeholder="Categoria" name="category"
-                                    id="category" required />
+                            
+                            <label>Destacado </label>   
+                            <!--variable que activa la propiedad checked en una etiqueta-->
+                            <% let checked = producto.popular ? "checked" : "" %>                      
+
+                                <div class="checkbox-container yellow">
+
+                                      <input type="checkbox" name="popular" <%= checked %> id="toggle" />
+                                      <label for="toggle"></label>
+
+                                </div>
+
+                        </div>
+                        <div>
+                            <label for="category" class="form-label">Categoría:</label>
+                            
+						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required>
+							    <option value="">Elegí</option>
+							    <option value="salud">Salud</option>
+							    <option value="alimentos">Alimentos</option>
+                                <option value="belleza">Belleza</option>
+						    </select>
+                        </div>
+                        <p><%= producto.category %></p>
+                        <div>
+                            <label for="cost">Precio
+                                <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
                             </label>
                         </div>
                         <div>
-                            <label for="weight">
-                                <input type="number" class="input-text" placeholder="Peso" name="weight" id="weight"
-                                    required />
-                            </label>
+                            <label for="img">Foto de producto</label>
+                            <picture class="compra__imagen">
+                                <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
+                            </picture>
+                            <input type="file" name="img" />
                         </div>
-                        <div>
-                            <label for="price">
-                                <input type="number" class="input-text" placeholder="Precio" name="price" id="price"
-                                    required />
-                            </label>
-                        </div>
-                        <div>
-                            <label for="image">Foto de producto</label>
-                            <input type="file" name="image" />
-                        </div>
+                        <button type="submit" class="submit">Editar producto</button>
                     </div>
-                    <button type="submit" class="submit">Editar producto</button>
+                    
                 </form>
+            </div>
         </main>
         <%- include('../partials/footer'); %>
 </body>
