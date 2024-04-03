@@ -1,20 +1,5 @@
 # SPRINT 4 
 
-*_Se hizo bien:_*
-
-- Se organizaron reuniones de refuerzo del contenido.
-
-*_Empezar a hacer:_*
-
-- Comprometerse a estar al dia con los contenidos.
-
-*_A mejorar:_*
-
-- Incrementar clases de apoyo entre el grupo para reforzar contenidos.
-
-
-
-
 *_PRIMERA SEMANA_*
 
 1. Que se hizo
@@ -67,3 +52,18 @@ d. Revisión e implementación de Routes y Contollers:
 - Users
 
 e. Implementación de vista de usuario-administrador.
+
+
+*_SEGUNDA SEMANA_*
+
+1. Que se hizo
+
+- La vista products de admin
+- CRUD de productos
+- JSON de users
+- Independizó middlewares
+- Conectado el front y back (de entidad productos)
+
+2. Se encontró con algun impedimento
+
+- Problemas medicos(valen)
