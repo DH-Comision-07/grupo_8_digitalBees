@@ -97,9 +97,11 @@
                   <!--<input type="checkbox" checked id="toggle" />
                   <label for="toggle"></label>-->
                   <% if(producto.popular == true){ %>
-                    <p>true</p>
+                    <input type="checkbox" checked id="toggle" disabled />
+                    <label for="toggle"></label>
                   <% } else if (producto.popular == false){ %>  
-                    <p>false</p>
+                    <input type="checkbox" id="toggle" disabled/>
+                    <label for="toggle"></label>
                  <% } %>
                 </div>
               </section>
