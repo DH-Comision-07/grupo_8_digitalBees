@@ -16,16 +16,17 @@
 🧩*URL de trello*
  https://trello.com/b/Hd0ZHb0v/proyecto-apicultura
 
-🚀 *Integrantes del Equipo:*
-- Athala Umaña
-- Cindy Cardona
-- Facundo Undiano
-- Federico Sotnyk
-- Juan Manuel Orozco
-- Leonardo Alfredo Godoy
-- Lina Cardozo
-- Sebastian Romero
-- Valentino Jimeno Bravo
+🚀 *Integrantes del Equipo = ['edad',' preferencia', 'hobbie']:*
+- Athala Umaña: 50 años, back, ayudar al prójimo.
+- Cindy Cardona: 34 años, front, caminatas en el campo.
+- Facundo Undiano: 29 años, fullstack, caminar por la ciudad.
+- Federico Sotnyk: 28 años, back, hacer asados.
+- Leonardo Alfredo Godoy: 35 años, back, comer asados.
+- Lina Cardozo: 32 años, fullstack, leer.
+- Sebastian Romero: 37 años, fullstack, basquet.
+- Valentino Jimeno Bravo: 19 años, front, viciar a full.
+
+- Juan Manuel Orozco ( R.I.P 💀)
 
 🌐 *Links de referencia:*
   1. https://www.abejasdelvalle.com/productos%20de%20las%20abejas.htm
@@ -36,4 +37,4 @@
 
 ### Iniciar servidor
  npm start
- cuando se haga deploy hay que cambiar el package.json
+ cuando se haga deploy hay que cambiar el package.json para hacer el npm test
