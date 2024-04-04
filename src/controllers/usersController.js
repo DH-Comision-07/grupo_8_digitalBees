@@ -17,6 +17,7 @@ const usersController = {
 			return res.render('users/register',{
 				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
 				errors: resultValidation.mapped(),
+				oldData: req.body
 			});
 		}
 		
