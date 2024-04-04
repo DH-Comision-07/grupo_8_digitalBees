@@ -13,20 +13,14 @@ let userService = {
         return this.users;
     },
 
-    /* No hay clasificaciones para usuarios por lo cual considero se debe eliminar este método
-    getMain: function(){
-        return this.users.filter((user) => user.popular == true);
-    },*/
-
     // Detail - Detail from one user
 	getOneBy: function(id){
-        return this.users.find((user) => user.id == id);
+        return this.users.find((user) => user.user_id == id);
     },
     save: function(user){
-        console.log(user)
          let idMayor = users.reduce((contador, user) => {
-            if (user.id > contador) {
-                return user.id;
+            if (user.user_id > contador) {
+                return user.user_id;
             }
             return contador;
         }, 0);
@@ -60,7 +54,7 @@ let userService = {
 
     update: function(formUserUpdate,id){
        
-        let userSearch = users.find(user => user.id == id);
+        let userSearch = users.find(user => user.user_id == id);
         
         if (userSearch) {
             userSearch.email = formUserUpdate.email;
@@ -87,7 +81,7 @@ let userService = {
 
     delete: function (id) {
         // contiene la nueva lista de usuarios sin incluir el que se elimina  
-        let newUsers = this.users.filter((user) => user.id != id);
+        let newUsers = this.users.filter((user) => user.user_id != id);
         // sobreescribe la lista de usuarios por la nueva lista
         this.users = newUsers;
         fs.writeFileSync(usersFilePath, JSON.stringify( this.users)); // Ser reemplazó "path.join(__dirname, '../data/usuarios.json')" por la variable "usersFilePath"

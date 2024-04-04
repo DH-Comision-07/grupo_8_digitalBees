@@ -1,19 +1,36 @@
 const userService = require("../service/userService")
 
 const usersController = {
-    /*Modificar la vista a renderizar de la lista de todos los usuarios*/ getAll:(req, res) => res.render("users/listaUsuarios", {'listaDeUsuarios': userService.getAll()}),
-    /*Chequear esta línea a ver si aplica o no*/ //mainProducts:(req, res) => res.render("products/productCart", {'listaDeCarrito': productService.getMain()}),
-    /*Modificar la vista a renderizar del detalle de un usuario*/ detail: (req, res) => res.render("users/user-detail", {'usuario': userService.getOneBy(req.params.id)}),
-    
-    login: (req, res) => res.render("users/login"),
 
-    register: (req, res) => res.render("users/register"),
+	//USUARIOS CLIENTES
 
-    authorization: (req, res) => res.render("users/admin/admin"),
+    register: (req, res) => {
+		res.render("users/register")
+	},
+
+	processRegister:(req,res)=>{
+		return res.send({
+			body: req.body,
+			file:req.file
+		});
+	},
+
+	login: (req, res) => res.render("users/login"),
+
+	//USUARIOS ADMINISTRADOR
+   
+	//get all users
+	authorization: (req, res) => {
+		res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
+	},
+	//get detail user
+	detail: (req, res) =>{
+		res.render("users/admin/usersDetail", {'usuario': userService.getOneBy(req.params.id)})
+	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		/* Enlazar con la vista de creación de usuario */ res.render('users/user-create')
+		res.render('users/admin/user-create')
 	},
 	
 	// Create -  Method to store
@@ -22,27 +39,27 @@ const usersController = {
 			let user = req.body;
 			user.img = 'img/people/' + req.file.filename;
 			userService.save(req.body);
-			res.render("users/listaUsuarios", {'listaDeUsuarios': userService.getAll()});
-			//res.send("producto creado!!")
+			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
+			
 		}else{
-			res.render("users/listaUsuarios", {'listaDeUsuarios': userService.getAll()});
+			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
 		}
 	},
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		/* Enlazar con la vista user-edit */ res.render('users/user-edit',{ 'usuario': userService.getOneBy(req.params.id)})
+		res.render('users/admin/user-edit',{ 'usuario': userService.getOneBy(req.params.id)})
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		/* Enlazar con la vista user-detail */ res.render('users/user-detail',{'usuario': userService.update(req.body,req.params.id) })
+		res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
 		//res.send(req.body);
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		userService.delete(req.params.id);
-		res.redirect("/usuarios");
+		res.redirect("/usuarios/admin");
         /* Considero que deberiamos incluir en la vista "usuarios" un mensaje que aparezca después
         de la eliminación: "USUARIO ELIMINADO CON ÉXITO" */
 	}   

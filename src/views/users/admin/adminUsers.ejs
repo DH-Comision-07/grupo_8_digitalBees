@@ -19,17 +19,17 @@
       <section class="principal__section section--productos">
         <div class="contenedor">
 
-          <h1 class="principal__titulo-section">PRODUCTOS</h1>
+          <h1 class="principal__titulo-section">USUARIOS</h1>
 
           <div class="buttons__page">
-            <a class="link" href="/productos/admin/create/">
+            <a class="link" href="/usuarios/admin/create/">
               <button class="tarjeta__boton boton--buy boton">
-                Crear productos
+                Crear Usuarios
               </button>
             </a>
-            <a class="link" href="/usuarios/admin">
+            <a class="link" href="/productos/admin/">
               <button class="tarjeta__boton boton--buy boton">
-                Usuarios
+                Productos
               </button>
             </a>
           </div>
@@ -40,25 +40,19 @@
                 <p>ID</p>
               </section>
               <section class="productos__item-col item--header">
-                <p>Producto</p>
+                <p>Nombre</p>
               </section>
               <section class="productos__item-col item--header">
-                <p>Descripción</p>
+                <p>Apellido</p>
               </section>
               <section class="productos__item-col item--header">
-                <p>Precio</p>
+                <p>ultimo acceso</p>
               </section>
               <section class="productos__item-col item--header">
-                <p>imagen</p>
+                <p>status</p>
               </section>
               <section class="productos__item-col item--header">
-                <p>Stock</p>
-              </section>
-              <section class="productos__item-col item--header">
-                <p>Destacado</p>
-              </section>
-              <section class="productos__item-col item--header">
-                <p>Categoria</p>
+                <p>rol</p>
               </section>
               <section class="productos__item-col item--header">
                 <p>Ver</p>
@@ -70,52 +64,42 @@
                 <p>Eliminar</p>
               </section>
           </div>
-          <% listaDeProductos.forEach((producto) => { %>
+          <% usuarios.forEach((usuario) => { %>
           <div class="productos__item productos--size">
               <section class="productos__item-col">
-                <p><%= producto.id %></p>
+                <p><%= usuario.user_id %></p>
               </section>
               <section class="productos__item-col">
-                <p><%= producto.title %></p>
+                <p><%= usuario.first_name %></p>
               </section>
               <section class="productos__item-col">
-                <p class="productos__paragraph"><%= producto.description %></p>
+                <p><%= usuario.last_name %></p>
               </section>
               <section class="productos__item-col">
-                <p><%= producto.cost %></p>
-              </section>
-              <section class="productos__item-col">
-                <picture class="compra__imagen">
-                  <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
-                </picture>
-              </section>
-              <section class="productos__item-col">
-                <p>7</p>
+                <p><%= usuario.last_login %></p>
               </section>
               <section class="productos__item-col">
                 <div class="checkbox-container yellow">
-                  <!--<input type="checkbox" checked id="toggle" />
-                  <label for="toggle"></label>-->
-                  <% if(producto.popular == true){ %>
+                  <% if(usuario.account_status == "active"){ %>
                     <input type="checkbox" checked id="toggle" disabled />
                     <label for="toggle"></label>
-                  <% } else if (producto.popular == false){ %>  
+                  <% } else if (usuario.account_status == "inactive"){ %>  
                     <input type="checkbox" id="toggle" disabled/>
                     <label for="toggle"></label>
                  <% } %>
                 </div>
               </section>
               <section class="productos__item-col">
-                <p><%= producto.category %></p>
+                <p><%= usuario.user_role %></p>
               </section>
               <section class="productos__item-col">
-                <button class="productos__button"><a href="/productos/detalle/<%= producto.id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
+                <button class="productos__button"><a href="/usuarios/detalle/<%= usuario.user_id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
               </section>
               <section class="productos__item-col">
-                <button class="productos__button"><a href="/productos/admin/edit/<%=producto.id%>?_method=PUT" class="action-button edit"><i class="compra__icon fa-solid fa-pen-to-square"></a></i></button>
+                <button class="productos__button"><a href="/usuarios/admin/edit/<%=usuario.user_id%>?_method=PUT" class="action-button edit"><i class="compra__icon fa-solid fa-pen-to-square"></a></i></button>
               </section>
               <section class="productos__item-col">
-                <form action="/productos/admin/<%=producto.id%>?_method=DELETE" method="POST">
+                <form action="/usuarios/admin/<%=usuario.user_id%>?_method=DELETE" method="POST">
                 <button class="productos__button action-button delete"><i class="compra__icon fa-solid fa-trash-can"></i></button>
               </form>
             </section>

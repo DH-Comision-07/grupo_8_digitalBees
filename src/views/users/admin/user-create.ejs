@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head', {css:'/css/product-create-edit.css'}); %>
+</head>
+
+<body>
+    <%- include('../../partials/header'); %>
+        <main class="principal">
+            <section class="principal__section section--migadepan">
+                <div class="contenedor contenedor--migadepan">
+                  <%- include('../../partials/breadcrumb', {local: 'Crear'}); %>
+                </div>
+              </section>
+            <div class="contenedor contenedor--crear">
+                <h2 class="titleOne">Crear Usuario</h2>
+                <section>
+                    <form action="/usuarios" method="POST" class="form-create" enctype="multipart/form-data">
+                        <div>
+                            <div>
+                                <label for="first_name">Nombre
+                                    <input type="text" class="input-text" placeholder="Nombre" name="first_name"
+                                        id="first_name" required />
+                                </label>
+                                <label for="last_name">Apellido
+                                    <input type="text" class="input-text" placeholder="Apellido" name="last_name"
+                                        id="last_name" required />
+                                </label>
+                            </div>
+                            <div>
+                                <h1>COMPLETAR LO QUE FALTA</h1>
+                            </div>
+                            <button type="submit" class="submit">Agregar Usuario</button>
+
+                    </form>
+            </div>
+        </main>
+        <%- include('../../partials/footer'); %>
+</body>
+
+</html>
