@@ -47,14 +47,13 @@
                         <div>
                             <label for="category" class="form-label">Categoría:</label>
                             
-						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required>
-							    <option value="">Elegí</option>
-							    <option value="salud">Salud</option>
-							    <option value="alimentos">Alimentos</option>
-                                <option value="belleza">Belleza</option>
+						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required >
+							    <option value="" >Elegí</option>
+							    <option value="salud" <%= producto.category === 'salud' ? 'selected' : '' %>>Salud</option>
+							    <option value="alimentos"<%= producto.category === 'alimentos' ? 'selected' : '' %>>Alimentos</option>
+                                <option value="belleza" <%= producto.category === 'belleza' ? 'selected' : '' %> >Belleza</option>
 						    </select>
                         </div>
-                        <p><%= producto.category %></p>
                         <div>
                             <label for="cost">Precio
                                 <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
