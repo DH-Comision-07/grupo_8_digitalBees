@@ -1,4 +1,5 @@
-const userService = require("../service/userService")
+const userService = require("../service/userService");
+const { validationResult } = require('express-validator');
 
 const usersController = {
 
@@ -9,10 +10,17 @@ const usersController = {
 	},
 
 	processRegister:(req,res)=>{
-		return res.send({
-			body: req.body,
-			file:req.file
-		});
+		//array de validaciones
+		const resultValidation= validationResult(req);
+		//resultValidation en su propiedad errors es mayor a cero
+		if(resultValidation.errors.length > 0){
+			return res.render('users/register',{
+				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
+				errors: resultValidation.mapped(),
+			});
+		}
+		
+		//return res.send(resultValidation);
 	},
 
 	login: (req, res) => res.render("users/login"),
