@@ -13,14 +13,25 @@ body {
   font-size: 100%;
   list-style-type: none;
   font-family: roboto;
-  width: fit-content;
   block-size: fit-content;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> HEADER <<<<<<<< */
 
 .encabezado {
   background-color: #eeba0b;
+  padding: 10px 20px;
+}
+
+.image.image--logo {
+  width: 80px;
+  height: 80px;
 }
 
 .encabezado__nav,
@@ -41,8 +52,6 @@ body {
   }
   
   .link--logo {
-    width: 117px;
-    height: 117px;
     border-radius: 50%;
   }
   
@@ -74,9 +83,9 @@ body {
     font-size: 22px;
   }
   
-  .seccion--vistas {
+  /* .seccion--vistas {
     padding: 0 43px;
-  }
+  } */
   
   .link--vistas {
     font-size: 20px;

@@ -1,7 +1,7 @@
 <article class="tarjeta tarjeta--destacados">
     <header class="tarjeta__encabezado">
       <picture class="tarjeta__imagen">
-        <img class="image imagen--producto" src="<%= producto.img %>" alt="Miel">
+        <img class="image imagen--producto" src="/<%= producto.img ? producto.img : 'default.png' %>" alt="Miel">
       </picture>
     </header>
     <footer class="tarjeta__pie">
@@ -11,12 +11,17 @@
       </section>
       <section class="tarjeta__pie-seccion seccion--precio">
         <div class="contenedor--botones">
-          <a class="link" href="/detalle/<%= producto.id %>">
+          <a class="link" href="/productos/detalle/<%= producto.id %>">
             <button class="tarjeta__boton boton--more boton" >
               ver mas
             </button>
           </a>
-          <a class="link" href="/carrito">
+          <!--<a class="link" href="/productos/create/">
+            <button class="tarjeta__boton boton--more boton" >
+              crear Producto
+            </button>
+          </a>-->
+          <a class="link" href="/productos/carrito">
             <button class="tarjeta__boton boton--buy boton">
               <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
               comprar
