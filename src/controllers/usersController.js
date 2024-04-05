@@ -21,7 +21,19 @@ const usersController = {
 			});
 		}
 		
-		//return res.send(resultValidation);
+		//return res.send("pasaron las validaciones");
+	},
+
+	storeRegister: (req, res) => {
+		if (req.file) {
+			let user = req.body;
+			user.img = 'img/imgUsers/' + req.file.filename;
+			userService.save(req.body);
+			res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
+			
+		}else{
+			res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
+		}
 	},
 
 	login: (req, res) => res.render("users/login"),
@@ -46,7 +58,7 @@ const usersController = {
 	store: (req, res) => {
 		if (req.file) {
 			let user = req.body;
-			user.img = 'img/people/' + req.file.filename;
+			user.img = 'img/imgUsers/' + req.file.filename;
 			userService.save(req.body);
 			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
 			

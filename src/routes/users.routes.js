@@ -21,13 +21,21 @@ En el caso de Admin, debe permitir CRUD COMPLETO tanto para productos como para 
 const validations = [
     body('first_name').notEmpty().withMessage('el campo no puede estar vacio'),
     body('last_name').notEmpty().withMessage('el campo no puede estar vacio'),
-    body('email').notEmpty().withMessage('el campo no puede estar vacio'),
+    body('email')
+        .notEmpty().withMessage('el campo no puede estar vacio').bail()
+        .isEmail().withMessage('Debes escribir un formato de correo valido'),
     body('country').notEmpty().withMessage('el campo no puede estar vacio'),
     body('city').notEmpty().withMessage('el campo no puede estar vacio'),
     body('address').notEmpty().withMessage('el campo no puede estar vacio'),
     body('phone_number').notEmpty().withMessage('el campo no puede estar vacio'),
     body('password').notEmpty().withMessage('el campo no puede estar vacio'),
-
+    body('profile_picture').custom((value, { req })=>{
+        let file = req.file;
+        if(!file){
+            throw new Error('Tienes que subir una imagen');
+        }
+        return true
+    })
 ]
 
 
@@ -35,10 +43,12 @@ const validations = [
 //METODOS CLIENTE
 router.get("/login", usersController.login);
 
-// formulario de registro
+// FORMULARIO REGISTRO
 router.get("/registro", usersController.register);
 //procesando el registro
 router.post("/registro", uploadMulter.single('profile_picture'), validations ,usersController.processRegister);
+//guardando el registro
+router.post('/', uploadMulter.single('profile_picture'), usersController.store);
 
 
 //************************************************* */
