@@ -16,12 +16,26 @@
         <li class="lista__item">
           <a class="link link--vistas" href="/productos">Productos</a>
         </li>
+
+        <% if (locals.isLogged){%>
+
+        <li class="lista__item">
+          <a class="link link--vistas" href="/usuarios/perfil"><img src="/img/imgUsers/<%= locals.userLogged.profile_picture %>" width="20" height="20" style=" border-radius:100%;"><%= locals.userLogged.first_name %></a>
+        </li>
+        <li class="lista__item">
+          <a class="link link--vistas" href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </li>
+
+        <% } else {%>
         <li class="lista__item">
           <a class="link link--vistas" href="/usuarios/registro">Registrate</a>
         </li>
         <li class="lista__item">
           <a class="link link--vistas" href="/usuarios/login">Login</a>
         </li>
+
+        <% } %>
+
         <li class="lista__item">
           <a class="link link--vistas" href="/productos/carrito"
             ><i class="icono icono--carrito fa-solid fa-cart-shopping"></i
@@ -33,10 +47,24 @@
           <a class="link link--vistas" href="/productos/admin"
             ><i class="fa-solid fa-user-secret"></i>
           </a>
-        <li class="lista__item">
-          <a class="link link--vistas" href="/usuarios/login"
-            ><i class="icono icono--usuario fa-solid fa-user"></i
-          ></a>
+
+          <% if (locals.isLogged){%>
+
+            <li class="lista__item">
+              <a class="link link--vistas" href="/usuarios/perfil"><img src="/img/imgUsers/<%= locals.userLogged.profile_picture %>" width="20" height="20" style=" border-radius:100%;"><%= locals.userLogged.first_name %></a>
+            </li>
+            <li class="lista__item">
+              <a class="link link--vistas" href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </li>
+    
+            <% } else { %>
+
+            <li class="lista__item">
+              <a class="link link--vistas" href="/usuarios/login"
+                ><i class="icono icono--usuario fa-solid fa-user"></i
+              ></a>
+          <% } %>   
+
         </li>
         <li class="lista__item">
           <a class="link link--vistas" href="/carrito"

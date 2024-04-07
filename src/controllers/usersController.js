@@ -1,5 +1,6 @@
 const userService = require("../service/userService");
 const { validationResult } = require('express-validator');
+const bcryptjs = require('bcryptjs');
 
 const usersController = {
 
@@ -20,24 +21,87 @@ const usersController = {
 				oldData: req.body
 			});
 		}
-		
-		//return res.send("pasaron las validaciones");
-	},
 
-	storeRegister: (req, res) => {
-		if (req.file) {
-			let user = req.body;
-			user.img = 'img/imgUsers/' + req.file.filename;
-			userService.save(req.body);
-			res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
-			
-		}else{
-			res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
+		let userInDb =userService.findByField('email', req.body.email);
+
+		if (userInDb) {
+			return res.render('users/register',{
+				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
+				errors: {
+					email:{
+						msg:'este email ya esta registrado'
+					}
+				},
+				oldData: req.body
+			});
 		}
+
+		let userToCreate = {
+			...req.body,
+			password : bcryptjs.hashSync(req.body.password, 10),
+			profile_picture : req.file.filename
+		}
+
+		let userCreated = userService.save(userToCreate)
+
+		return res.redirect("/usuarios/login");
 	},
 
-	login: (req, res) => res.render("users/login"),
+	login: (req, res) => res.render("users/login"), 
 
+	loginProcess:(req , res)=>{
+		//"email" es el campo que esta en el json, req.body.email es el valor que digita el usuario en el formulario
+		//"email tiene que coincidir con el nombre en el json y en el name de la vista"
+		let userToLogin = userService.findByField('email', req.body.email);
+		console.log( "user to login -->", userToLogin);
+		if (userToLogin) {
+			//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
+			console.log(req.body);
+			console.log("COMPARANDO CONTRASEÑAS -->",req.body.password, userToLogin.password);
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
+			if (isOkThePassword){
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+
+				if (req.body.remember) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
+				return res.redirect("/usuarios/perfil")
+			}
+			return res.render('users/login' , {
+				errors:{
+					email: {
+						msg :'Las credenciales son invalidas'
+					}
+				}
+			});
+			
+		}
+
+		return res.render('users/login' , {
+			errors:{
+				email: {
+					msg :'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+
+	profile: (req, res) => {
+		res.render("users/userProfile", {
+			usuario: req.session.userLogged
+		})
+	},
+
+	//crear boton de logout
+	logout: (req, res) => {
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/')
+	},
+
+	/************************************************/
 	//USUARIOS ADMINISTRADOR
    
 	//get all users

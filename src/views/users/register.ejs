@@ -130,17 +130,6 @@
                                 </div>
                             <% } %>
                         </div>
-                        <div>
-                            <label for="password">
-                                <input type="password" class="input-password <%= locals.errors && errors.password ? 'is-invalid' : null %>" name="password"
-                                    placeholder="Confirmar contraseña" />
-                            </label>
-                            <% if(locals.errors && errors.password){ %>
-                                <div class="text-danger">
-                                    <%= errors.password.msg %>
-                                </div>
-                            <% } %>
-                        </div>
                     </div>
                     <div>
                         <button type="submit">ENVIAR</button>

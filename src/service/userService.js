@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 //El "require" junto la "ruta" parsea el archivo JSON, por lo cual no se requiere ninguna conversión adicional
-const users = require('../data/usuarios.json')
+const users = require('../data/usuarios.json');
+const { log } = require('console');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 
 //aqui están todas las funciones que el controller invoca
@@ -17,7 +18,17 @@ let userService = {
 	getOneBy: function(id){
         return this.users.find((user) => user.user_id == id);
     },
+
+    findByField: function(nameField, valueField ){
+        let allUsers = this.getAll();
+        let userFound = allUsers.find(oneUser =>{
+            return oneUser[nameField] === valueField
+        });
+        return userFound
+    },
+
     save: function(user){
+        console.log(user)
          let idMayor = users.reduce((contador, user) => {
             if (user.user_id > contador) {
                 return user.user_id;

@@ -1,23 +1,5 @@
 [
     {
-        "user_id": 1,
-        "email": "linacardozo@digitalbees.com",
-        "password": "qX6_tU`Sv",
-        "first_name": "Lina",
-        "last_name": "Cardozo",
-        "gender": "Female",
-        "birthdate": "11/24/1997",
-        "address": "Calle 80 Carrera 8",
-        "city": "Armenia",
-        "country": "Colombia",
-        "phone_number": "3005206795",
-        "profile_picture": "https://robohash.org/odionihilcorporis.png?size=50x50&set=set1",
-        "subscription_date": "1/19/2020",
-        "last_login": "11/8/2022",
-        "account_status": "active",
-        "user_role": "Admin"
-    },
-    {
         "user_id": 2,
         "email": "sebastianromero@digitalbees.com",
         "password": "mT2+7zO81z",
@@ -288,21 +270,15 @@
         "user_role": "Client"
     },
     {
-        "user_id": 17,
-        "email": "ejorryg@topsy.com",
-        "password": "fM5*U5>0J{#k",
-        "first_name": "Ernaline",
-        "last_name": "Jorry",
-        "gender": "Female",
-        "birthdate": "5/10/1952",
-        "address": "570 La Follette Park",
-        "city": "Caicó",
-        "country": "Brazil",
-        "phone_number": "244-310-3474",
-        "profile_picture": "https://robohash.org/ducimusconsequunturet.png?size=50x50&set=set1",
-        "subscription_date": "1/10/2021",
-        "last_login": "7/18/2022",
-        "account_status": "inactive",
-        "user_role": "Client"
+        "user_id": 21,
+        "email": "prueba@mail.com",
+        "password": "$2a$10$pAzZtwCb664.ZnaxlG3kBOuqsL60n12aZrB7m/QU27CUmeaN006b.",
+        "first_name": "prueba",
+        "last_name": "prueba",
+        "address": "prueba",
+        "city": "prueba",
+        "country": "prueba",
+        "phone_number": "1234",
+        "profile_picture": "imgUsers-1712448601985.png"
     }
 ]
