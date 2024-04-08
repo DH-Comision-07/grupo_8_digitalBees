@@ -6,7 +6,6 @@ const path = require('path');
 const registerValidations = require('../middlewares/registerValidationsMid');
 const guestMid= require('../middlewares/guestMid');
 const authMid = require('../middlewares/authMid');
-const loginValidations = require('../middlewares/loginValidations')
 
 //************************************************* */
 //METODOS CLIENTE
