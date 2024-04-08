@@ -270,15 +270,15 @@
         "user_role": "Client"
     },
     {
-        "user_id": 21,
+        "user_id": 17,
         "email": "prueba@mail.com",
-        "password": "$2a$10$pAzZtwCb664.ZnaxlG3kBOuqsL60n12aZrB7m/QU27CUmeaN006b.",
+        "password": "$2a$10$hUlCLylVQdnlwOjzk15M4e4IqkDDJXltYupxGn6Mu52D2QqeV78gi",
         "first_name": "prueba",
         "last_name": "prueba",
         "address": "prueba",
         "city": "prueba",
         "country": "prueba",
-        "phone_number": "1234",
-        "profile_picture": "imgUsers-1712448601985.png"
+        "phone_number": "12345",
+        "profile_picture": "imgUsers-1712592095279.png"
     }
 ]

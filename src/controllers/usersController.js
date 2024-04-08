@@ -53,14 +53,13 @@ const usersController = {
 		//"email" es el campo que esta en el json, req.body.email es el valor que digita el usuario en el formulario
 		//"email tiene que coincidir con el nombre en el json y en el name de la vista"
 		let userToLogin = userService.findByField('email', req.body.email);
-		console.log( "user to login -->", userToLogin);
+		console.log("--->>>", userToLogin);
 		if (userToLogin) {
 			//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
-			console.log(req.body);
-			console.log("COMPARANDO CONTRASEÑAS -->",req.body.password, userToLogin.password);
+			
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
 			if (isOkThePassword){
-				delete userToLogin.password;
+				//delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
 				if (req.body.remember) {
@@ -78,7 +77,7 @@ const usersController = {
 			});
 			
 		}
-
+		
 		return res.render('users/login' , {
 			errors:{
 				email: {

@@ -10,6 +10,7 @@ let userService = {
     //se pasan los usuarios al atributo users
     users: users,
     //retorna todos los usuarios del archivo JSON
+    
     getAll: function(){
         return this.users;
     },
@@ -37,6 +38,7 @@ let userService = {
         }, 0);
         
         let idIncrementado = idMayor + 1;
+        console.log(this.users);
         
         let NewUser = {
             user_id: idIncrementado,

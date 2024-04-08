@@ -5,7 +5,8 @@ const uploadMulter = require("../middlewares/multerUsers");
 const path = require('path');
 const registerValidations = require('../middlewares/registerValidationsMid');
 const guestMid= require('../middlewares/guestMid');
-const authMid = require('../middlewares/authMid')
+const authMid = require('../middlewares/authMid');
+const loginValidations = require('../middlewares/loginValidations')
 
 //************************************************* */
 //METODOS CLIENTE
@@ -18,7 +19,7 @@ router.get("/registro", guestMid, usersController.register);
 router.post("/registro", uploadMulter.single('profile_picture'), registerValidations ,usersController.processRegister);
 
 // FORMULARIO LOGIN
-router.get("/login",guestMid,usersController.login);
+router.get("/login" ,guestMid,usersController.login);
 //procesando y guardando el login
 router.post("/login", usersController.loginProcess);
 
