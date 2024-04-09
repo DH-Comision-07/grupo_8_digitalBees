@@ -1,5 +1,23 @@
 [
     {
+        "user_id": 1,
+        "email": "linacardozo@digitalbees.com",
+        "password": "qX6_tU`Sv",
+        "first_name": "Lina",
+        "last_name": "Cardozo",
+        "gender": "Female",
+        "birthdate": "11/24/1997",
+        "address": "Calle 80 Carrera 8",
+        "city": "Armenia",
+        "country": "Colombia",
+        "phone_number": "3005206795",
+        "profile_picture": "https://robohash.org/odionihilcorporis.png?size=50x50&set=set1",
+        "subscription_date": "1/19/2020",
+        "last_login": "11/8/2022",
+        "account_status": "active",
+        "user_role": "Admin"
+    },
+    {
         "user_id": 2,
         "email": "sebastianromero@digitalbees.com",
         "password": "mT2+7zO81z",
@@ -280,5 +298,43 @@
         "country": "prueba",
         "phone_number": "12345",
         "profile_picture": "imgUsers-1712592095279.png"
+    },
+    {
+        "user_id": 18,
+        "email": "prueba2@mail.com",
+        "password": "$2a$10$aI.YgRtG4TUoNjAOr698h.mCqC4JFto7IcGjQad7qlNxh9uaFE8yy",
+        "first_name": "prueba 2",
+        "last_name": "prueba 2",
+        "address": "prueba 2",
+        "city": "prueba 2",
+        "country": "prueba 2",
+        "phone_number": "12345",
+        "profile_picture": "imgUsers-1712597405729.jpg"
+    },
+    {
+        "user_id": 19,
+        "email": "pruebaAdmin@mail.com",
+        "password": "$2a$10$DtsnJdYgS4uCebsMWeHfMumULCL0i2dFfesQ79P9bJcX75KkLsI.C",
+        "first_name": "prueba admin",
+        "last_name": "prueba admin",
+        "address": "prueba admin",
+        "city": "prueba admin",
+        "country": "prueba admin",
+        "phone_number": "12345",
+        "profile_picture": "imgUsers-1712693059321.png",
+        "user_role": "Admin"
+    },
+    {
+        "user_id": 20,
+        "email": "pruebaVendedor@mail.com",
+        "password": "$2a$10$Rj0TX/tPDHpBGPgryJT/uuKiBJjmi16J16L9WCi/Dqw0h0YFgvYlG",
+        "first_name": "prueba vendedor",
+        "last_name": "prueba vendedor",
+        "address": "prueba vendedor",
+        "city": "prueba vendedor",
+        "country": "prueba vendedor",
+        "phone_number": "12345",
+        "profile_picture": "imgUsers-1712693913469.jpg",
+        "user_role": "Sales"
     }
 ]

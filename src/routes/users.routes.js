@@ -6,11 +6,10 @@ const path = require('path');
 const registerValidations = require('../middlewares/registerValidationsMid');
 const guestMid= require('../middlewares/guestMid');
 const authMid = require('../middlewares/authMid');
+const credentialsMid = require('../middlewares/credentialsMid');
 
 //************************************************* */
 //METODOS CLIENTE
-
-
 
 // FORMULARIO REGISTRO
 router.get("/registro", guestMid, usersController.register);
@@ -28,14 +27,14 @@ router.get("/perfil", authMid,usersController.profile);
 //metodo LogOut
 router.get("/logout",usersController.logout);
 
-//************************************************* */
-//METODOS ADMINISTRADOR
+//************************************************* 
+/*METODOS ADMINISTRADOR*/
 
 /*** GET ALL USERS ***/ 
-router.get("/admin", usersController.authorization);
+router.get("/admin", credentialsMid.adminMid ,usersController.authorization);
 
 /*** GET DETAIL ONE USER ***/
-router.get('/detalle/:id', usersController.detail);
+router.get('/detalle/:id' ,usersController.detail);
 
 /*** CREATE ONE USER ***/ 
 router.get('/admin/create/', usersController.create); 

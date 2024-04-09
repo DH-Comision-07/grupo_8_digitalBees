@@ -54,13 +54,16 @@ const usersController = {
 		//"email tiene que coincidir con el nombre en el json y en el name de la vista"
 		let userToLogin = userService.findByField('email', req.body.email);
 		console.log("--->>>", userToLogin);
+		
 		if (userToLogin) {
+			//esto es para crear un clon del usuario en sesion y no una referencia en memoria que apunte al principal
+			let userToSession = JSON.parse(JSON.stringify(userToLogin))
 			//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
 			
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password)
 			if (isOkThePassword){
-				//delete userToLogin.password;
-				req.session.userLogged = userToLogin;
+				delete userToSession.password;
+				req.session.userLogged = userToSession;
 
 				if (req.body.remember) {
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })

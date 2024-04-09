@@ -7,15 +7,18 @@
     </section>
     <section class="encabezado__nav__seccion seccion--vistas">
       <ul class="lista lista--vistas">
-        <li class="lista__item">
-          <a class="link link--vistas" href="/productos/admin">Admin</a>
-        </li>
+        
         <li class="lista__item">
           <a class="link link--vistas" href="/">Home</a>
         </li>
         <li class="lista__item">
           <a class="link link--vistas" href="/productos">Productos</a>
         </li>
+        <% if (locals.isLogged && locals.userLogged.user_role == 'Admin'){%>
+        <li class="lista__item">
+          <a class="link link--vistas" href="/productos/admin">Admin</a>
+        </li>
+        <% } %>
 
         <% if (locals.isLogged){%>
 
@@ -42,11 +45,14 @@
           ></a>
         </li>
       </ul>
+      
       <ul class="lista lista--user">
+        <% if (locals.isLogged && locals.userLogged.user_role == 'Admin'){%>
         <li class="lista__item">
           <a class="link link--vistas" href="/productos/admin"
             ><i class="fa-solid fa-user-secret"></i>
           </a>
+          <% } %>
 
           <% if (locals.isLogged){%>
 

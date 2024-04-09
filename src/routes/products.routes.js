@@ -3,6 +3,7 @@ const router = express.Router();
 //const path = require('path');
 const productsController = require('../controllers/productsController');
 const uploadMulter = require("../middlewares/multerMiddleware");
+const credentialsMid = require('../middlewares/credentialsMid');
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.getAll);
@@ -12,7 +13,7 @@ router.get('/carrito', productsController.mainProducts);
 router.get('/detalle/:id', productsController.detail);
 
 /*** GET ALL PRODUCTS ADMIN ***/ 
-router.get('/admin', productsController.getAllAdmin);
+router.get('/admin', credentialsMid.adminMid ,productsController.getAllAdmin);
 /*** CREATE ONE PRODUCT ADMIN ***/ 
 router.get('/admin/create/', productsController.create); 
 router.post('/', uploadMulter.single('img') ,productsController.store); 
