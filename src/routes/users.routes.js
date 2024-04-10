@@ -38,11 +38,11 @@ router.get('/detalle/:id' ,usersController.detail);
 
 /*** CREATE ONE USER ***/ 
 router.get('/admin/create/', usersController.create); 
-router.post('/', uploadMulter.single('img'), usersController.store); 
+router.post('/', uploadMulter.single('profile_picture'), usersController.store); 
 
 /*** EDIT ONE USER ***/ 
 router.get('/admin/edit/:id', usersController.edit); 
-router.put('/:id', usersController.update); 
+router.put('/:id', uploadMulter.single('profile_picture') ,usersController.update); 
 
 /*** DELETE ONE USER ***/ 
 router.delete('/admin/:id', usersController.destroy); 

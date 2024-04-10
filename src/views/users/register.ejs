@@ -65,21 +65,38 @@
                             <% } %>
                         </div>
                         <div>
-                            <label for="country">
-                                <input type="text" class="input-text <%= locals.errors && errors.country ? 'is-invalid' : null %>" 
-                                placeholder="País" name="country" id="country" value="<%= locals.oldData ? oldData.country : null %>"/>
-                            </label>
+                            <select name="country"
+                            id="country"
+                            class="input-text" <%= locals.errors && errors.country ? 'is-invalid' : null %><!--Revisar la clase aca css-->
+
+                                <option value="">Elige un país</option>
+                                <%
+                                    let countries = ['Argentina', 'Colombia', 'Mexico']
+                                %>
+                                <% for(const oneCountry of countries){ %>
+                                    <option value="<%= oneCountry %>"><%= oneCountry %></option>
+                                <% } %>
+                            </select></br>
                             <% if(locals.errors && errors.country){ %>
                                 <div class="text-danger">
                                     <%= errors.country.msg %>
                                 </div>
                             <% } %>
                         </div>
+
                         <div>
-                            <label for="city">
-                                <input type="text" class="input-text <%= locals.errors && errors.city ? 'is-invalid' : null %>" placeholder="Ciudad" name="city"
-                                    id="city" value="<%= locals.oldData ? oldData.city : null %>"/>
-                            </label>
+                            <select name="city"
+                            id="city"
+                            class="input-text" <%= locals.errors && errors.city ? 'is-invalid' : null %><!--Revisar la clase aca css-->
+
+                                <option value="">Elige una ciudad</option>
+                                <%
+                                    let cities = ['Buenos Aires', 'Bogotá', 'Ciudad De Mexico']
+                                %>
+                                <% for(const onecity of cities){ %>
+                                    <option value="<%= onecity %>"><%= onecity %></option>
+                                <% } %>
+                            </select></br>
                             <% if(locals.errors && errors.city){ %>
                                 <div class="text-danger">
                                     <%= errors.city.msg %>
@@ -135,7 +152,7 @@
                         <button type="submit">ENVIAR</button>
                     </div>
 
-                    <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/login"> acá</a></p>
+                    <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/usuarios/login"> acá</a></p>
                 </form>
             </section>
         </div>

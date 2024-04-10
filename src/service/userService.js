@@ -38,7 +38,9 @@ let userService = {
         }, 0);
         
         let idIncrementado = idMayor + 1;
-        console.log(this.users);
+
+        // Obtiene la fecha actual
+        let currentDate = new Date().toLocaleDateString(); 
         
         let NewUser = {
             user_id: idIncrementado,
@@ -46,16 +48,14 @@ let userService = {
             password: user.password,
             first_name: user.first_name,
             last_name: user.last_name,
-            gender: user.gender,
-            birthdate: user.birthdate,
             address: user.address,
             city: user.city,
             country: user.country,
             phone_number: user.phone_number,
             profile_picture: user.profile_picture,
-            subscription_date: user.subscription_date,
+            subscription_date: currentDate,
             last_login: user.last_login,
-            account_status: user.account_status,
+            account_status: "active",
             user_role: user.user_role
         };     
 
@@ -74,13 +74,20 @@ let userService = {
             userSearch.password = formUserUpdate.password;
             userSearch.first_name = formUserUpdate.first_name;
             userSearch.last_name= formUserUpdate.last_name;
-            userSearch.gender= formUserUpdate.gender;
-            userSearch.birthdate= formUserUpdate.birthdate;
             userSearch.address= formUserUpdate.address;
             userSearch.city= formUserUpdate.city;
             userSearch.country= formUserUpdate.country;
             userSearch.phone_number= formUserUpdate.phone_number;
-            userSearch.profile_picture= formUserUpdate.profile_picture;
+             //si el campo del formulario esta vacio es decir el usuario no quiere modificar la imagen entonces..
+             if (formUserUpdate.profile_picture == undefined) {
+                //el campo productSearch.img va a tener el valor inicial del formulario
+                userSearch.profile_picture = userSearch.profile_picture;
+                
+            } else {
+                //si no, el campo productSearch.img va a tener el valor que el usuario quiera cambiar o modificar
+                userSearch.profile_picture = formUserUpdate.profile_picture;
+            }
+
             userSearch.subscription_date= formUserUpdate.subscription_date;
             userSearch.last_login= formUserUpdate.last_login;
             userSearch.account_status= formUserUpdate.account_status;

@@ -35,8 +35,6 @@ const productsController={
 	update: (req, res) => {
 		if (req.file) {
 			let product = req.body;
-			console.log("esto es aqui");
-			console.log(product);
 			product.img = 'img/groups/' + req.file.filename;
 			res.render('products/product-detail',{'producto': productService.update(product,req.params.id) })
 			

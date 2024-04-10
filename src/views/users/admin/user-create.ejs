@@ -19,6 +19,14 @@
                     <form action="/usuarios" method="POST" class="form-create" enctype="multipart/form-data">
                         <div>
                             <div>
+                                <label for="email">Email
+                                    <input type="text" class="input-text" placeholder="Email" name="email"
+                                        id="email" required />
+                                </label>
+                                <label for="password">Password
+                                    <input type="text" class="input-text" placeholder="password" name="password"
+                                        id="password" required />
+                                </label>
                                 <label for="first_name">Nombre
                                     <input type="text" class="input-text" placeholder="Nombre" name="first_name"
                                         id="first_name" required />
@@ -29,10 +37,58 @@
                                 </label>
                             </div>
                             <div>
-                                <h1>COMPLETAR LO QUE FALTA</h1>
+                                <label for="country" class="form-label">Pais:</label>
+                                <select name="country" id="country" class="form-input" required>
+                                    <option value="">Elegí</option>
+                                    <option value="argentina">Argentina</option>
+                                    <option value="colombia">Colombia</option>
+                                    <option value="mexico">Mexico</option>
+                                </select>
                             </div>
+                            <div>
+                                <label for="city" class="form-label">Ciudad:</label>
+                                <select name="city" id="city" class="form-input" required>
+                                    <option value="">Elegí</option>
+                                    <option value="buenosAires">Buenos Aires</option>
+                                    <option value="bogota">Bogotá</option>
+                                    <option value="cdMexico">Ciudad de Mexico</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="address">Dirección
+                                    <input type="text" class="input-text" placeholder="Dirección" name="address"
+                                        id="address" required />
+                                </label>
+                            </div>
+                            <div>
+                                <label for="phone_number">Telefono
+                                    <input type="text" class="input-text" placeholder="Telefono" name="phone_number"
+                                        id="phone_number" required />
+                                </label>
+                            </div>
+                            <div>
+                                <label for="profile_picture">Foto de perfil</label>
+                                <input type="file" name="profile_picture" />
+                            </div>
+                            <div>
+                                <label>Estatus Cuenta:</label>
+                                <div class="checkbox-container yellow">
+                                    <input type="checkbox" checked id="toggle"  />
+                                    <label for="toggle"></label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="user_role" class="form-label">Rol:</label>
+                                <select name="user_role" id="user_role" class="form-input" required>
+                                    <option value="">Elegí</option>
+                                    <option value="Admin">Administrador</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="sales">Vendedor</option>
+                                </select>
+                            </div>
+                            
                             <button type="submit" class="submit">Agregar Usuario</button>
-
+                        </div>
                     </form>
             </div>
         </main>

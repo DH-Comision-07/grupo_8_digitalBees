@@ -39,7 +39,9 @@ const usersController = {
 		let userToCreate = {
 			...req.body,
 			password : bcryptjs.hashSync(req.body.password, 10),
-			profile_picture : req.file.filename
+			profile_picture : req.file.filename,
+			account_status: "active",
+			user_role: "Client"
 		}
 
 		let userCreated = userService.save(userToCreate)
@@ -62,6 +64,8 @@ const usersController = {
 			
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password)
 			if (isOkThePassword){
+				userToLogin.last_login = new Date().toLocaleDateString()
+				userService.update(userToLogin, userToLogin.user_id);
 				delete userToSession.password;
 				req.session.userLogged = userToSession;
 
@@ -124,7 +128,8 @@ const usersController = {
 	store: (req, res) => {
 		if (req.file) {
 			let user = req.body;
-			user.img = 'img/imgUsers/' + req.file.filename;
+			user.password = bcryptjs.hashSync(req.body.password, 10),
+			user.profile_picture = 'img/imgUsers/' + req.file.filename;
 			userService.save(req.body);
 			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
 			
@@ -139,16 +144,20 @@ const usersController = {
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
-		//res.send(req.body);
+		if (req.file) {
+			let user = req.body;
+			user.profile_picture = 'img/groups/' + req.file.filename;
+			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
+			
+		}else{
+			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
+		}
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		userService.delete(req.params.id);
 		res.redirect("/usuarios/admin");
-        /* Considero que deberiamos incluir en la vista "usuarios" un mensaje que aparezca después
-        de la eliminación: "USUARIO ELIMINADO CON ÉXITO" */
 	}   
 }
 
