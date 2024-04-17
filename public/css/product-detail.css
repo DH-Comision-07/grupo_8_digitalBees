@@ -17,6 +17,10 @@ h1 {
   color: #666;
 }
 
+.container {
+  margin-left: 30px;
+}
+
 .contenedor-image {
   display: flex;
   justify-content: center;

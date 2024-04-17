@@ -23,7 +23,7 @@
         <% if (locals.isLogged){%>
 
         <li class="lista__item">
-          <a class="link link--vistas" href="/usuarios/perfil"><img src="/img/imgUsers/<%= locals.userLogged.profile_picture %>" width="20" height="20" style=" border-radius:100%;"><%= locals.userLogged.first_name %></a>
+          <a class="link link--vistas foto-perfil" href="/usuarios/perfil"><img src="/img/imgUsers/<%= locals.userLogged.profile_picture %>" width="20" height="20" style=" border-radius:100%;"><%= locals.userLogged.first_name %></a>
         </li>
         <li class="lista__item">
           <a class="link link--vistas" href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
