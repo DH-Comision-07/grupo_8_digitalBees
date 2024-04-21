@@ -7,10 +7,8 @@ function userLoggedMid(req,res, next){
     
     let emailInCookie = req.cookies.userEmail;
     let userFromCookie = userService.findByField('email', emailInCookie);
-    //console.log("pase 1",emailInCookie);
-    //console.log("pase 2",userFromCookie);
+
     if (userFromCookie) {
-       // console.log("pase 3");
         req.session.userLogged = userFromCookie;
     }
 
