@@ -38,10 +38,9 @@ let productService = {
             cost: product.cost,
             img: product.img,
             description: product.description,
-            popular:product.popular =='on'?true:false,
+            popular:product.popular =='on'? true:false,
             category: product.category
         };     
-
         //guardo el producto en el array productos
         this.products.push(NewProduct);
         fs.writeFileSync(path.join(__dirname, '../data/productos.json'), JSON.stringify(this.products))

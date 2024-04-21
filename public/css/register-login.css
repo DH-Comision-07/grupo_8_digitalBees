@@ -84,6 +84,13 @@ button:hover {
 .restablecer-contraseña{
     text-align: center;
 }
+.text-danger{
+    color: #9D2A11;
+}
+
+.is-invalid {
+    border: 2px solid #9D2A11;
+  }
 
 @media (min-width: 750px) {
 
