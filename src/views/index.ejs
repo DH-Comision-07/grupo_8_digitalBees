@@ -38,9 +38,7 @@
             <h2 class="principal__titulo-section">También te puede interesar</h2>
             
             
-            <% listaDeProductos.filter(function(product){
-               return product.popular == true
-            }).forEach(function(product){ %>
+            <% listaDeProductos.forEach(function(product){ %>
               <%- include('./partials/products', {producto: product}); %>
             <% }); %>
 
