@@ -1,6 +1,7 @@
 const userService = require("../service/userService");
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
+const productService= require("../service/productService")
 
 const usersController = {
 
@@ -96,7 +97,8 @@ const usersController = {
 
 	profile: (req, res) => {
 		res.render("users/userProfile", {
-			usuario: req.session.userLogged
+			usuario: req.session.userLogged, 
+			'listaDeProductos': productService.getAll()
 		})
 	},
 
