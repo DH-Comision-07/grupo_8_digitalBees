@@ -96,10 +96,8 @@ const usersController = {
 	},
 
 	profile: (req, res) => {
-		res.render("users/userProfile", {
-			usuario: req.session.userLogged, 
-			'listaDeProductos': productService.getMain()
-		})
+		res.render("users/userProfile", 
+		{usuario: req.session.userLogged, 'listaDeProductos': productService.getMain()})
 	},
 
 	//crear boton de logout
