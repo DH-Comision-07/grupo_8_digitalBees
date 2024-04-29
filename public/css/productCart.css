@@ -1,4 +1,11 @@
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> BODY <<<<<<<< */
+body{
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .section--productos {
   display: flex;
@@ -212,6 +219,29 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> FOOTER <<<<<<<< */
+
+.pie{
+  height: 375px;
+}
+
+@media (min-width: 750px) {
+  .pie-pagina__seccion2 h4 {
+    text-align: center;
+  }
+}
+
+@media (768px <= width) {
+  .pie{
+      height: 340px;
+  }
+}
+
+@media (1024px <= width) {
+  .pie{
+      height: 242px;
+  }
 }
 
 /* -----------------------------Sacar para el Admin---------------------------------- */
