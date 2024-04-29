@@ -1,1 +1,121 @@
-[{"id":1,"title":"Miel 50gr","cost":"$230.000","img":"img/imagenesHome/img1-miel.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":true,"category":"alimentos"},{"id":2,"title":"Jabon miel","cost":"$75.000","img":"img/imagenesProductos/belleza/jabon_miel.png","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":true,"category":"belleza"},{"id":3,"title":"Jalea real","cost":"$168.000","img":"img/imagenesProductos/salud/jalea_real.png","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":true,"category":"salud"},{"id":4,"title":"Miel 300gr","cost":"$70.000","img":"img/miel.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":true,"category":"alimentos"},{"id":5,"title":"Gel de Miel","cost":"$30.000","img":"img/imagenesProductos/salud/gelMiel.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"salud"},{"id":6,"title":"Polen","cost":"$130.000","img":"img/imagenesProductos/salud/polen_frasco.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"salud"},{"id":7,"title":"Propoleo","cost":"$70.000","img":"img/imagenesProductos/salud/propoleo.png","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"salud"},{"id":8,"title":"Miel 1000gr","cost":"$70.000","img":"img/imagenesProductos/alimentos/miel_1000gr.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"alimentos"},{"id":9,"title":"Miel cristalizada","cost":"$70.000","img":"img/imagenesProductos/alimentos/miel_cristalizada.png","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"alimentos"},{"id":10,"title":"cera pura de abejas","cost":"$70.000","img":"img/imagenesProductos/belleza/cera_abeja.png","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"belleza"},{"id":11,"title":"crema facial","cost":"$70.000","img":"img/imagenesProductos/belleza/crema_corporal_facial.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"belleza"},{"id":12,"title":"Shampoo de Miel","cost":"$70.000","img":"img/imagenesProductos/belleza/shampoo_miel_polen.jpg","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.","popular":false,"category":"belleza"},{"id":13,"title":"1111","cost":"1","img":"img/groups/group-1712198950831.jpg","description":"qq","popular":false,"category":"salud"}]
+
+[
+    {
+        "id": 1,
+        "title": "Miel 50gr",
+        "cost": "$230.000",
+        "img": "img/imagenesHome/img1-miel.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": true,
+        "category": "alimentos"
+    },
+    {
+        "id": 2,
+        "title": "Jabon miel",
+        "cost": "$75.000",
+        "img": "img/imagenesProductos/belleza/jabon_miel.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": true,
+        "category": "belleza"
+    },
+    {
+        "id": 3,
+        "title": "Jalea real",
+        "cost": "$168.000",
+        "img": "img/imagenesProductos/salud/jalea_real.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": true,
+        "category": "salud"
+    },
+    {
+        "id": 4,
+        "title": "Miel 300gr",
+        "cost": "$70.000",
+        "img": "img/miel.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": true,
+        "category": "alimentos"
+    },
+    {
+        "id": 5,
+        "title": "Gel de Miel",
+        "cost": "$30.000",
+        "img": "img/imagenesProductos/salud/gelMiel.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "salud"
+    },
+    {
+        "id": 6,
+        "title": "Polen",
+        "cost": "$130.000",
+        "img": "img/imagenesProductos/salud/polen_frasco.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "salud"
+    },
+    {
+        "id": 7,
+        "title": "Propoleo",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/salud/propoleo.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "salud"
+    },
+    {
+        "id": 8,
+        "title": "Miel 1000gr",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/alimentos/miel_1000gr.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "alimentos"
+    },
+    {
+        "id": 9,
+        "title": "Miel cristalizada",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/alimentos/miel_cristalizada.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "alimentos"
+    },
+    {
+        "id": 10,
+        "title": "cera pura de abejas",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/cera_abeja.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "belleza"
+    },
+    {
+        "id": 11,
+        "title": "crema facial",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/crema_corporal_facial.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "belleza"
+    },
+    {
+        "id": 12,
+        "title": "Shampoo de Miel",
+        "cost": "$70.000",
+        "img": "img/imagenesProductos/belleza/shampoo_miel_polen.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
+        "popular": false,
+        "category": "belleza"
+    },
+    {
+        "id": 13,
+        "title": "prueba",
+        "cost": "1234",
+        "img": "img/groups/group-1712782978051.jpg",
+        "description": "prueba mod",
+        "popular": false,
+        "category": "salud"
+    }
+]
+

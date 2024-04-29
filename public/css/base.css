@@ -91,6 +91,11 @@ body {
     font-size: 20px;
   }
 
+  .foto-perfil{
+    display: flex;
+    align-items: center;
+  }
+
   .contenedor--migadepan {
     padding: 20px;
   }
@@ -188,6 +193,7 @@ body {
 
   .lista--vistas {
     display: flex;
+    align-items: center;
   }
 
 }

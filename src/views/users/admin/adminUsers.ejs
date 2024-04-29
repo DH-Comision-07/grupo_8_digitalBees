@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <!--head partial-->
+      <%- include('../../partials/head', {css:'/css/productCart.css'}); %>
+      <!--fin partial-->
+  </head>
+
+  <body class="cuerpo">
+
+    <%- include('../../partials/header.ejs'); %>
+
+    <main class="principal">
+      <section class="principal__section section--migadepan">
+        <div class="contenedor contenedor--migadepan">
+          <%- include('../../partials/breadcrumb', {local: 'Administrador'}); %>
+        </div>
+      </section>
+      <section class="principal__section section--productos">
+        <div class="contenedor">
+
+          <h1 class="principal__titulo-section">USUARIOS</h1>
+
+          <div class="buttons__page">
+            <a class="link" href="/usuarios/admin/create/">
+              <button class="tarjeta__boton boton--buy boton">
+                Crear Usuarios
+              </button>
+            </a>
+            <a class="link" href="/productos/admin/">
+              <button class="tarjeta__boton boton--buy boton">
+                Productos
+              </button>
+            </a>
+          </div>
+
+          <article class="lista__productos productos--scrolls">
+            <div class="productos__item productos--size">
+              <section class="productos__item-col item--header">
+                <p>ID</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Nombre</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Apellido</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>fecha registro</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>ultimo acceso</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>status</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>rol</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Ver</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Editar</p>
+              </section>
+              <section class="productos__item-col item--header">
+                <p>Eliminar</p>
+              </section>
+          </div>
+          <% usuarios.forEach((usuario) => { %>
+          <div class="productos__item productos--size">
+              <section class="productos__item-col">
+                <p><%= usuario.user_id %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= usuario.first_name %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= usuario.last_name %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= usuario.subscription_date %></p>
+              </section>
+              <section class="productos__item-col">
+                <p><%= usuario.last_login %></p>
+              </section>
+              <section class="productos__item-col">
+                <div class="checkbox-container yellow">
+                  <% if(usuario.account_status == "active"){ %>
+                    <input type="checkbox" checked id="toggle" disabled />
+                    <label for="toggle"></label>
+                  <% } else if (usuario.account_status == "inactive"){ %>  
+                    <input type="checkbox" id="toggle" disabled/>
+                    <label for="toggle"></label>
+                 <% } %>
+                </div>
+              </section>
+              <section class="productos__item-col">
+                <p><%= usuario.user_role %></p>
+              </section>
+              <section class="productos__item-col">
+                <button class="productos__button"><a href="/usuarios/detalle/<%= usuario.user_id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
+              </section>
+              <section class="productos__item-col">
+                <button class="productos__button"><a href="/usuarios/admin/edit/<%=usuario.user_id%>?_method=PUT" class="action-button edit"><i class="compra__icon fa-solid fa-pen-to-square"></a></i></button>
+              </section>
+              <section class="productos__item-col">
+                <form action="/usuarios/admin/<%=usuario.user_id%>?_method=DELETE" method="POST">
+                <button class="productos__button action-button delete"><i class="compra__icon fa-solid fa-trash-can"></i></button>
+              </form>
+            </section>
+            </div>
+            <%})%>
+          </article>
+        </div>
+      </section>
+    </main>
+    <%- include('../../partials/footer'); %>
+  </body>
+</html>

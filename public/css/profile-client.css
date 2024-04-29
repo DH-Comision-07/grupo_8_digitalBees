@@ -1,0 +1,132 @@
+body{
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pie{
+    height: 375px;
+}
+
+.titleOne{
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.info-perfil{
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img{
+    width: 200px;
+}
+
+.productos__button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.compra__icon, .button-profile-edit {
+    font-size: 20px;
+    color: #CF5C36;
+}
+
+
+
+/*     LISTA DE HISTORIAL */
+
+.lista__productos {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
+    color: #666;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    width: 100%;
+}
+
+.productos__item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+
+.productos__item-col {
+    flex: 1;
+    text-align: center;
+}
+
+.item--header {
+    background-color: #ebebeb;
+}
+
+.productos--scrolls {
+    overflow-x: scroll;
+    max-width: calc(100vw - 80px);
+}
+
+.productos--size {
+    width: 1200px;
+}
+
+.imagen--productos {
+    max-width: 50px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/*             MEDIA  */
+
+@media (768px <= width) {
+    .info-perfil{
+        display: block;
+    }
+    
+    .pie{
+        height: 340px;
+    }
+    
+    .contenedor--crear{
+        padding: 0 25px;
+    }
+
+    .contenedor-perfil{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .pie-pagina__seccion2 h4 {
+        text-align: center;
+    }
+    
+    .productos--scrolls {
+        max-width: calc(100vw - 80px);
+    }
+}
+  
+@media (1024px <= width) {
+    .pie{
+        height: 242px;
+    }
+    .productos--size {
+        width: 100%;
+    }
+}
+
+@media (1200px <= width) {
+    .productos--scrolls {
+      overflow-x: inherit;
+      max-width: none;
+    }
+}
