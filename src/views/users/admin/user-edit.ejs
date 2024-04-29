@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head', {css:'/css/product-create-edit.css'}); %>
+</head>
+
+<body>
+    <%- include('../../partials/header'); %>
+        <main class="principal">
+            <section class="principal__section section--migadepan">
+                <div class="contenedor contenedor--migadepan">
+                  <%- include('../../partials/breadcrumb', {local: 'Editar'}); %>
+                </div>
+              </section>
+              <div class="contenedor contenedor--crear">
+            <h2 class="title">Editar producto</h2>
+            <section>
+                <form action="/usuarios/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
+                    <div>    
+                            <div>
+                                <div>
+                                    <label for="email">Email
+                                        <input type="text" class="input-text" placeholder="Email" name="email"
+                                            value="<%= usuario.email %>" id="email" required />
+                                    </label>
+                                    <label for="first_name">Nombre
+                                        <input type="text" class="input-text" placeholder="Nombre" name="first_name"
+                                            id="first_name" value="<%= usuario.first_name %>" required />
+                                    </label>
+                                    <label for="last_name">Apellido
+                                        <input type="text" class="input-text" placeholder="Apellido" name="last_name"
+                                            id="last_name" value="<%= usuario.last_name %>" required />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="country" class="form-label">Pais:</label>
+                                    <select name="country" id="country" class="form-input" required>
+                                        <option value="">Elegí</option>
+                                        <option value="argentina" <%= usuario.country === 'argentina' ? 'selected' : '' %>>Argentina</option>
+                                        <option value="colombia" <%= usuario.country === 'colombia' ? 'selected' : '' %>>Colombia</option>
+                                        <option value="mexico" <%= usuario.country === 'mexico' ? 'selected' : '' %>>Mexico</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="city" class="form-label">Ciudad:</label>
+                                    <select name="city" id="city" class="form-input" required>
+                                        <option value="">Elegí</option>
+                                        <option value="Buenos Aires" <%= usuario.city === 'Buenos Aires' ? 'selected' : '' %>>Buenos Aires</option>
+                                        <option value="Bogota" <%= usuario.city === 'Bogota' ? 'selected' : '' %>>Bogotá</option>
+                                        <option value="Ciudad de Mexico" <%= usuario.city === 'Ciudad de Mexico' ? 'selected' : '' %>>Ciudad de México</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="address">Dirección
+                                        <input type="text" class="input-text" placeholder="Dirección" name="address"
+                                            id="address" value="<%= usuario.address %>" required />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="phone_number">Telefono
+                                        <input type="text" class="input-text" placeholder="Telefono" name="phone_number"
+                                            id="phone_number" value="<%= usuario.phone_number %>" required />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="profile_picture">Foto de perfil</label>
+                                    <input type="file" src="/<%= usuario.profile_picture %>" name="profile_picture" />
+                                </div>
+                                <div>
+                                    <label>Estatus Cuenta:</label>
+                                    <div class="checkbox-container yellow">
+                                        <input type="checkbox" checked id="toggle"  />
+                                        <label for="toggle"></label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="user_role" class="form-label">Rol:</label>
+                                    <select name="user_role" id="user_role" class="form-input" required>
+                                        <option value="">Elegí</option>
+                                        <option value="Admin" <%= usuario.user_role === 'Admin' ? 'selected' : '' %>>Administrador</option>
+                                        <option value="manager" <%= usuario.user_role === 'manager' ? 'selected' : '' %>>Manager</option>
+                                        <option value="sales" <%= usuario.user_role === 'sales' ? 'selected' : '' %>>Vendedor</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="submit">Editar producto</button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <%- include('../../partials/footer'); %>
+</body>
+
+</html>
