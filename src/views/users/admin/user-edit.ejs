@@ -14,7 +14,7 @@
                 </div>
               </section>
               <div class="contenedor contenedor--crear">
-            <h2 class="title">Editar producto</h2>
+            <h2 class="title">Editar usuario</h2>
             <section>
                 <form action="/usuarios/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
                     <div>    
@@ -34,23 +34,15 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <label for="country" class="form-label">Pais:</label>
-                                    <select name="country" id="country" class="form-input" required>
-                                        <option value="">Elegí</option>
-                                        <option value="argentina" <%= usuario.country === 'argentina' ? 'selected' : '' %>>Argentina</option>
-                                        <option value="colombia" <%= usuario.country === 'colombia' ? 'selected' : '' %>>Colombia</option>
-                                        <option value="mexico" <%= usuario.country === 'mexico' ? 'selected' : '' %>>Mexico</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="city" class="form-label">Ciudad:</label>
-                                    <select name="city" id="city" class="form-input" required>
-                                        <option value="">Elegí</option>
-                                        <option value="Buenos Aires" <%= usuario.city === 'Buenos Aires' ? 'selected' : '' %>>Buenos Aires</option>
-                                        <option value="Bogota" <%= usuario.city === 'Bogota' ? 'selected' : '' %>>Bogotá</option>
-                                        <option value="Ciudad de Mexico" <%= usuario.city === 'Ciudad de Mexico' ? 'selected' : '' %>>Ciudad de México</option>
-                                    </select>
-                                </div>
+                                    <label for="country">Pais
+                                        <input type="text" class="input-text" placeholder="Pais" name="country"
+                                            id="country" value="<%= usuario.country %>" required />
+                                    </label>
+
+                                    <label for="city">ciudad
+                                        <input type="text" class="input-text" placeholder="Ciudad" name="city"
+                                            id="city" value="<%= usuario.city %>" required />
+                                    </label>
                                 <div>
                                     <label for="address">Dirección
                                         <input type="text" class="input-text" placeholder="Dirección" name="address"
@@ -84,7 +76,7 @@
                                     </select>
                                 </div>
                                 
-                                <button type="submit" class="submit">Editar producto</button>
+                                <button type="submit" class="submit">Editar Usuario</button>
                             </div>
                     </div>
                 </form>

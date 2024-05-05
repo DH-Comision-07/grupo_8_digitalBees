@@ -13,16 +13,27 @@ const usersController = {
 
 	processRegister:(req,res)=>{
 		//array de validaciones
-		const resultValidation= validationResult(req);
+		const resultValidation= validationResult(req);		
+		const countryCities = {
+			Argentina: ['Buenos Aires', 'Córdoba', 'Rosario'],
+			Colombia: ['Bogotá', 'Medellín', 'Cali'],
+			Mexico: ['Ciudad de México', 'Guadalajara', 'Monterrey']
+		};
+	
+		const selectedCountry = req.body.country;
+		const cities = countryCities[selectedCountry] || [];
+
 		//resultValidation en su propiedad errors es mayor a cero
 		if(resultValidation.errors.length > 0){
 			return res.render('users/register',{
 				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
 				errors: resultValidation.mapped(),
+				selectedCountry: selectedCountry,
+        		cities: cities,
 				oldData: req.body
 			});
 		}
-
+		
 		let userInDb =userService.findByField('email', req.body.email);
 
 		if (userInDb) {
@@ -56,13 +67,13 @@ const usersController = {
 		//"email" es el campo que esta en el json, req.body.email es el valor que digita el usuario en el formulario
 		//"email tiene que coincidir con el nombre en el json y en el name de la vista"
 		let userToLogin = userService.findByField('email', req.body.email);
-		console.log("--->>>", userToLogin);
+		console.log("--->>> user to login: ", userToLogin);
 		
 		if (userToLogin) {
 			//esto es para crear un clon del usuario en sesion y no una referencia en memoria que apunte al principal
 			let userToSession = JSON.parse(JSON.stringify(userToLogin))
 			//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
-			
+			console.log("--->>> user to session", userToSession);
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password)
 			if (isOkThePassword){
 				userToLogin.last_login = new Date().toLocaleDateString()
@@ -96,11 +107,29 @@ const usersController = {
 	},
 
 	profile: (req, res) => {
+		let listaDeProductos = productService.getMain();
+		console.log("USUARIO EN SESION EN PERFIL",req.session.userLogged);
 		res.render("users/userProfile", 
-		{usuario: req.session.userLogged, 'listaDeProductos': productService.getMain()})
+		{usuario: req.session.userLogged, 'listaDeProductos': listaDeProductos})
 	},
 
-	//crear boton de logout
+	editProfile(req,res){
+		res.render('users/editUserProfile', { 'usuario': userService.getOneBy(req.params.id)})
+	},
+
+	updateProfile(req,res){
+		let listaDeProductos = productService.getMain();
+		let userRol = req.session.userLogged.user_role
+		if (req.file) {
+			let user = req.body;
+			user.profile_picture = req.file.filename;
+			res.render('users/userProfile', {'usuario': userService.update(req.body,req.params.id, userRol), 'listaDeProductos': listaDeProductos})
+			
+		}else{
+			res.render('users/userProfile', {'usuario': userService.update(req.body,req.params.id), 'listaDeProductos': listaDeProductos })
+		}
+	},
+
 	logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
@@ -146,8 +175,8 @@ const usersController = {
 	update: (req, res) => {
 		if (req.file) {
 			let user = req.body;
-			user.profile_picture = 'img/groups/' + req.file.filename;
-			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
+			user.profile_picture = 'img/imgUsers/' + req.file.filename;
+			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id),})
 			
 		}else{
 			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })

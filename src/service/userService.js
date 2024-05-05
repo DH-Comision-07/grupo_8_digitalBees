@@ -65,21 +65,17 @@ let userService = {
         return "OK"
     },
 
-    update: function(formUserUpdate,id){
+    update: function(formUserUpdate, id, userRol){
        
         let userSearch = users.find(user => user.user_id == id);
         
         if (userSearch) {
             userSearch.email = formUserUpdate.email;
-            userSearch.password = formUserUpdate.password;
+            userSearch.phone_number= formUserUpdate.phone_number;
             userSearch.first_name = formUserUpdate.first_name;
             userSearch.last_name= formUserUpdate.last_name;
-            userSearch.address= formUserUpdate.address;
-            userSearch.city= formUserUpdate.city;
-            userSearch.country= formUserUpdate.country;
-            userSearch.phone_number= formUserUpdate.phone_number;
              //si el campo del formulario esta vacio es decir el usuario no quiere modificar la imagen entonces..
-             if (formUserUpdate.profile_picture == undefined) {
+            if (formUserUpdate.profile_picture == undefined) {
                 //el campo productSearch.img va a tener el valor inicial del formulario
                 userSearch.profile_picture = userSearch.profile_picture;
                 
@@ -88,17 +84,24 @@ let userService = {
                 userSearch.profile_picture = formUserUpdate.profile_picture;
             }
 
-            userSearch.subscription_date= formUserUpdate.subscription_date;
-            userSearch.last_login= formUserUpdate.last_login;
-            userSearch.account_status= formUserUpdate.account_status;
-            userSearch.user_role= formUserUpdate.user_role;
+            if (userRol == "Admin") {
+                userSearch.password = formUserUpdate.password;
+                userSearch.address= formUserUpdate.address;
+                userSearch.city= formUserUpdate.city;
+                userSearch.country= formUserUpdate.country;
+                userSearch.subscription_date= formUserUpdate.subscription_date;
+                userSearch.last_login= formUserUpdate.last_login;
+                userSearch.account_status= formUserUpdate.account_status;
+                userSearch.user_role= formUserUpdate.user_role;    
+            }
+           
         }
 
         fs.writeFileSync(usersFilePath, JSON.stringify(this.users)); // Ser reemplazó "path.join(__dirname, '../data/usuarios.json')" por la variable "usersFilePath"
         
         return userSearch;
     },
-
+    
     delete: function (id) {
         // contiene la nueva lista de usuarios sin incluir el que se elimina  
         let newUsers = this.users.filter((user) => user.user_id != id);

@@ -64,18 +64,13 @@
                                 </div>
                             <% } %>
                         </div>
+                        <!--***************-->
                         <div>
-                            <select name="country"
-                            id="country"
-                            class="input-text" <%= locals.errors && errors.country ? 'is-invalid' : null %><!--Revisar la clase aca css-->
-
-                                <option value="">Elige un país</option>
-                                <%
-                                    let countries = ['Argentina', 'Colombia', 'Mexico']
-                                %>
-                                <% for(const oneCountry of countries){ %>
-                                    <option value="<%= oneCountry %>"><%= oneCountry %></option>
-                                <% } %>
+                            <select name="country" id= "country" class="input-text" onchange="this.form.submit()">
+                                <option value="">Seleccione un país</option>
+                                <option value="Argentina" <%= locals.selectedCountry === 'Argentina' ? 'selected' : '' %>>Argentina</option>
+                                <option value="Colombia" <%= locals.selectedCountry === 'Colombia' ? 'selected' : '' %>>Colombia</option>
+                                <option value="Mexico" <%= locals.selectedCountry === 'Mexico' ? 'selected' : '' %>>Mexico</option>
                             </select></br>
                             <% if(locals.errors && errors.country){ %>
                                 <div class="text-danger">
@@ -83,27 +78,23 @@
                                 </div>
                             <% } %>
                         </div>
-
                         <div>
-                            <select name="city"
-                            id="city"
-                            class="input-text" <%= locals.errors && errors.city ? 'is-invalid' : null %><!--Revisar la clase aca css-->
-
-                                <option value="">Elige una ciudad</option>
-                                <%
-                                    let cities = ['Buenos Aires', 'Bogotá', 'Ciudad De Mexico']
-                                %>
-                                <% for(const onecity of cities){ %>
-                                    <option value="<%= onecity %>"><%= onecity %></option>
-                                <% } %>
-                            </select></br>
+                            <% if(locals.selectedCountry) { %>
+                                <select name="city" id="city" class="input-text">
+                                    <option value="">Seleccione una ciudad</option>
+                                    <% locals.cities.forEach(function(city) { %>
+                                    <option value="<%= city %>"><%= city %></option>
+                                    <% }); %>
+                                </select>
+                            <% } %></br>
                             <% if(locals.errors && errors.city){ %>
                                 <div class="text-danger">
                                     <%= errors.city.msg %>
                                 </div>
                             <% } %>
                         </div>
-                        <div>
+                      <!--**************-->
+                        <div> 
                             <label for="address">
                                 <input type="text" class="input-text <%= locals.errors && errors.address ? 'is-invalid' : null %>" placeholder="Domicilio" name="address"
                                     id="address" value="<%= locals.oldData ? oldData.address : null %>" />
