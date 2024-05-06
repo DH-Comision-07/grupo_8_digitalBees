@@ -1,3 +1,4 @@
+
 [
     {
         "id": 1,
@@ -115,23 +116,6 @@
         "description": "prueba mod",
         "popular": false,
         "category": "salud"
-    },
-    {
-        "id": 14,
-        "title": "prueba 2",
-        "cost": "12345",
-        "img": "img/groups/group-1715032476811.jpg",
-        "description": "prueba 2",
-        "popular": false,
-        "category": "alimentos"
-    },
-    {
-        "id": 15,
-        "title": "prueba 3",
-        "cost": "1234",
-        "img": "img/groups/group-1715032653728.jpg",
-        "description": "prueba 3",
-        "popular": false,
-        "category": "alimentos"
     }
 ]
+
