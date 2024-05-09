@@ -1,4 +1,4 @@
-const userService = require('../service/userService')
+const userService = require('../model/service/userService')
 
 //MIDDLEWARE GLOBAL
 function userLoggedMid(req,res, next){

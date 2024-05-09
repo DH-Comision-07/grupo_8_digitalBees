@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 //con el require y la ruta ya me parsea el archivo JSON
-const products = require('../data/productos.json')
-const productsFilePath = path.join(__dirname, '../data/productos.json');
+const products = require('../../data/productos.json')
+const productsFilePath = path.join(__dirname, '../../data/productos.json');
 
 //aqui va todas las funciones que voy a pasar al controller
 let productService = {  

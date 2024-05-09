@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 //El "require" junto la "ruta" parsea el archivo JSON, por lo cual no se requiere ninguna conversión adicional
-const users = require('../data/usuarios.json');
+const users = require('../../data/usuarios.json');
 const { log } = require('console');
-const usersFilePath = path.join(__dirname, '../data/usuarios.json');
+const usersFilePath = path.join(__dirname, '../../data/usuarios.json');
 
 //aqui están todas las funciones que el controller invoca
 let userService = {  

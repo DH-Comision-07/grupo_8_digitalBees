@@ -1,21 +1,22 @@
-<section>
-  <div class="boton-cantidad">
-    <h1>VISTA DETALLE USUARIO</h1>
+
+<section class="">
+  <div class="contenedor contenedor--crear">
+    <div class="boton-cantidad titulo-detalle-usuario">
+      <h1>VISTA DETALLE USUARIO</h1>
+    </div>
+
+    <div class="vista--detalle">
+      <h3><span class="color-letras">ID:</span> <%= usuario.user_id %></h3>
+      <h3><span class="color-letras">Email:</span><%= usuario.email %></h3>
+      <h3><span class="color-letras">foto de perfil:</span> <%= usuario.profile_picture %></h3>
+      <h3><span class="color-letras">Nombre:</span> <%= usuario.first_name %></h3>
+      <h3><span class="color-letras">Apellido:</span> <%= usuario.last_name %></h3>
+      <h3><span class="color-letras">Direccion:</span> <%= usuario.address %></h3>
+      <h3><span class="color-letras">Ciudad:</span> <%= usuario.city %></h3>
+      <h3><span class="color-letras">País:</span> <%= usuario.country %></h3>
+      <h3><span class="color-letras">Rol:</span> <%= usuario.user_role %></h3>
+      <h3><span class="color-letras">Último acceso:</span> <%= usuario.last_login %></h3>
+      <h3><span class="color-letras">Fecha de suscripcion:</span> <%= usuario.subscription_date %></h3> 
+    </div>
   </div>
-
-    <h3>ID: <%= usuario.user_id %></h3>
-    <h3>email: <%= usuario.email %></h3>
-    <h3>foto de perfil: <%= usuario.profile_picture %></h3>
-    <h3>Nombre: <%= usuario.first_name %></h3>
-    <h3>Apellido: <%= usuario.last_name %></h3>
-    <h3>Direccion: <%= usuario.address %></h3>
-    <h3>Ciudad: <%= usuario.city %></h3>
-    <h3>País: <%= usuario.country %></h3>
-    <h3>Rol: <%= usuario.user_role %></h3>
-    <h3>ultimo acceso: <%= usuario.last_login %></h3>
-    <h3>Fecha de suscripcion: <%= usuario.subscription_date %></h3>
-  
-      
-    </section>
-</article>
-
+</section>

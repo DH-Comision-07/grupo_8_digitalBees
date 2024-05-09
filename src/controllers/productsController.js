@@ -1,4 +1,4 @@
-const productService= require("../service/productService")
+const productService= require("../model/service/productService")
 
 const productsController={
     getAll:(req, res) => res.render("products/listaProductos", {'listaDeProductos': productService.getAll()}),

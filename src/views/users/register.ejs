@@ -25,127 +25,132 @@
                   <% }%>
 
               <% } %>-->
-
-            <h2 class="titulo-registro">Registrate</h2>
-
-            <section>
-                <form method="POST" action="/usuarios/registro" class="form-container" enctype="multipart/form-data">
-                    <div>
-                        <div>
-                            <label for="first_name">
-                                <input type="text" class="input-text <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"  placeholder="Nombre"
-                                    name="first_name" id="first_name" value="<%= locals.oldData ? oldData.first_name : null %>" />
-                            </label>
-                            <% if(locals.errors && errors.first_name){ %>
-                                <div class="text-danger">
-                                    <%= errors.first_name.msg %>
+            <section class="contenedor contenedor--box">
+                <div class="contenedor-formulario">
+                    <h2 class="titulo-registro">Registrate</h2>
+    
+                    <section>
+                        <form method="POST" action="/usuarios/registro" class="form-container" enctype="multipart/form-data">
+                            <div>
+                                <div>
+                                    <label for="first_name">
+                                        <input type="text" class="input-text <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"  placeholder="Nombre"
+                                            name="first_name" id="first_name" value="<%= locals.oldData ? oldData.first_name : null %>" />
+                                    </label>
+                                    <% if(locals.errors && errors.first_name){ %>
+                                        <div class="text-danger">
+                                            <%= errors.first_name.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <div>
-                            <label for="last_name">
-                                <input type="text" class="input-text <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" placeholder="Apellido"
-                                    name="last_name" id="last_name" value="<%= locals.oldData ? oldData.last_name : null %>" />
-                            </label>
-                            <% if(locals.errors && errors.last_name){ %>
-                                <div class="text-danger">
-                                    <%= errors.last_name.msg %>
+                                <div>
+                                    <label for="last_name">
+                                        <input type="text" class="input-text <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" placeholder="Apellido"
+                                            name="last_name" id="last_name" value="<%= locals.oldData ? oldData.last_name : null %>" />
+                                    </label>
+                                    <% if(locals.errors && errors.last_name){ %>
+                                        <div class="text-danger">
+                                            <%= errors.last_name.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <div>
-                            <label for="email">
-                                <input type="email" class="input-email <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="E-mail" 
-                                name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>"/>
-                            </label>
-                            <% if(locals.errors && errors.email){ %>
-                                <div class="text-danger">
-                                    <%= errors.email.msg %>
+                                <div>
+                                    <label for="email">
+                                        <input type="email" class="input-email <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="E-mail" 
+                                        name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>"/>
+                                    </label>
+                                    <% if(locals.errors && errors.email){ %>
+                                        <div class="text-danger">
+                                            <%= errors.email.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <!--***************-->
-                        <div>
-                            <select name="country" id= "country" class="input-text" onchange="this.form.submit()">
-                                <option value="">Seleccione un país</option>
-                                <option value="Argentina" <%= locals.selectedCountry === 'Argentina' ? 'selected' : '' %>>Argentina</option>
-                                <option value="Colombia" <%= locals.selectedCountry === 'Colombia' ? 'selected' : '' %>>Colombia</option>
-                                <option value="Mexico" <%= locals.selectedCountry === 'Mexico' ? 'selected' : '' %>>Mexico</option>
-                            </select></br>
-                            <% if(locals.errors && errors.country){ %>
-                                <div class="text-danger">
-                                    <%= errors.country.msg %>
+                                <!--***************-->
+                                <div>
+                                    <select name="country" id= "country" class="input-text" onchange="this.form.submit()">
+                                        <option value="">Seleccione un país</option>
+                                        <option value="Argentina" <%= locals.selectedCountry === 'Argentina' ? 'selected' : '' %>>Argentina</option>
+                                        <option value="Colombia" <%= locals.selectedCountry === 'Colombia' ? 'selected' : '' %>>Colombia</option>
+                                        <option value="Mexico" <%= locals.selectedCountry === 'Mexico' ? 'selected' : '' %>>Mexico</option>
+                                    </select></br>
+                                    <% if(locals.errors && errors.country){ %>
+                                        <div class="text-danger">
+                                            <%= errors.country.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <div>
-                            <% if(locals.selectedCountry) { %>
-                                <select name="city" id="city" class="input-text">
-                                    <option value="">Seleccione una ciudad</option>
-                                    <% locals.cities.forEach(function(city) { %>
-                                    <option value="<%= city %>"><%= city %></option>
-                                    <% }); %>
-                                </select>
-                            <% } %></br>
-                            <% if(locals.errors && errors.city){ %>
-                                <div class="text-danger">
-                                    <%= errors.city.msg %>
+                                <div>
+                                    <% if(locals.selectedCountry) { %>
+                                        <select name="city" id="city" class="input-text">
+                                            <option value="">Seleccione una ciudad</option>
+                                            <% locals.cities.forEach(function(city) { %>
+                                            <option value="<%= city %>"><%= city %></option>
+                                            <% }); %>
+                                        </select>
+                                    <% } %></br>
+                                    <% if(locals.errors && errors.city){ %>
+                                        <div class="text-danger">
+                                            <%= errors.city.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                      <!--**************-->
-                        <div> 
-                            <label for="address">
-                                <input type="text" class="input-text <%= locals.errors && errors.address ? 'is-invalid' : null %>" placeholder="Domicilio" name="address"
-                                    id="address" value="<%= locals.oldData ? oldData.address : null %>" />
-                            </label>
-                            <% if(locals.errors && errors.address){ %>
-                                <div class="text-danger">
-                                    <%= errors.address.msg %>
+                                <!--**************-->
+                                <div> 
+                                    <label for="address">
+                                        <input type="text" class="input-text <%= locals.errors && errors.address ? 'is-invalid' : null %>" placeholder="Domicilio" name="address"
+                                            id="address" value="<%= locals.oldData ? oldData.address : null %>" />
+                                    </label>
+                                    <% if(locals.errors && errors.address){ %>
+                                        <div class="text-danger">
+                                            <%= errors.address.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <div>
-                            <label for="phone_number">
-                                <input type="text" class="input-text <%= locals.errors && errors.phone_number ? 'is-invalid' : null %>" placeholder="Teléfono" name="phone_number"
-                                    id="phone_number" value="<%= locals.oldData ? oldData.phone_number : null %>"/>
-                            </label>
-                            <% if(locals.errors && errors.phone_number){ %>
-                                <div class="text-danger">
-                                    <%= errors.phone_number.msg %>
+                                <div>
+                                    <label for="phone_number">
+                                        <input type="text" class="input-text <%= locals.errors && errors.phone_number ? 'is-invalid' : null %>" placeholder="Teléfono" name="phone_number"
+                                            id="phone_number" value="<%= locals.oldData ? oldData.phone_number : null %>"/>
+                                    </label>
+                                    <% if(locals.errors && errors.phone_number){ %>
+                                        <div class="text-danger">
+                                            <%= errors.phone_number.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                        <div>
-                            <label for="profile_picture">Imagen de perfil</label>
-                            <input type="file" name="profile_picture" />
-                            <% if(locals.errors && errors.profile_picture){ %>
-                                <div class="text-danger">
-                                    <%= errors.profile_picture.msg %>
+                                <div>
+                                    <label for="profile_picture">Imagen de perfil</label>
+                                    <input type="file" name="profile_picture" />
+                                    <% if(locals.errors && errors.profile_picture){ %>
+                                        <div class="text-danger">
+                                            <%= errors.profile_picture.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <label for="password">
-                                <input type="password" class="input-password <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-                                name="password" placeholder="Contraseña" />
-                            </label>
-                            <% if(locals.errors && errors.password){ %>
-                                <div class="text-danger">
-                                    <%= errors.password.msg %>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="password">
+                                        <input type="password" class="input-password <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
+                                        name="password" placeholder="Contraseña" />
+                                    </label>
+                                    <% if(locals.errors && errors.password){ %>
+                                        <div class="text-danger">
+                                            <%= errors.password.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit">ENVIAR</button>
-                    </div>
-
-                    <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/usuarios/login"> acá</a></p>
-                </form>
+                            </div>
+                            <div>
+                                <button type="submit">ENVIAR</button>
+                            </div>
+        
+                            <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/usuarios/login"> acá</a></p>
+                        </form>
+                    </section>
+                </div>
             </section>
+
+
         </div>
     </main>
 
