@@ -77,15 +77,17 @@
                                     <label for="toggle"></label>
                                 </div>
                             </div>
-                            <div>
-                                <label for="user_role" class="form-label">Rol:</label>
-                                <select name="user_role" id="user_role" class="form-input" required>
-                                    <option value="">Elegí</option>
-                                    <option value="Admin">Administrador</option>
-                                    <option value="manager">Manager</option>
-                                    <option value="sales">Vendedor</option>
-                                </select>
-                            </div>
+
+                            <label for="rolID">Rol: </label>
+                        <p>
+                            <select name="user_role_id" class="form-input" id="" required>
+                                <option value="" disabled selected>- selecciona rol - </option>
+                                <% roles.forEach(rol => { %>
+                                <option value="<%= rol.id %>"><%= rol.role %></option>
+                                <% }); %>
+                            </select>
+                        </p>
+                        <br>
                             
                             <button type="submit" class="submit">Agregar Usuario</button>
                         </div>

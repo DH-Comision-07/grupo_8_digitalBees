@@ -12,6 +12,7 @@ router.get('/carrito', productsController.mainProducts);
 /*** GET DETAIL ONE PRODUCT ***/
 router.get('/detalle/:id', productsController.detail);
 
+
 /*** GET ALL PRODUCTS ADMIN ***/ 
 router.get('/admin', credentialsMid.adminMid ,productsController.getAllAdmin);
 /*** CREATE ONE PRODUCT ADMIN ***/ 

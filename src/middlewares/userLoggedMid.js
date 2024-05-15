@@ -4,13 +4,15 @@ const userService = require('../model/service/userService')
 function userLoggedMid(req,res, next){
     //la variable locals afecta a toda la aplicacion
     res.locals.isLogged = false;
-    
     let emailInCookie = req.cookies.userEmail;
-    let userFromCookie = userService.findByField('email', emailInCookie);
+    if (emailInCookie != undefined) {
+        let userFromCookie = userService.findByField('email', emailInCookie);
 
-    if (userFromCookie) {
-        req.session.userLogged = userFromCookie;
+        if (userFromCookie) {
+            req.session.userLogged = userFromCookie;
+        }
     }
+    
 
     if(req.session.userLogged){
         res.locals.isLogged = true;  

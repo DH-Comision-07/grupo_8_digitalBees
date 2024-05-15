@@ -31,29 +31,35 @@
                                             id="description" required />
                                     </label>
                                 </div>
-                                <div>
-                                    <label>Destacado:</label>
-                                    <div class="checkbox-container yellow">
-                                        <input type="checkbox" checked id="toggle"  />
-                                        <label for="toggle"></label>
-                                        
-                                    </div>
+                                <label name="popular">Destacado:</label> 
+                                <div class="checkbox-container yellow">
+                                    <input type="checkbox" id="toggle" <%= isChecked === 1 ? 'checked' : '' %> />
+                                    <label for="toggle"></label>
                                 </div>
                                 <div>
-                                    <label for="category" class="form-label">Categoría:</label>
-                                    <select name="category" id="category" class="form-input" required>
-                                        <option value="">Elegí</option>
-                                        <option value="salud">Salud</option>
-                                        <option value="alimentos">Alimentos</option>
-                                        <option value="belleza">Belleza</option>
-                                    </select>
+                                    <label for="stock">Stock
+                                        <input type="number" class="input-text" placeholder="Stock" name="stock" id="cost"
+                                            required />
+                                    </label>
                                 </div>
+
+                                <label for="categoriaID">Categoría: </label>
+                                    <p>
+                                        <select name="categoria_id" class="form-label" id="" required>
+                                            <option value="" disabled selected>- selecciona categoria - </option>
+                                            <% categorias.forEach(categoria => { %>
+                                            <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                                            <% }); %>
+                                        </select>
+                                    </p>
+                                    <br>
                                 <div>
                                     <label for="cost">Precio
                                         <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost"
                                             required />
                                     </label>
                                 </div>
+                                
                                 <div>
                                     <label for="img">Foto de producto</label>
                                     <input type="file" name="img" />

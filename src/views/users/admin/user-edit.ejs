@@ -16,7 +16,7 @@
               <div class="contenedor contenedor--crear">
             <h2 class="title">Editar usuario</h2>
             <section>
-                <form action="/usuarios/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
+                <form action="/usuarios/admin/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
                     <div>    
                             <div>
                                 <div>
@@ -66,16 +66,14 @@
                                         <label for="toggle"></label>
                                     </div>
                                 </div>
-                                <div>
-                                    <label for="user_role" class="form-label">Rol:</label>
-                                    <select name="user_role" id="user_role" class="form-input" required>
-                                        <option value="">Elegí</option>
-                                        <option value="Admin" <%= usuario.user_role === 'Admin' ? 'selected' : '' %>>Administrador</option>
-                                        <option value="manager" <%= usuario.user_role === 'manager' ? 'selected' : '' %>>Manager</option>
-                                        <option value="sales" <%= usuario.user_role === 'sales' ? 'selected' : '' %>>Vendedor</option>
+                                <p>
+                                    <label for="user_role_id" class="form-label">Rol: </label>
+                                    <select name="user_role_id" id="" required>
+                                        <% roles.forEach(rol => { %>
+                                            <option value="<%= rol.id %>" <% if (usuario.user_role_id == rol.id) { %> selected <% }; %>><%= rol.role %></option>
+                                        <% }); %>
                                     </select>
-                                </div>
-                                
+                                </p>
                                 <button type="submit" class="submit">Editar Usuario</button>
                             </div>
                     </div>

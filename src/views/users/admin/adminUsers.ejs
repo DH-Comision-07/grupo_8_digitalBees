@@ -86,18 +86,29 @@
               </section>
               <section class="productos__item-col">
                 <div class="checkbox-container yellow">
-                  <% if(usuario.account_status == "active"){ %>
+                  <% if(usuario.account_status == 1){ %>
                     <input type="checkbox" checked id="toggle" disabled />
                     <label for="toggle"></label>
-                  <% } else if (usuario.account_status == "inactive"){ %>  
+                  <% } else if (usuario.account_status == 0){ %>  
                     <input type="checkbox" id="toggle" disabled/>
                     <label for="toggle"></label>
                  <% } %>
                 </div>
               </section>
               <section class="productos__item-col">
-                <p><%= usuario.user_role %></p>
-              </section>
+                
+                    <% let userRole = ""; %>
+                    <% if (usuario.user_role_id === 1) { %>
+                        <% userRole = "Client"; %>
+                    <% } else if (usuario.user_role_id === 2) { %>
+                        <% userRole = "Admin"; %>
+                    <% } else if (usuario.user_role_id === 3) { %>
+                        <% userRole = "Manager"; %>
+                    <% } else if (usuario.user_role_id === 4) { %>
+                        <% userRole = "Sales"; %>
+                    <% } %>
+                    <p name="<%= usuario.id %>"><%= userRole %></p>
+            </section>
               <section class="productos__item-col">
                 <button class="productos__button"><a href="/usuarios/detalle/<%= usuario.user_id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
               </section>

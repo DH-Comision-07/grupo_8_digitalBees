@@ -44,19 +44,18 @@
                                 </div>
 
                         </div>
-                        <div>
-                            <label for="category" class="form-label">Categoría:</label>
-                            
-						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required >
-							    <option value="" >Elegí</option>
-							    <option value="salud" <%= producto.category === 'salud' ? 'selected' : '' %>>Salud</option>
-							    <option value="alimentos"<%= producto.category === 'alimentos' ? 'selected' : '' %>>Alimentos</option>
-                                <option value="belleza" <%= producto.category === 'belleza' ? 'selected' : '' %> >Belleza</option>
-						    </select>
-                        </div>
+                        <p>
+                            <label for="categoria_id" class="form-label">Categoria: </label>
+                            <select name="categoria_id" id="" required>
+                                <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.id %>" <% if (producto.categoria_id == categoria.id) { %><%= 'selected' %><% }; %>><%= categoria.name %></option>
+                                <% }); %>
+                            </select>
+                        </p>
+
                         <div>
                             <label for="cost">Precio
-                                <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
+                                <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost %>"  required  />
                             </label>
                         </div>
                         <div>
