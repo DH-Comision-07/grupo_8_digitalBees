@@ -29,12 +29,12 @@
             
               <div>
                 <section>
-                  <h3>Nombre: <%= usuario.first_name %></h3>
+                  <h3>Nombre:<%= usuario.first_name %></h3> 
                   <h3>Apellido: <%= usuario.last_name %></h3>
                   <h3>email: <%= usuario.email %></h3>
                   <h3>Telefono: <%= usuario.phone_number %></h3>
                 </section><br>
-                <button class="productos__button"><a href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT" class="button-profile-edit">EDITAR PERFIL<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
+                <button class="productos__button"><a href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT" class="button-profile-edit">Editar Perfil<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
               </div>
             </section>
 
@@ -57,9 +57,32 @@
                 </section>
               </div>
 
+              <% listaDeProductos.forEach((producto) => { %>
+              <div class="productos__item productos--size">
+                <section class="productos__item-col">
+                  <p><%= producto.title %></p>
+                </section>
+                <section class="productos__item-col">
+                  <p><%= producto.cost %></p>
+                </section>
+                <section class="productos__item-col">
+                  <picture class="compra__imagen">
+                    <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
+                  </picture>
+                </section>
+                <section class="productos__item-col">
+                  <p>7</p>
+                </section>
+                <section class="productos__item-col">
+                  <p><%= producto.cost %></p>
+                </section>
+              </div>
+              <%})%>
+
             </article>
           </div>
         </div>
+          
           
         <!--
         <section>
