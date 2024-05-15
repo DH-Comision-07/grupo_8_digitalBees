@@ -6,15 +6,27 @@
     </div>
 
     <div class="vista--detalle">
+      <div class="contenedor-image">
+        <img class="image" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="user">
+    </div>
       <h3><span class="color-letras">ID:</span> <%= usuario.user_id %></h3>
       <h3><span class="color-letras">Email:</span><%= usuario.email %></h3>
-      <h3><span class="color-letras">foto de perfil:</span> <%= usuario.profile_picture %></h3>
       <h3><span class="color-letras">Nombre:</span> <%= usuario.first_name %></h3>
       <h3><span class="color-letras">Apellido:</span> <%= usuario.last_name %></h3>
       <h3><span class="color-letras">Direccion:</span> <%= usuario.address %></h3>
       <h3><span class="color-letras">Ciudad:</span> <%= usuario.city %></h3>
       <h3><span class="color-letras">País:</span> <%= usuario.country %></h3>
-      <h3><span class="color-letras">Rol:</span> <%= usuario.user_role %></h3>
+      <% let userRole = ""; %>
+        <% if (usuario.user_role_id === 1) { %>
+            <% userRole = "Client"; %>
+        <% } else if (usuario.user_role_id === 2) { %>
+            <% userRole = "Admin"; %>
+        <% } else if (usuario.user_role_id === 3) { %>
+            <% userRole = "Manager"; %>
+        <% } else if (usuario.user_role_id === 4) { %>
+            <% userRole = "Sales"; %>
+        <% } %>
+      <h3><span class="color-letras">Rol:</span> <%= userRole %></h3>
       <h3><span class="color-letras">Último acceso:</span> <%= usuario.last_login %></h3>
       <h3><span class="color-letras">Fecha de suscripcion:</span> <%= usuario.subscription_date %></h3> 
     </div>

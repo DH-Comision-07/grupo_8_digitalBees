@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes)=>{
         last_login: DataTypes.DATE,
 
         account_status: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         user_role_id: DataTypes.INTEGER

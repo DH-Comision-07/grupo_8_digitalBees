@@ -189,8 +189,9 @@ module.exports = {
 	// Create - Form to create
 	create: async function(req,res){
         try {
-            let rol = await roleService.getAllRoles();         
-			res.render('users/admin/user-create', {roles: rol})
+            let rol = await roleService.getAllRoles();  
+			let isChecked = 0;       
+			res.render('users/admin/user-create', {roles: rol, isChecked: isChecked})
         } catch (error) {
             res.send("Ha ocurrido un error inesperado").status(500);
         }
@@ -203,7 +204,9 @@ module.exports = {
 				let user = req.body;
 				user.password = bcryptjs.hashSync(req.body.password, 10),
 				user.profile_picture = 'img/imgUsers/' + req.file.filename;
-				await userService.save(req.body);
+				user.account_status = req.body.account_status === 'on' ? 1 : 0;
+				
+				await userService.save(user);
 			}
 			const usuarios = await userService.getAll();
 			res.render("users/admin/adminUsers", { 'usuarios': usuarios });

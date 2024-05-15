@@ -99,6 +99,6 @@ function Usuario({email, password, first_name, last_name, profile_picture, addre
     this.phone_number = phone_number;
     this.subscription_date = new Date();
     this.last_login = last_login;
-    this.account_status = account_status==="active"?1:0;
+    this.account_status = account_status;
     this.user_role_id = user_role_id;
 }

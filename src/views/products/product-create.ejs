@@ -31,17 +31,19 @@
                                             id="description" required />
                                     </label>
                                 </div>
-                                <label name="popular">Destacado:</label> 
-                                <div class="checkbox-container yellow">
-                                    <input type="checkbox" id="toggle" <%= isChecked === 1 ? 'checked' : '' %> />
-                                    <label for="toggle"></label>
-                                </div>
-                                <div>
-                                    <label for="stock">Stock
-                                        <input type="number" class="input-text" placeholder="Stock" name="stock" id="cost"
-                                            required />
-                                    </label>
-                                </div>
+                                <label for="popular">Destacado:</label> 
+                                    <div class="checkbox-container yellow">
+                                        <input type="checkbox" id="popular" name="popular" <%= isChecked === 1 ? 'checked' : '' %> />
+                                        <label for="popular"></label>
+                                    </div>
+                                    
+                                    <div class="boton-cantidad detalle-cantidad">
+                                        <select class="compra__cantidad" name="stock">
+                                            <% for (let i = 1; i <= 10; i++) { %>
+                                                <option value="<%= i %>"><%= i %></option>
+                                            <% } %>
+                                        </select>
+                                      </div>
 
                                 <label for="categoriaID">Categoría: </label>
                                     <p>

@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull: false,
         },
         popular: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         stock: {
