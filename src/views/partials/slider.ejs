@@ -1,0 +1,66 @@
+<!-- START OF SLIDER -->
+<div class="slider">
+	<div class="slides" id="slide-container">
+		<!-- JS generates slides here -->
+	</div>
+	<!-- navigation	 -->
+	<a id="prevSlide" class="slideNav prev-slide"><svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 451.847 451.847">
+			<path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path>
+		</svg></a>
+	<a id="nextSlide" class="slideNav next-slide"><svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 451.847 451.847">
+			<path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path>
+		</svg></a>
+	<ol class="pagination" id="pagination">
+		<!-- JS generates pagination here -->
+	</ol>
+</div>
+<!-- END OF SLIDER -->
+
+<!-- CUSTOMIZING OPTIONS: Add Slides, Delete Slides, Settings-->
+<div class="copier bordered">
+	<h3 class="copiertitle">Copy Code</h3>
+	<button class="copy" onclick="copyObjects()">Slides & Options Objects</button>
+	<button class="copy" onclick="copyHTML();renderSlides();">Copy HTML Output</button>
+	<button class="copy" onclick="copyCSS()">Copy CSS Output</button>
+	<button class="copy" onclick="copyJS()">Copy JS Code</button>
+</div>
+<div class="overlay" onclick="event.preventDefault();event.stopPropagation();event.target.style.display='none';">
+	<div class="modal" id="copyModal" onclick="event.preventDefault();event.stopPropagation();">
+		<textarea name="codebox" id="codebox" cols="30" rows="10" class="codebox" spellcheck="false" onclick="event.preventDefault();event.stopPropagation();"></textarea>
+		<button id="copyToClipboard" onclick="event.preventDefault();event.stopPropagation();copyToClipboard(event)">Copy To Clipboard</button>
+	</div>
+</div>		
+
+<form class="slidecreator bordered" id="slidecreator">
+	<h3 class="formtitle">Add Slides</h3>
+	<input type="text" name="url" id="url" placeholder="Image src here: https://unsplash.com...">
+	<input type="text" name="heading" id="heading" placeholder="Heading here: Great Food">
+	<input type="text" class="tagline" name="tagline" placeholder="Tagline here: Enjoy our famed...">
+	<input type="submit" value="Add Slide">
+</form>
+
+<form id="slidedeleter" class="slidedeleter bordered">
+	<h3 class="formtitle">Delete Slides</h3>
+	<input type="text" class="deleteField" name="slideToDelete" placeholder="Slide number(s) (comma-separated eg. 1,2)">
+	<button class="delBtn">Delete Slide(s)</button>
+</form>
+
+<form class="settings bordered" id="settings">
+	<h3 class="formtitle">Settings</h3>
+	<input type="text" class="options" name="filters" data-bind="filters" placeholder="Image filters eg. blur(3px)">
+	<input type="text" class="options" name="heading_font" data-bind="heading_font" placeholder="Heading font">
+	<input type="text" class="options" name="heading_color" data-bind="heading_color" placeholder="Heading color">
+	<input type="text" class="options" name="heading_size" data-bind="heading_size" placeholder="Heading size">
+	<input type="text" class="options" name="tagline_font" data-bind="tagline_font" placeholder="Tagline font">
+	<input type="text" class="options" name="tagline_color" data-bind="tagline_color" placeholder="Tagline color">
+	<input type="text" class="options" name="tagline_size" data-bind="tagline_size" placeholder="Tagline size">
+	<input type="text" class="options" name="arrow_color" data-bind="arrow_color" placeholder="Color of arrows">
+	<input type="text" class="options" name="dot_color" data-bind="dot_color" placeholder="Color of Pagination(dots)">
+	<input type="text" class="options" name="hover_color" data-bind="hover_color" placeholder="Color of hovered arrows/dots">
+	<input type="text" class="options" name="active_color" data-bind="active_color" placeholder="Color of active dots">
+	<input type="submit" class="options" value="Confirm">
+</form>
