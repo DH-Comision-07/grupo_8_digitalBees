@@ -80,6 +80,10 @@ button:hover {
     margin-left: 5px;
 }
 
+.text-danger{
+    color: #9D2A11;
+}
+
 .recuerdame {
     margin-bottom: 10px;
     margin-top: 10px;

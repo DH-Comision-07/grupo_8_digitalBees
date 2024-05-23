@@ -21,51 +21,76 @@
                             <div>
                                 <div>
                                     <label for="title">Nombre del producto
-                                        <input type="text" class="input-text" placeholder="Nombre del producto" name="title"
-                                            id="title" required />
+                                        <input type="text" class="input-text <%= locals.errors && errors.title ? 'is-invalid' : null %>"" placeholder="Nombre del producto" name="title"
+                                            id="title" value="<%= locals.oldData ? oldData.title : null %>" />
                                     </label>
+                                    <% if(locals.errors && errors.title){ %>
+                                        <div class="text-danger">
+                                            <%= errors.title.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
                                 <div>
                                     <label for="description">Descripción
-                                        <input type="text" class="input-text" placeholder="Descripcion" name="description"
-                                            id="description" required />
+                                        <input type="text" class="input-text <%= locals.errors && errors.description ? 'is-invalid' : null %>"" placeholder="Descripcion" name="description"
+                                            id="description" value="<%= locals.oldData ? oldData.description : null %>" />
                                     </label>
+                                    <% if(locals.errors && errors.description){ %>
+                                        <div class="text-danger">
+                                            <%= errors.description.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
                                 <label for="popular">Destacado:</label> 
                                     <div class="checkbox-container yellow">
-                                        <input type="checkbox" id="popular" name="popular" <%= isChecked === 1 ? 'checked' : '' %> />
+                                        <input type="checkbox" id="popular" name="popular" <%= locals.isChecked === 1 ? 'checked' : '' %> />
                                         <label for="popular"></label>
                                     </div>
                                     
                                     <div class="boton-cantidad detalle-cantidad">
+                                        <label for="stock">Stock:</label>
                                         <select class="compra__cantidad" name="stock">
                                             <% for (let i = 1; i <= 10; i++) { %>
                                                 <option value="<%= i %>"><%= i %></option>
                                             <% } %>
                                         </select>
                                       </div>
-
+                                   
                                 <label for="categoriaID">Categoría: </label>
                                     <p>
-                                        <select name="categoria_id" class="form-label" id="" required>
+                                        <select name="categoria_id" class="form-label" id="">
                                             <option value="" disabled selected>- selecciona categoria - </option>
                                             <% categorias.forEach(categoria => { %>
                                             <option value="<%= categoria.id %>"><%= categoria.name %></option>
                                             <% }); %>
                                         </select>
+                                        <% if(locals.errors && errors.categoria_id){ %>
+                                            <div class="text-danger">
+                                                <%= errors.categoria_id.msg %>
+                                            </div>
+                                        <% } %>
                                     </p>
-                                    <br>
                                 <div>
                                     <label for="cost">Precio
-                                        <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost"
-                                            required />
+                                        <input type="number" class="input-text <%= locals.errors && errors.cost ? 'is-invalid' : null %>"" placeholder="Precio" name="cost" id="cost"
+                                            value="<%= locals.oldData ? oldData.cost : null %>" />
                                     </label>
+                                    <% if(locals.errors && errors.cost){ %>
+                                        <div class="text-danger">
+                                            <%= errors.cost.msg %>
+                                        </div>
+                                    <% } %>
                                 </div>
                                 
                                 <div>
                                     <label for="img">Foto de producto</label>
                                     <input type="file" name="img" />
                                 </div>
+                                <% if(locals.errors && errors.img){ %>
+                                    <div class="text-danger">
+                                        <%= errors.img.msg %>
+                                    </div>
+                                <% } %>
                                 <button type="submit" class="submit">Agregar producto</button>
                             </div>
         
