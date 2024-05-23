@@ -11,7 +11,6 @@ body{
 }
 
 h1 {
-  text-align: center;
   font-size: 22px;
   padding-bottom: 20px;
   color: #666;
@@ -30,11 +29,6 @@ h1 {
   width: 50%;
   margin-bottom: 20px;
   box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
-}
-
-.descripcion-producto {
-  width: 80%;
-  margin: auto;
 }
 
 .descripcion-producto p {
@@ -94,6 +88,20 @@ h1 {
   margin-bottom: 0;
 }
 
+.stock-productos {
+  display: flex;
+}
+
+.stock-productos p{
+  margin: 0;
+  margin-left: 5px;
+}
+
+.contenedor-producto{
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width: 750px) {
   .pie-pagina__seccion2 h4 {
     text-align: center;
@@ -151,4 +159,9 @@ h1 {
   .detalle-container{
     display: flex;
   }
+  .stock-productos p{
+    margin: 0;
+    margin-left: 5px;
+  }
+  
 }

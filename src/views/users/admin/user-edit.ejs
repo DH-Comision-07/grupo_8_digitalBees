@@ -13,11 +13,11 @@
                   <%- include('../../partials/breadcrumb', {local: 'Editar'}); %>
                 </div>
               </section>
-              <div class="contenedor contenedor--crear">
-            <h2 class="title">Editar usuario</h2>
-            <section>
-                <form action="/usuarios/admin/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
-                    <div>    
+            <div class="contenedor contenedor--crear">
+                <div class="contenedor-formulario">
+                    <h2 class="title">Editar usuario</h2>
+                    <form action="/usuarios/admin/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
+                        <div>    
                             <div>
                                 <div>
                                     <label for="email">Email
@@ -77,7 +77,8 @@
                                 <button type="submit" class="submit">Editar Usuario</button>
                             </div>
                     </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </main>
         <%- include('../../partials/footer'); %>

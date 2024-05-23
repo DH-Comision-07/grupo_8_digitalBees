@@ -14,12 +14,12 @@
                 </div>
               </section>
             <div class="contenedor contenedor--crear">
-                <h2 class="titleOne">Crear Usuario</h2>
-                <section>
+                <div class="contenedor-formulario">
+                    <h2 class="titleOne">Crear Usuario</h2>
                     <form action="/usuarios" method="POST" class="form-create" enctype="multipart/form-data">
+                    <div>
                         <div>
-                            <div>
-                                <label for="email">Email
+                            <label for="email">Email
                                     <input type="text" class="input-text" placeholder="Email" name="email"
                                         id="email" required />
                                 </label>
@@ -97,6 +97,7 @@
                             <button type="submit" class="submit">Agregar Usuario</button>
                         </div>
                     </form>
+                </div>
             </div>
         </main>
         <%- include('../../partials/footer'); %>
