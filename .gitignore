@@ -1,3 +1,4 @@
 node_modules
 .env
-\src\model\db\config\database.json
+README.md
+**/config/database.json
