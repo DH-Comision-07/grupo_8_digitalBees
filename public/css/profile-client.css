@@ -24,7 +24,8 @@ body{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 25px;   
+    margin: 0 25px;
+    min-width: 300px;
 }
 
 .profile-img{
@@ -33,6 +34,7 @@ body{
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 25px;
 }
 
 .info-perfil section h3 {
@@ -118,8 +120,10 @@ body{
 
 @media (768px <= width) {
     .info-perfil{
-        display: block;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
     }
     
     .pie{
@@ -151,15 +155,12 @@ body{
     .productos--size {
         width: 100%;
     }
+
 }
 
 @media (1200px <= width) {
     .productos--scrolls {
       overflow-x: inherit;
       max-width: none;
-    }
-    .info-perfil{
-        justify-content: space-between;
-        margin: 0;
     }
 }
