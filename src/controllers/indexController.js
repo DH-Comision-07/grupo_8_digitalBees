@@ -1,7 +1,15 @@
-const productService= require("../service/productService")
+const productService= require("../model/service/productService")
 
-const indexController={
-    mainProducts:(req, res) => res.render("index", {'listaDeProductos': productService.getMain()}) 
+module.exports ={
+	mainProducts: async function(req,res){
+        try {
+            let producto = await productService.getMain();
+            console.log("LLEGA ACA--> ",producto);
+            res.render('index', {'listaDeProductos': producto})
+        } catch (error) {
+            console.log(error);
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    }
+
 }
-
-module.exports = indexController;

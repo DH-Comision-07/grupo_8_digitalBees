@@ -14,12 +14,12 @@
                 </div>
               </section>
             <div class="contenedor contenedor--crear">
-                <h2 class="titleOne">Crear Usuario</h2>
-                <section>
+                <div class="contenedor-formulario">
+                    <h2 class="titleOne">Crear Usuario</h2>
                     <form action="/usuarios" method="POST" class="form-create" enctype="multipart/form-data">
+                    <div>
                         <div>
-                            <div>
-                                <label for="email">Email
+                            <label for="email">Email
                                     <input type="text" class="input-text" placeholder="Email" name="email"
                                         id="email" required />
                                 </label>
@@ -39,7 +39,7 @@
                             <div>
                                 <label for="country" class="form-label">Pais:</label>
                                 <select name="country" id="country" class="form-input" required>
-                                    <option value="">Elegí</option>
+                                    <option value="">Elige</option>
                                     <option value="argentina">Argentina</option>
                                     <option value="colombia">Colombia</option>
                                     <option value="mexico">Mexico</option>
@@ -48,10 +48,16 @@
                             <div>
                                 <label for="city" class="form-label">Ciudad:</label>
                                 <select name="city" id="city" class="form-input" required>
-                                    <option value="">Elegí</option>
+                                    <option value="">Elige</option>
                                     <option value="buenosAires">Buenos Aires</option>
+                                    <option value="cordoba">Córdoba</option>
+                                    <option value="rosario">Rosario</option>
                                     <option value="bogota">Bogotá</option>
+                                    <option value="medellin">Medellín</option>
+                                    <option value="cali">Cali</option>
                                     <option value="cdMexico">Ciudad de Mexico</option>
+                                    <option value="guadalajara">Guadalajara</option>
+                                    <option value="monterrey">Monterrey</option>
                                 </select>
                             </div>
                             <div>
@@ -70,26 +76,28 @@
                                 <label for="profile_picture">Foto de perfil</label>
                                 <input type="file" name="profile_picture" />
                             </div>
-                            <div>
-                                <label>Estatus Cuenta:</label>
-                                <div class="checkbox-container yellow">
-                                    <input type="checkbox" checked id="toggle"  />
-                                    <label for="toggle"></label>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="user_role" class="form-label">Rol:</label>
-                                <select name="user_role" id="user_role" class="form-input" required>
-                                    <option value="">Elegí</option>
-                                    <option value="Admin">Administrador</option>
-                                    <option value="manager">Manager</option>
-                                    <option value="sales">Vendedor</option>
-                                </select>
-                            </div>
+                            <label for="account_status">Status:</label> 
+                                    <div class="checkbox-container yellow">
+                                        <input type="checkbox" id="account_status" name="account_status" <%= isChecked === 1 ? 'checked' : '' %> />
+                                        <label for="account_status"></label>
+                                    </div>
+                                <div>
+
+                            <label for="rolID">Rol: </label>
+                        <p>
+                            <select name="user_role_id" class="form-input" id="" required>
+                                <option value="" disabled selected>- selecciona rol - </option>
+                                <% roles.forEach(rol => { %>
+                                <option value="<%= rol.id %>"><%= rol.role %></option>
+                                <% }); %>
+                            </select>
+                        </p>
+                        <br>
                             
                             <button type="submit" class="submit">Agregar Usuario</button>
                         </div>
                     </form>
+                </div>
             </div>
         </main>
         <%- include('../../partials/footer'); %>

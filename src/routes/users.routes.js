@@ -24,6 +24,10 @@ router.post("/login", usersController.loginProcess);
 //perfil de usuario
 router.get("/perfil", authMid,usersController.profile);
 
+//editar perfil usuario
+router.get('/perfil/edit/:id', usersController.editProfile); 
+router.put('/perfil/:id', uploadMulter.single('profile_picture') ,usersController.updateProfile); 
+
 //metodo LogOut
 router.get("/logout",usersController.logout);
 
@@ -42,7 +46,7 @@ router.post('/', uploadMulter.single('profile_picture'), usersController.store);
 
 /*** EDIT ONE USER ***/ 
 router.get('/admin/edit/:id', usersController.edit); 
-router.put('/:id', uploadMulter.single('profile_picture') ,usersController.update); 
+router.put('/admin/:id', uploadMulter.single('profile_picture') ,usersController.update); 
 
 /*** DELETE ONE USER ***/ 
 router.delete('/admin/:id', usersController.destroy); 

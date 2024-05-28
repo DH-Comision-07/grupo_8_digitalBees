@@ -14,53 +14,64 @@
                 </div>
               </section>
             <div class="contenedor contenedor--crear">
-                <h2 class="titleOne">Crear producto</h2>
-                <section>
-                    <form action="/productos" method="POST" class="form-create" enctype="multipart/form-data">
-                        <div>
+                <section class="contenedor contenedor--box">
+                    <div class="contenedor-formulario">
+                        <h2 class="titleOne">Crear producto</h2>
+                        <form action="/productos" method="POST" class="form-create" enctype="multipart/form-data">
                             <div>
-                                <label for="title">Nombre del producto
-                                    <input type="text" class="input-text" placeholder="Nombre del producto" name="title"
-                                        id="title" required />
-                                </label>
-                            </div>
-                            <div>
-                                <label for="description">Descripción
-                                    <input type="text" class="input-text" placeholder="Descripcion" name="description"
-                                        id="description" required />
-                                </label>
-                            </div>
-                            <div>
-                                <label>Destacado:</label>
-                                <div class="checkbox-container yellow">
-                                    <input type="checkbox" checked id="toggle"  />
-                                    <label for="toggle"></label>
-                                    
+                                <div>
+                                    <label for="title">Nombre del producto
+                                        <input type="text" class="input-text" placeholder="Nombre del producto" name="title"
+                                            id="title" required />
+                                    </label>
                                 </div>
-                            </div>
-                            <div>
-                                <label for="category" class="form-label">Categoría:</label>
-                                <select name="category" id="category" class="form-input" required>
-                                    <option value="">Elegí</option>
-                                    <option value="salud">Salud</option>
-                                    <option value="alimentos">Alimentos</option>
-                                    <option value="belleza">Belleza</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="cost">Precio
-                                    <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost"
-                                        required />
-                                </label>
-                            </div>
-                            <div>
-                                <label for="img">Foto de producto</label>
-                                <input type="file" name="img" />
-                            </div>
-                            <button type="submit" class="submit">Agregar producto</button>
-                        </div>
+                                <div>
+                                    <label for="description">Descripción
+                                        <input type="text" class="input-text" placeholder="Descripcion" name="description"
+                                            id="description" required />
+                                    </label>
+                                </div>
+                                <label for="popular">Destacado:</label> 
+                                    <div class="checkbox-container yellow">
+                                        <input type="checkbox" id="popular" name="popular" <%= isChecked === 1 ? 'checked' : '' %> />
+                                        <label for="popular"></label>
+                                    </div>
+                                    
+                                    <div class="boton-cantidad detalle-cantidad">
+                                        <select class="compra__cantidad" name="stock">
+                                            <% for (let i = 1; i <= 10; i++) { %>
+                                                <option value="<%= i %>"><%= i %></option>
+                                            <% } %>
+                                        </select>
+                                      </div>
 
-                    </form>
+                                <label for="categoriaID">Categoría: </label>
+                                    <p>
+                                        <select name="categoria_id" class="form-label" id="" required>
+                                            <option value="" disabled selected>- selecciona categoria - </option>
+                                            <% categorias.forEach(categoria => { %>
+                                            <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                                            <% }); %>
+                                        </select>
+                                    </p>
+                                    <br>
+                                <div>
+                                    <label for="cost">Precio
+                                        <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost"
+                                            required />
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <label for="img">Foto de producto</label>
+                                    <input type="file" name="img" />
+                                </div>
+                                <button type="submit" class="submit">Agregar producto</button>
+                            </div>
+        
+                        </form>
+                    </div>
+                </section>
             </div>
         </main>
         <%- include('../partials/footer'); %>

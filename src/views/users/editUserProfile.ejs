@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head', {css:'/css/product-create-edit.css'}); %>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+        <main class="principal">
+            <section class="principal__section section--migadepan">
+                <div class="contenedor contenedor--migadepan">
+                    <%- include('../partials/breadcrumb', {local: 'Editar'}); %>
+                </div>
+            </section>
+            <div class="contenedor contenedor--crear">
+                <div class="contenedor-formulario">
+                    <h2 class="title">Editar mi perfil</h2>
+                    <form action="/usuarios/perfil/<%=usuario.user_id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
+                        <div>    
+                                <div>
+                                    <div>
+                                        <label for="email">Email
+                                            <input type="text" class="input-text" placeholder="Email" name="email"
+                                                value="<%= usuario.email %>" id="email" required />
+                                        </label>
+                                        <label for="first_name">Nombre
+                                            <input type="text" class="input-text" placeholder="Nombre" name="first_name"
+                                                id="first_name" value="<%= usuario.first_name %>" required />
+                                        </label>
+                                        <label for="last_name">Apellido
+                                            <input type="text" class="input-text" placeholder="Apellido" name="last_name"
+                                                id="last_name" value="<%= usuario.last_name %>" required />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="phone_number">Telefono
+                                            <input type="text" class="input-text" placeholder="Telefono" name="phone_number"
+                                                id="phone_number" value="<%= usuario.phone_number %>" required />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="profile_picture">Foto de perfil</label>
+                                        <input type="file" src="/<%= usuario.profile_picture %>" name="profile_picture" />
+                                    </div>
+                                    
+                                    <button type="submit" class="submit">Editar mi perfil</button>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

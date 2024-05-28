@@ -11,7 +11,6 @@ body{
 }
 
 h1 {
-  text-align: center;
   font-size: 22px;
   padding-bottom: 20px;
   color: #666;
@@ -32,11 +31,6 @@ h1 {
   box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
 }
 
-.descripcion-producto {
-  width: 80%;
-  margin: auto;
-}
-
 .descripcion-producto p {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -44,6 +38,10 @@ h1 {
 
 .boton-cantidad {
   padding-left: 30px;
+}
+
+.titulo-detalle-usuario{
+  padding-left: 0px;
 }
 
 .compra__cantidad {
@@ -73,6 +71,35 @@ h1 {
 .boton--buy:hover {
   background-color: #bd431a;
   color: white;
+}
+
+.vista--detalle {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.detalle-cantidad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detalle-cantidad > .precio-producto {
+  margin-bottom: 0;
+}
+
+.stock-productos {
+  display: flex;
+}
+
+.stock-productos p{
+  margin: 0;
+  margin-left: 5px;
+}
+
+.contenedor-producto{
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 750px) {
@@ -107,6 +134,10 @@ h1 {
     margin-bottom: 20px;
   }
   
+  .titulo-detalle-usuario{
+    padding-left: 0px;
+  }
+
   .precio-producto {
     padding-right: 80px;
     font-size: 24px;
@@ -118,12 +149,19 @@ h1 {
   }
 }
 
-@media (min-width: 1024) {
-  
-}
-
 @media (1024px <= width) {
   .pie{
       height: 242px;
   }
+  .contenedor-image img {
+    width: 70%;
+  }
+  .detalle-container{
+    display: flex;
+  }
+  .stock-productos p{
+    margin: 0;
+    margin-left: 5px;
+  }
+  
 }
