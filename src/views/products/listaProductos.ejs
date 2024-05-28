@@ -27,7 +27,7 @@
             <h2 class="principal__titulo-section">Salud</h2>
 
               <% listaDeProductos.filter(function(product){
-                return product.category == "salud"
+                return product.categoria_id == 2
             }).forEach(function(product){ %>
               <%- include('../partials/products', {producto: product}); %>
             <% }); %>
@@ -39,7 +39,7 @@
               <h2 class="principal__titulo-section">Alimentos</h2>
               
               <% listaDeProductos.filter(function(product){
-                return product.category == "alimentos"
+                return product.categoria_id == 3
              }).forEach(function(product){ %>
                <%- include('../partials/products', {producto: product}); %>
              <% }); %>
@@ -52,7 +52,7 @@
               <h2 class="principal__titulo-section">Belleza</h2>
 
               <% listaDeProductos.filter(function(product){
-                return product.category == "belleza"
+                return product.categoria_id == 1
              }).forEach(function(product){ %>
                <%- include('../partials/products', {producto: product}); %>
              <% }); %>

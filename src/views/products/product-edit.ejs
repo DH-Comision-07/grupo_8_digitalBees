@@ -12,64 +12,64 @@
                 <div class="contenedor contenedor--migadepan">
                   <%- include('../partials/breadcrumb', {local: 'Editar'}); %>
                 </div>
-              </section>
-              <div class="contenedor contenedor--crear">
-            <h2 class="title">Editar producto</h2>
-            <section>
-                <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
-                    <div>
+            </section>
+            <div class="contenedor contenedor--crear">
+                <div class="contenedor-formulario">
+                    <h2 class="title">Editar producto</h2>
+                    <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-create" enctype="multipart/form-data">
                         <div>
-                            <label for="title">Nombre del producto:
-                                <input type="text" class="input-text" placeholder="Nombre del producto"
-                                    name="title" value="<%= producto.title %>" id="title" required />
-                            </label>
-                        </div>
-                        <div>
-                            <label for="description">Descripción
-                                <input type="text" class="input-text" placeholder="Descripcion" name="description"
-                                    value="<%= producto.description %>" id="description" required />
-                            </label>
-                        </div>
-                        <div>
-                            
-                            <label>Destacado </label>   
-                            <!--variable que activa la propiedad checked en una etiqueta-->
-                            <% let checked = producto.popular ? "checked" : "" %>                      
+                            <div>
+                                <label for="title">Nombre del producto:
+                                    <input type="text" class="input-text" placeholder="Nombre del producto"
+                                        name="title" value="<%= producto.title %>" id="title" required />
+                                </label>
+                            </div>
+                            <div>
+                                <label for="description">Descripción
+                                    <input type="text" class="input-text" placeholder="Descripcion" name="description"
+                                        value="<%= producto.description %>" id="description" required />
+                                </label>
+                            </div>
+                            <div>
+                                
+                                <label>Destacado </label>   
+                                <!--variable que activa la propiedad checked en una etiqueta-->
+                                <% let checked = producto.popular ? "checked" : "" %>                      
 
-                                <div class="checkbox-container yellow">
+                                    <div class="checkbox-container yellow">
 
-                                      <input type="checkbox" name="popular" <%= checked %> id="toggle" />
-                                      <label for="toggle"></label>
+                                        <input type="checkbox" name="popular" <%= checked %> id="toggle" />
+                                        <label for="toggle"></label>
 
-                                </div>
+                                    </div>
 
+                            </div>
+                            <p>
+                                <label for="categoria_id" class="form-label">Categoria: </label>
+                                <select name="categoria_id" id="" required>
+                                    <% categorias.forEach(categoria => { %>
+                                    <option value="<%= categoria.id %>" <% if (producto.categoria_id == categoria.id) { %><%= 'selected' %><% }; %>><%= categoria.name %></option>
+                                    <% }); %>
+                                </select>
+                            </p>
+
+                            <div>
+                                <label for="cost">Precio
+                                    <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost %>"  required  />
+                                </label>
+                            </div>
+                            <div>
+                                <label for="img">Foto de producto</label>
+                                <picture class="compra__imagen">
+                                    <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
+                                </picture>
+                                <input type="file" name="img" />
+                            </div>
+                            <button type="submit" class="submit">Editar producto</button>
                         </div>
-                        <div>
-                            <label for="category" class="form-label">Categoría:</label>
-                            
-						    <select name="category" value="<%= producto.category %>" id="category" class="form-input" required >
-							    <option value="" >Elegí</option>
-							    <option value="salud" <%= producto.category === 'salud' ? 'selected' : '' %>>Salud</option>
-							    <option value="alimentos"<%= producto.category === 'alimentos' ? 'selected' : '' %>>Alimentos</option>
-                                <option value="belleza" <%= producto.category === 'belleza' ? 'selected' : '' %> >Belleza</option>
-						    </select>
-                        </div>
-                        <div>
-                            <label for="cost">Precio
-                                <input type="number" class="input-text" placeholder="Precio" name="cost" id="cost" value="<%= producto.cost.replace("$","") %>"  required  />
-                            </label>
-                        </div>
-                        <div>
-                            <label for="img">Foto de producto</label>
-                            <picture class="compra__imagen">
-                                <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
-                            </picture>
-                            <input type="file" name="img" />
-                        </div>
-                        <button type="submit" class="submit">Editar producto</button>
-                    </div>
-                    
-                </form>
+                        
+                    </form>
+                </div>
             </div>
         </main>
         <%- include('../partials/footer'); %>

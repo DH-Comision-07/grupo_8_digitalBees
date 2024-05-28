@@ -1,164 +1,254 @@
-const userService = require("../service/userService");
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
-const productService= require("../service/productService")
+const productService= require("../model/service/productService");
+const userService = require("../model/service/userService");
+const roleService = require("../model/service/roleService");
 
-const usersController = {
-
+module.exports = {
 	//USUARIOS CLIENTES
-
-    register: (req, res) => {
+	register: (req, res) => {
 		res.render("users/register")
 	},
-
-	processRegister:(req,res)=>{
-		//array de validaciones
-		const resultValidation= validationResult(req);
-		//resultValidation en su propiedad errors es mayor a cero
-		if(resultValidation.errors.length > 0){
-			return res.render('users/register',{
-				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
+	processRegister: async (req, res) => {
+		try {
+			// Array de validaciones
+			const resultValidation = validationResult(req);
+			const countryCities = {
+				Argentina: ['Buenos Aires', 'Córdoba', 'Rosario'],
+				Colombia: ['Bogotá', 'Medellín', 'Cali'],
+				Mexico: ['Ciudad de México', 'Guadalajara', 'Monterrey']
+			};
+	
+			const selectedCountry = req.body.country;
+			const cities = countryCities[selectedCountry] || [];
+	
+			//resultValidation en su propiedad errors es mayor a cero
+			if (resultValidation.errors.length > 0) {
+				return res.render('users/register', {
+					//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
+					errors: resultValidation.mapped(),
+					selectedCountry: selectedCountry,
+					cities: cities,
+					oldData: req.body
+				});
+			}
+	
+			// Buscar usuario por email
+			let userInDb = await userService.findByField( req.body.email);
+	
+			if (userInDb) {
+				return res.render('users/register', {
+					errors: {
+						email: {
+							msg: 'Este email ya está registrado'
+						}
+					},
+					oldData: req.body
+				});
+			}
+	
+			// Crear usuario
+			let userToCreate = {
+				...req.body,
+				password: bcryptjs.hashSync(req.body.password, 10),
+				profile_picture: req.file.filename,
+				account_status: 1,
+				user_role_id: 1
+			};
+	
+			let userCreated = await userService.save(userToCreate);
+	
+			return res.redirect("/usuarios/login");
+		} catch (error) {
+			console.log(error);
+			return res.status(500).send("Error en el servidor");
 		}
-
-		let userInDb =userService.findByField('email', req.body.email);
-
-		if (userInDb) {
-			return res.render('users/register',{
-				//errors es la variable que voy a pasar a la vista, mapped convierte el array en un objeto literal
-				errors: {
-					email:{
-						msg:'este email ya esta registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
-
-		let userToCreate = {
-			...req.body,
-			password : bcryptjs.hashSync(req.body.password, 10),
-			profile_picture : req.file.filename,
-			account_status: "active",
-			user_role: "Client"
-		}
-
-		let userCreated = userService.save(userToCreate)
-
-		return res.redirect("/usuarios/login");
-	},
+	}, 
 
 	login: (req, res) => res.render("users/login"), 
 
-	loginProcess:(req , res)=>{
-		//"email" es el campo que esta en el json, req.body.email es el valor que digita el usuario en el formulario
-		//"email tiene que coincidir con el nombre en el json y en el name de la vista"
-		let userToLogin = userService.findByField('email', req.body.email);
-		console.log("--->>>", userToLogin);
-		
-		if (userToLogin) {
-			//esto es para crear un clon del usuario en sesion y no una referencia en memoria que apunte al principal
-			let userToSession = JSON.parse(JSON.stringify(userToLogin))
-			//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
+	loginProcess: async (req, res) => {
+
+	
+		try {
+			//"email" es el campo que esta en el json, req.body.email es el valor que digita el usuario en el formulario
+			//"email tiene que coincidir con el nombre en el json y en el name de la vista"
+			let userToLogin = await userService.findByField(req.body.email);
 			
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password)
-			if (isOkThePassword){
-				userToLogin.last_login = new Date().toLocaleDateString()
-				userService.update(userToLogin, userToLogin.user_id);
-				delete userToSession.password;
-				req.session.userLogged = userToSession;
+			if (userToLogin) {
+				//esto es para crear un clon del usuario en sesion y no una referencia en memoria que apunte al principal
+				let userToSession = JSON.parse(JSON.stringify(userToLogin));
 
-				if (req.body.remember) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				//req.body.password es lo que llega de la vista, en la vista el name tiene que ser password
+			
+				let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password);
+				//let isOkThePassword = req.body.password === userToSession.password;
+				console.log("isOkThePassword: ",isOkThePassword);
+				if (isOkThePassword) {
+					userToLogin.last_login = new Date();
+					console.log("userToLogin: ",userToLogin);
+					await userService.update(userToLogin, userToSession.user_id);
+					delete userToSession.password;
+					req.session.userLogged = userToSession;
+	
+					if (req.body.remember) {
+						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 });
+					}
+	
+					return res.redirect("/usuarios/perfil");
 				}
-
-				return res.redirect("/usuarios/perfil")
+				return res.render('users/login', {
+					errors: {
+						email: {
+							msg: 'Las credenciales son invalidas'
+						}
+					}
+				});
+	
 			}
-			return res.render('users/login' , {
-				errors:{
+	
+			return res.render('users/login', {
+				errors: {
 					email: {
-						msg :'Las credenciales son invalidas'
+						msg: 'No se encuentra este email en nuestra base de datos'
 					}
 				}
 			});
-			
+		} catch (error) {
+			console.error("Error en el proceso de inicio de sesión:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
 		}
-		
-		return res.render('users/login' , {
-			errors:{
-				email: {
-					msg :'No se encuentra este email en nuestra base de datos'
-				}
+	},
+
+	profile: async (req, res) => {
+		try {
+			let listaDeProductos = await productService.getMain();
+			res.render("users/userProfile", { usuario: req.session.userLogged, 'listaDeProductos': listaDeProductos });
+		} catch (error) {
+			console.error("Error al ingresar al perfil:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
+	},
+	editProfile: async (req, res) => {
+		try {
+			const usuario = await userService.getOneBy(req.params.id);
+			res.render('users/editUserProfile', { 'usuario': usuario });
+		} catch (error) {
+			console.error("Error al editar el perfil:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
+	},
+	updateProfile: async (req, res) => {
+		try {
+			let listaDeProductos = await productService.getMain();
+			let userRol = req.session.userLogged.user_role;
+			
+			if (req.file) {
+				let user = req.body;
+				user.profile_picture = req.file.filename;
+				let updatedUser = await userService.update(req.body, req.params.id, userRol);
+				res.render('users/userProfile', { 'usuario': updatedUser, 'listaDeProductos': listaDeProductos });
+			} else {
+				let updatedUser = await userService.update(req.body, req.params.id);
+				res.render('users/userProfile', { 'usuario': updatedUser, 'listaDeProductos': listaDeProductos });
 			}
-		});
+		} catch (error) {
+			console.error("Error al actualizar el perfil:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
 	},
-
-	profile: (req, res) => {
-		res.render("users/userProfile", 
-		{usuario: req.session.userLogged, 'listaDeProductos': productService.getMain()})
-	},
-
-	//crear boton de logout
 	logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/')
 	},
-
 	/************************************************/
 	//USUARIOS ADMINISTRADOR
-   
+
 	//get all users
-	authorization: (req, res) => {
-		res.render('users/admin/adminUsers',{'usuarios': userService.getAll()})
+	authorization: async (req, res) => {
+		try {
+			const usuarios = await userService.getAll();
+			const rol = await roleService.getAllRoles();
+			res.render('users/admin/adminUsers', { usuarios: usuarios, roles: rol });
+		} catch (error) {
+			console.error("Error al autorizar ver los usuarios:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
 	},
 	//get detail user
-	detail: (req, res) =>{
-		res.render("users/admin/usersDetail", {'usuario': userService.getOneBy(req.params.id)})
+	detail: async (req, res) => {
+		try {
+			const usuario = await userService.getOneBy(req.params.id);
+			res.render("users/admin/usersDetail", { usuario: usuario });
+		} catch (error) {
+			console.error("Error al obtener detalle del usuario:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
 	},
-
 	// Create - Form to create
-	create: (req, res) => {
-		res.render('users/admin/user-create')
-	},
+	create: async function(req,res){
+        try {
+            let rol = await roleService.getAllRoles();  
+			let isChecked = 0;       
+			res.render('users/admin/user-create', {roles: rol, isChecked: isChecked})
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    },
 	
 	// Create -  Method to store
-	store: (req, res) => {
-		if (req.file) {
-			let user = req.body;
-			user.password = bcryptjs.hashSync(req.body.password, 10),
-			user.profile_picture = 'img/imgUsers/' + req.file.filename;
-			userService.save(req.body);
-			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
-			
-		}else{
-			res.render("users/admin/adminUsers", {'usuarios': userService.getAll()});
+	store: async (req, res) => {
+		try {
+			if (req.file) {
+				let user = req.body;
+				user.password = bcryptjs.hashSync(req.body.password, 10),
+				user.profile_picture = 'img/imgUsers/' + req.file.filename;
+				user.account_status = req.body.account_status === 'on' ? 1 : 0;
+				
+				await userService.save(user);
+			}
+			const usuarios = await userService.getAll();
+			res.render("users/admin/adminUsers", { 'usuarios': usuarios });
+		} catch (error) {
+			console.error("Error al guardar usuario:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
 		}
 	},
-
 	// Update - Form to edit
-	edit: (req, res) => {
-		res.render('users/admin/user-edit',{ 'usuario': userService.getOneBy(req.params.id)})
+	edit: async (req, res) => {
+		try {
+			const usuario = await userService.getOneBy(req.params.id);
+			let rol = await roleService.getAllRoles();
+			res.render('users/admin/user-edit', { usuario : usuario, roles : rol });
+		} catch (error) {
+			console.error("Error al editar usuario:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
 	},
 	// Update - Method to update
-	update: (req, res) => {
-		if (req.file) {
-			let user = req.body;
-			user.profile_picture = 'img/groups/' + req.file.filename;
-			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
-			
-		}else{
-			res.render('users/admin/usersDetail',{'usuario': userService.update(req.body,req.params.id) })
+	update: async (req, res) => {
+		try {
+			if (req.file) {
+				let user = req.body;
+				user.profile_picture = 'img/imgUsers/' + req.file.filename;
+			} 
+			await userService.update(req.body, req.params.id);
+			res.redirect('/usuarios/admin');
+		} catch (error) {
+			console.error("Error al actualizar usuario:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
 		}
 	},
-
 	// Delete - Delete one product from DB
-	destroy : (req, res) => {
-		userService.delete(req.params.id);
-		res.redirect("/usuarios/admin");
-	}   
+	destroy: async (req, res) => {
+		try {
+			console.log("REQ PARAMS--> ", req.params.id);
+			await userService.delete(req.params.id);
+			res.redirect("/usuarios/admin");
+		} catch (error) {
+			console.error("Error al eliminar usuario:", error);
+			return res.status(500).send("Hubo un error en el servidor.");
+		}
+	},
 }
-
-module.exports = usersController;

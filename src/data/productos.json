@@ -1,4 +1,3 @@
-
 [
     {
         "id": 1,
@@ -107,15 +106,5 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repudiandae, quisquam labore veniam quos fugit maxime molestiae.",
         "popular": false,
         "category": "belleza"
-    },
-    {
-        "id": 13,
-        "title": "prueba",
-        "cost": "1234",
-        "img": "img/groups/group-1712782978051.jpg",
-        "description": "prueba mod",
-        "popular": false,
-        "category": "salud"
     }
 ]
-

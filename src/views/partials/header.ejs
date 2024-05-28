@@ -14,7 +14,7 @@
         <li class="lista__item">
           <a class="link link--vistas" href="/productos">Productos</a>
         </li>
-        <% if (locals.isLogged && locals.userLogged.user_role == 'Admin'){%>
+        <% if (locals.isLogged && locals.userLogged.user_role_id == 2){%>
         <li class="lista__item">
           <a class="link link--vistas" href="/productos/admin">Admin</a>
         </li>
@@ -47,7 +47,7 @@
       </ul>
       
       <ul class="lista lista--user">
-        <% if (locals.isLogged && locals.userLogged.user_role == 'Admin'){%>
+        <% if (locals.isLogged && locals.userLogged.user_role_id == 2){%>
         <li class="lista__item">
           <a class="link link--vistas" href="/productos/admin"
             ><i class="fa-solid fa-user-secret"></i>

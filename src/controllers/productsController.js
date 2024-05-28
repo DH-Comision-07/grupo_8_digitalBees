@@ -1,54 +1,115 @@
-const productService= require("../service/productService")
+const productService= require("../model/service/productService");
+const categoryService = require("../model/service/categoryService");
 
-const productsController={
-    getAll:(req, res) => res.render("products/listaProductos", {'listaDeProductos': productService.getAll()}),
-    mainProducts:(req, res) => res.render("products/productCart", {'listaDeCarrito': productService.getMain()}),
-    detail: (req, res) => res.render("products/product-detail", {'producto': productService.getOneBy(req.params.id)}),
-    
+module.exports ={
+	getAll: async function(req,res){
+        try {
+            let producto = await productService.getAll();
+            await categoryService.getAllCategories();
+            res.render('products/listaProductos', {listaDeProductos: producto})
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    },
 
+	mainProducts: async function(req,res){
+        try {
+			await categoryService.getAllCategories(); 
+            let producto = await productService.getMain();
+            res.render('products/productCart', {listaDeCarrito: producto})
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    },
+	detail: async function(req, res) {
+        try {
+			await categoryService.getAllCategories(); 
+            let producto = await productService.getOneBy(req.params.id); 
+            res.render('products/product-detail', {producto: producto});  
+        } catch (error) {
+			console.log(error);
+            res.send("Ha ocurrido un error inesperado al recuperar el producto ").status(500);
+        }     
+    },
 	//get all products admin
-	getAllAdmin:(req, res) => res.render("users/admin/admin", {'listaDeProductos': productService.getAll()}),
-	// Create - Form to create
-	create: (req, res) => {
-		res.render('products/product-create')
-	},
+	getAllAdmin: async function(req,res){
+        try {
+            let producto = await productService.getAll();
+            let categoria = await categoryService.getAllCategories();
+            res.render('users/admin/admin', {listaDeProductos: producto})
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    },
 	
-	// Create -  Method to store
-	store: (req, res) => {
-		if (req.file) {
-			let product = req.body;
-			product.img = 'img/groups/' + req.file.filename;
-			productService.save(req.body);
-			res.render("users/admin/admin", {'listaDeProductos': productService.getAll()})
-			//res.send("producto creado!!")
-		}else{
-			res.render("users/admin/admin", {'listaDeProductos': productService.getAll()})
-			
-		}
-	},
+	// Create - Form to create
 
+	create: async function(req,res){
+        try {
+            let categoria = await categoryService.getAllCategories(); 
+            let isChecked = 0;   
+			res.render('products/product-create', {categorias: categoria, isChecked: isChecked})
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }
+    },
+	store: async function(req,res){
+        try {
+			let productos;
+			if (req.file) {
+				let product ={
+					...req.body,
+					img : 'img/groups/' + req.file.filename,
+                    popular: req.body.popular === 'on' ? 1 : 0 
+				}
+                console.log("PRODUCTO---> " ,product);
+                await productService.save(product)
+			}
+            productos = await productService.getAll(); 
+            res.render('users/admin/admin', {listaDeProductos: productos})	
+        } catch (error) {
+            console.log(error);
+            res.send("Ha ocurrido un error inesperado al guardar el producto").status(500);
+        }
+    },
 	// Update - Form to edit
-	edit: (req, res) => {
-		res.render('products/product-edit',{ 'producto': productService.getOneBy(req.params.id)})
-	},
-	// Update - Method to update
-	update: (req, res) => {
-		if (req.file) {
-			let product = req.body;
-			product.img = 'img/groups/' + req.file.filename;
-			res.render('products/product-detail',{'producto': productService.update(product,req.params.id) })
-			
-		}else{
-			res.render('products/product-detail',{'producto': productService.update(req.body,req.params.id) })
-		}
-	},
+	edit: async function(req, res) {
 
-	// Delete - Delete one product from DB
-	destroy : (req, res) => {
-		productService.delete(req.params.id);
-		res.redirect("/productos/admin")
-	}
-    
+        try {
+            let producto = await productService.getOneBy(req.params.id); 
+			let categoria = await categoryService.getAllCategories();
+            res.render('products/product-edit', {producto: producto , categorias: categoria });  
+        } catch (error) {
+            res.send("Ha ocurrido un error inesperado").status(500);
+        }     
+    },
+	update: async function(req, res) {
+        try {
+			let productos;
+			if (req.file) {
+				let product ={
+					...req.body,
+					img : 'img/groups/' + req.file.filename
+				}
+				await productService.update(product,req.params.id)
+            	productos = await productService.getAll(); 
+            	res.render('products/product-detail', {listaDeProductos: productos})
+			}else{
+				productos = await productService.getAll();
+			}
+            res.render("products/product-detail", {listaDeProductos: productos})	
+        } catch (error) {
+            console.log(error);
+            res.send("Ha ocurrido un error inesperado al guardar el producto").status(500);
+        }
+    },
+	destroy: async function(req,res){
+        try {
+            await productService.delete(req.params.id);
+            res.redirect("/productos/admin")
+        } catch (error) {
+            console.log(error)
+            res.send("No se pudo eliminar!!"); 
+        }
+    }
 }
-
-module.exports = productsController;

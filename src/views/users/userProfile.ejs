@@ -20,22 +20,21 @@
 
         <div class="contenedor contenedor--crear">
           <h2 class="titleOne">Bienvenid@ <%= usuario.first_name  %></h2>
-
-          <div class="contenedor-perfil">
+          
+         <div class="contenedor-perfil">
             <section class="info-perfil">
               <div>
                 <img class="profile-img" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
               </div>
-              
+            
               <div>
                 <section>
-                  <h3>Nombre: <%= usuario.first_name %></h3>
+                  <h3>Nombre:<%= usuario.first_name %></h3> 
                   <h3>Apellido: <%= usuario.last_name %></h3>
                   <h3>email: <%= usuario.email %></h3>
-                  <h3>Direccion: <%= usuario.address %></h3>
-                  <h3>Rol: <%= usuario.user_role %></h3>
-                </section>
-                <button class="productos__button"><a href="" class="button-profile-edit">EDITAR PERFIL<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
+                  <h3>Telefono: <%= usuario.phone_number %></h3>
+                </section><br>
+                <button class="productos__button"><a href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT" class="button-profile-edit">Editar Perfil<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
               </div>
             </section>
 
@@ -83,6 +82,7 @@
             </article>
           </div>
         </div>
+          
           
         <!--
         <section>

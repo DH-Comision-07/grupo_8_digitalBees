@@ -90,24 +90,30 @@
                 </picture>
               </section>
               <section class="productos__item-col">
-                <p>7</p>
+                <p><%= producto.stock %></p>
               </section>
               <section class="productos__item-col">
                 <div class="checkbox-container yellow">
-                  <!--<input type="checkbox" checked id="toggle" />
-                  <label for="toggle"></label>-->
-                  <% if(producto.popular == true){ %>
+                  <% if(producto.popular == 1){ %>
                     <input type="checkbox" checked id="toggle" disabled />
                     <label for="toggle"></label>
-                  <% } else if (producto.popular == false){ %>  
+                  <% } else if (producto.popular == 0){ %>  
                     <input type="checkbox" id="toggle" disabled/>
                     <label for="toggle"></label>
                  <% } %>
                 </div>
               </section>
               <section class="productos__item-col">
-                <p><%= producto.category %></p>
-              </section>
+                <% let category= ""; %>
+                <% if (producto.categoria_id === 1) { %>
+                    <% category = "Belleza"; %>
+                <% } else if (producto.categoria_id === 2) { %>
+                    <% category = "Salud"; %>
+                <% } else if (producto.categoria_id === 3) { %>
+                    <% category = "Alimentos"; %>
+                <% } %>
+                <p name="<%= producto.id %>"><%= category %></p>
+        </section>
               <section class="productos__item-col">
                 <button class="productos__button"><a href="/productos/detalle/<%= producto.id %>"><i class="compra__icon fa-solid fa-eye"></i></a></button>
               </section>
