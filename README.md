@@ -44,7 +44,9 @@
  
 #### EJEMPLO:
   DB_NAME=digitalBees 
-  DB_PASS="constraseña" 
-  DB_USER="user"
+
+  DB_PASS= constraseña
+
+  DB_USER= user
 
 *sin comillas el user y constraseña*
