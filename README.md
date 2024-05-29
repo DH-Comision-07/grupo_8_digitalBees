@@ -37,11 +37,13 @@
 
 ### Iniciar servidor
  npm start
- para levantar el server se requiere node con una versión 20 o en adelante e intalar el .env con npm i
- cuando se haga deploy hay que cambiar el package.json para hacer el npm test
+ para levantar el server se requiere node con una versión 20 o en adelante e intalar el .env con npm i env --save
+ cuando se haga deploy hay que cambiar el package.json para hacer el npm start
 
  hay que crear y rellenar con los datos de cada uno el archivo .env para linkear la base de datos con los datos de cada user:
  EJEMPLO:
 DB_NAME=digitalBees
 DB_PASS="constraseña"
 DB_USER="user"
+
+*sin comillas el user y constraseña*
