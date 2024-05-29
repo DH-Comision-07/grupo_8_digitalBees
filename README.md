@@ -42,7 +42,7 @@
 
  hay que crear y rellenar con los datos de cada uno el archivo .env para linkear la base de datos con los datos de cada user:
  
-# EJEMPLO:
+#### EJEMPLO:
   DB_NAME=digitalBees
   DB_PASS="constraseña"
   DB_USER="user"
