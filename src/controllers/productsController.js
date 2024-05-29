@@ -49,7 +49,6 @@ module.exports ={
         try {
            
             let categorias = await categoryService.getAllCategories(); 
-            console.log("CATEGORIAS-->> ",categorias);
             let isChecked = 0; 
 			res.render('products/product-create', {categorias: categorias, isChecked: isChecked})
         } catch (error) {

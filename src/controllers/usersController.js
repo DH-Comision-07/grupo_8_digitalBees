@@ -83,10 +83,10 @@ module.exports = {
 			
 				let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password);
 				//let isOkThePassword = req.body.password === userToSession.password;
-				console.log("isOkThePassword: ",isOkThePassword);
+	
 				if (isOkThePassword) {
 					userToLogin.last_login = new Date();
-					console.log("userToLogin: ",userToLogin);
+					
 					await userService.update(userToLogin, userToSession.user_id);
 					delete userToSession.password;
 					req.session.userLogged = userToSession;
