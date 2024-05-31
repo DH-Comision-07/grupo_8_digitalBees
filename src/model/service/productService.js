@@ -19,7 +19,7 @@ module.exports = {
                 }
             });
         } catch (error) {
-            console.log(err);
+            console.log(error);
         } 
     },
 
