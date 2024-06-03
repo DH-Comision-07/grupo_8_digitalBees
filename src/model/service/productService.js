@@ -1,4 +1,8 @@
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 let db = require('../db/models')
+
+
 
 module.exports = {  
   
@@ -7,6 +11,21 @@ module.exports = {
             return await db.Productos.findAll();
         } catch (error) {
             console.log(err);
+            reject([])
+        } 
+    },
+    getAllInList: async function(productos) {
+        try {
+
+            return await db.Productos.findAll({
+                where: {
+                    id: {
+                        [Op.in]: productos
+                      }
+                } 
+            });
+        } catch (error) {
+            console.log(error);
             reject([])
         } 
     },

@@ -5,11 +5,16 @@ const productsController = require('../controllers/productsController');
 const uploadMulter = require("../middlewares/multerMiddleware");
 const credentialsMid = require('../middlewares/credentialsMid');
 const productsValidations = require('../middlewares/productsValidationsMid');
+const usersController = require('../controllers/usersController');
+const authMid = require('../middlewares/authMid');
+const orderController = require('../controllers/orderController');
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.getAll);
 /*** GET POPULAR PRODUCTS FROM SHOPPING CART ***/
-router.get('/carrito', productsController.mainProducts);
+router.get('/carrito', authMid, productsController.mainProducts);
+/*** GET POPULAR PRODUCTS FROM SHOPPING CART ***/
+router.get('/pedido/:id', authMid, orderController.getOneOrder );
 /*** GET DETAIL ONE PRODUCT ***/
 router.get('/detalle/:id', productsController.detail);
 
