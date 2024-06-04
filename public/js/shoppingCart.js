@@ -24,7 +24,10 @@ function updateSubtotal() {
     subtotalElement.textContent = `$ ${calcularTotal(products).toFixed(2)}`;
 }
 
+window.addEventListener("load", function(){
+
 let cartRows = document.querySelector('.cartRows')
+
 
 let products = [];
 
@@ -103,3 +106,4 @@ checkoutCart.onsubmit = (e) => {
         });
 }
 
+})
