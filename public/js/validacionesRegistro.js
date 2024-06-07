@@ -9,7 +9,7 @@ window.addEventListener("load", function(){
 
         // validación de nombre
         let firstName = document.getElementById('first_name').value;
-        let firstNameError = document.querySelector('#first_name_error'); // Elemento de error asociado al campo nombre
+        let firstNameError = document.querySelector('#first_name_error');
         
         if (firstName.trim() === '') {
             firstNameError.innerHTML = 'El campo nombre es obligatorio';
@@ -18,7 +18,7 @@ window.addEventListener("load", function(){
             firstNameError.innerHTML = 'El campo debe tener más de 3 caracteres';
             valid = false; // Marcar como no válido
         } else {
-            firstNameError.innerHTML = ''; // Limpiar mensaje de error si es válido
+            firstNameError.innerHTML = ''; 
         }
     
         // validación de apellido
