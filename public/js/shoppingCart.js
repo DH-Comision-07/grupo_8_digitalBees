@@ -23,13 +23,10 @@ function updateSubtotal() {
     const subtotalElement = document.querySelector('.totalSubAmount');
     subtotalElement.textContent = `$ ${calcularTotal(products).toFixed(2)}`;
 }
-
+let products = [];
 window.addEventListener("load", function(){
 
 let cartRows = document.querySelector('.cartRows')
-
-
-let products = [];
 
 if (localStorage.carrito) {
     let carrito = JSON.parse(localStorage.carrito)
