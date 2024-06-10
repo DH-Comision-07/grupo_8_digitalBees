@@ -4,6 +4,93 @@
     <!--head partial-->
     <%- include('../partials/head', {css:'/css/profile-client.css'}); %>
     <!--fin partial-->
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+      }
+      .mt-5 {
+          margin-top: 3rem;
+      }
+      .mb-3 {
+          margin-bottom: 1rem;
+      }
+      .text-center {
+          text-align: center;
+      }
+      .card {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #fff;
+          margin-top: 3rem;
+          padding: 20px;
+      }
+      .table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      .table th, .table td {
+          border: 1px solid #ddd;
+          padding: 10px;
+          text-align: left;
+      }
+      .table th {
+          background-color: #f2f2f2;
+      }
+      .table-responsive-md {
+          overflow-x: auto;
+      }
+      .contenedor__pago {
+          margin-top: 20px;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+      }
+      .pago__titulo {
+          margin-bottom: 15px;
+          text-align: center;
+      }
+      .pago__subtotal {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+      }
+      .pago__texto {
+          margin: 0;
+      }
+      .pago__line {
+          flex-grow: 1;
+          margin: 0 10px;
+          border-top: 1px solid #ddd;
+      }
+      .pago__costo {
+          margin: 0;
+      }
+      .texto--total {
+          font-weight: bold;
+      }
+      .costo--total {
+          font-weight: bold;
+      }
+      .pago__boton {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #eeba0b;
+          color: rgb(0, 0, 0);
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: center;
+      }
+      .pago__boton:hover {
+          background-color: #ffcf2e;
+      }
+  </style>
 </head>
   <body class="cuerpo">
       <%- include('../partials/header'); %>
@@ -19,7 +106,7 @@
         </section>
 
         <div class="contenedor contenedor--crear">
-          <h2 class="titleOne">Bienvenid@ <%= usuario.first_name  %></h2>
+          <h2 class="titleOne">Hola <%= usuario.first_name  %></h2>
           
          <div class="contenedor-perfil">
             <section class="info-perfil">
@@ -38,70 +125,53 @@
               </div>
             </section>
 
-            <article class="lista__productos productos--scrolls">
-              <div class="productos__item productos--size">
-                <section class="productos__item-col item--header">
-                  <p>Producto</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>Precio</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>imagen</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>Cantidad</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>Total</p>
-                </section>
+            <<div class="card mb-5">
+              <div class="card-header">
+                  Mis Pedidos
               </div>
-
-              <% listaDeProductos.forEach((producto) => { %>
-              <div class="productos__item productos--size">
-                <section class="productos__item-col">
-                  <p><%= producto.title %></p>
-                </section>
-                <section class="productos__item-col">
-                  <p><%= producto.cost %></p>
-                </section>
-                <section class="productos__item-col">
-                  <picture class="compra__imagen">
-                    <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
-                  </picture>
-                </section>
-                <section class="productos__item-col">
-                  <p>7</p>
-                </section>
-                <section class="productos__item-col">
-                  <p><%= producto.cost %></p>
-                </section>
+              <div class="card-body">
+                  <table class="table table-responsive-md mb-0">
+                      <thead>
+                          <tr>
+                              <th style="width: 50px;">
+                                  <strong>#</strong>
+                              </th>
+                              <th class="th-lg">
+                                  <strong>Fecha</strong>
+                              <th>
+                                  <strong>Total</strong>
+                              </th>
+                              <th style="width: 50px;"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <% pedidosEnPerfil.forEach((pedido,index)=> { %>
+                            <tr>
+                                <th scope="row">
+                                    <%= index + 1 %>
+                                </th>
+                                <td>
+                                    <%= new Intl.DateTimeFormat('es-ES', { year: 'numeric' , month: 'numeric' ,
+                                        day: '2-digit' ,hour: 'numeric' , minute: 'numeric'
+                                        }).format(pedido.createdAt) %>
+                                </td>
+                                <td>$ <%= pedido.total %>
+                                </td>
+                                <td><a class="btn btn-warning btn-sm" href="<%= `/productos/pedido/${pedido.id}` %> "><i
+                                            class="fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                  </table>
               </div>
-              <%})%>
-
-            </article>
           </div>
-        </div>
-          
-          
-        <!--
-        <section>
-          <div class="container" style="margin-top: 40px;">
-            <div class="row">
-              <div class="col-md-3">
-                <h2>Hola <%= usuario.first_name  %></h2>
-                <img src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
-                <br>
-                <br>
-                <div class="alert alert-success"><%= usuario.email %></div>
-              </div>
-            </div>
-          </div>  
-        </section> 
-        -->
-
-        
+      </div>
+            
+        </section>
     </main>
     <%- include('../partials/footer'); %>
+      <%- include('../partials/scripts'); %>
+        <script src="/js/shoppingCart.js"></script>
   </body>
 </html>

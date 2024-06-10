@@ -13,29 +13,18 @@
     
       <section class="principal__section section--migadepan">
         <div class="contenedor contenedor--migadepan">
-          <%- include('../partials/breadcrumb', {local: 'Carrito de compras'}); %>
+          <%- include('../partials/breadcrumb', {local: 'Pedido'}); %>
         </div>
       </section>
       <section class="principal__section section--productos">
         <div class="contenedor__productos">
 
-           <%- include('../partials/products-shopping-cart'); %>
+           <%- include('../partials/order'); %>
         
         </div>
         
       </section>
-      <section class="principal__section section--destacados">
-      <div class="contenedor contenedor--tarjetas">
-        <h2 class="principal__titulo-section">También te puede interesar</h2>
 
-        <% listaDeCarrito.filter(function(product){
-          return product.popular == true
-       }).forEach(function(product){ %>
-         <%- include('../partials/products', {producto: product}); %>
-       <% }); %>
-
-      </div>
-      </section>
     </div>
   </main>
 

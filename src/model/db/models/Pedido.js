@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes)=>{
 
         //relacion uno a muchos con la tabla intermedia
         Pedido.hasMany(models.DetallePedidos, {
-            as: 'pedidosDetallePedidos',
+            as: 'detallePedidos',
             foreignKey: 'pedido_id'
         }),
 
