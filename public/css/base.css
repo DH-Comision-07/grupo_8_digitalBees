@@ -126,12 +126,12 @@ body {
   position: absolute;
   display: inline-block;
   padding: 0 2px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 17%;
   text-align: center;
-  left: 8px;
-  top: -4px;
-  background-color: #eeba0b;
+  left: 14px;
+  top: -6px;
+  background-color: #CF5C36;
 }
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> FOOTER <<<<<<<< */
 

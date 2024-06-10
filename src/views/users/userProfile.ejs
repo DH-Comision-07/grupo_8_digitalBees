@@ -1,177 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!--head partial-->
     <%- include('../partials/head', {css:'/css/profile-client.css'}); %>
     <!--fin partial-->
-    <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 20px;
-          background-color: #f4f4f4;
-      }
-      .mt-5 {
-          margin-top: 3rem;
-      }
-      .mb-3 {
-          margin-bottom: 1rem;
-      }
-      .text-center {
-          text-align: center;
-      }
-      .card {
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          background-color: #fff;
-          margin-top: 3rem;
-          padding: 20px;
-      }
-      .table {
-          width: 100%;
-          border-collapse: collapse;
-      }
-      .table th, .table td {
-          border: 1px solid #ddd;
-          padding: 10px;
-          text-align: left;
-      }
-      .table th {
-          background-color: #f2f2f2;
-      }
-      .table-responsive-md {
-          overflow-x: auto;
-      }
-      .contenedor__pago {
-          margin-top: 20px;
-          padding: 20px;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          background-color: #f9f9f9;
-      }
-      .pago__titulo {
-          margin-bottom: 15px;
-          text-align: center;
-      }
-      .pago__subtotal {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 10px;
-      }
-      .pago__texto {
-          margin: 0;
-      }
-      .pago__line {
-          flex-grow: 1;
-          margin: 0 10px;
-          border-top: 1px solid #ddd;
-      }
-      .pago__costo {
-          margin: 0;
-      }
-      .texto--total {
-          font-weight: bold;
-      }
-      .costo--total {
-          font-weight: bold;
-      }
-      .pago__boton {
-          display: block;
-          width: 100%;
-          padding: 10px;
-          background-color: #eeba0b;
-          color: rgb(0, 0, 0);
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          text-align: center;
-      }
-      .pago__boton:hover {
-          background-color: #ffcf2e;
-      }
-  </style>
+
 </head>
-  <body class="cuerpo">
-      <%- include('../partials/header'); %>
+
+<body class="cuerpo">
+
+    <%- include('../partials/header'); %>
+
     <main class="principal">
-      
+
         <section class="principal__section section--migadepan">
-          <div class="contenedor contenedor--migadepan">
-            <ol class="lista lista--migadepan">
-                <li class="item__lista"><i class="fa-solid fa-house"></i></li>
-                <li class="item__lista">detalle Usuario</li>
-            </ol> 
-          </div>
+            <div class="contenedor contenedor--migadepan">
+                <ol class="lista lista--migadepan">
+                    <li class="item__lista"><i class="fa-solid fa-house"></i></li>
+                    <li class="item__lista">detalle Usuario</li>
+                </ol>
+            </div>
         </section>
 
         <div class="contenedor contenedor--crear">
-          <h2 class="titleOne">Hola <%= usuario.first_name  %></h2>
-          
-         <div class="contenedor-perfil">
-            <section class="info-perfil">
-              <div>
-                <img class="profile-img" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
-              </div>
-            
-              <div>
-                <section>
-                  <h3>Nombre:<%= usuario.first_name %></h3> 
-                  <h3>Apellido: <%= usuario.last_name %></h3>
-                  <h3>email: <%= usuario.email %></h3>
-                  <h3>Telefono: <%= usuario.phone_number %></h3>
-                </section><br>
-                <button class="productos__button"><a href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT" class="button-profile-edit">Editar Perfil<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
-              </div>
-            </section>
+            <h2 class="titleOne">Hola <%= usuario.first_name %>
+            </h2>
 
-            <<div class="card mb-5">
-              <div class="card-header">
-                  Mis Pedidos
-              </div>
-              <div class="card-body">
-                  <table class="table table-responsive-md mb-0">
-                      <thead>
-                          <tr>
-                              <th style="width: 50px;">
-                                  <strong>#</strong>
-                              </th>
-                              <th class="th-lg">
-                                  <strong>Fecha</strong>
-                              <th>
-                                  <strong>Total</strong>
-                              </th>
-                              <th style="width: 50px;"></th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        <% pedidosEnPerfil.forEach((pedido,index)=> { %>
-                            <tr>
-                                <th scope="row">
-                                    <%= index + 1 %>
-                                </th>
-                                <td>
-                                    <%= new Intl.DateTimeFormat('es-ES', { year: 'numeric' , month: 'numeric' ,
-                                        day: '2-digit' ,hour: 'numeric' , minute: 'numeric'
-                                        }).format(pedido.createdAt) %>
-                                </td>
-                                <td>$ <%= pedido.total %>
-                                </td>
-                                <td><a class="btn btn-warning btn-sm" href="<%= `/productos/pedido/${pedido.id}` %> "><i
-                                            class="fas fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <% }); %>
-                    </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-            
-        </section>
+            <div class="contenedor-perfil">
+                <section class="info-perfil">
+                    <div>
+                        <img class="profile-img" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
+                    </div>
+                
+                    <div>
+                        <section>
+                            <h3>Nombre:<%= usuario.first_name %>
+                            </h3>
+                            <h3>Apellido: <%= usuario.last_name %>
+                            </h3>
+                            <h3>email: <%= usuario.email %>
+                            </h3>
+                            <h3>Telefono: <%= usuario.phone_number %>
+                            </h3>
+                        </section><br>
+                        <button class="productos__button">
+                            <a
+                                href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT"
+                                class="button-profile-edit">Editar Perfil<i
+                                class="compra__icon fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </button>
+                    </div>
+                </section>
+                
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Pedidos
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Fecha</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Total</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% pedidosEnPerfil.forEach((pedido,index)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= new Intl.DateTimeFormat('es-ES', { year: 'numeric' ,
+                                                month: 'numeric' , day: '2-digit' ,hour: 'numeric' ,
+                                                minute: 'numeric' }).format(pedido.createdAt) %>
+                                        </td>
+                                        <td>$ <%= pedido.total %> </td>
+                                        <td><a class="btn btn-warning btn-sm"
+                                                href="<%= `/productos/pedido/${pedido.id}` %> ">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <%- include('../partials/footer'); %>
-      <%- include('../partials/scripts'); %>
-        <script src="/js/shoppingCart.js"></script>
-  </body>
+    <%- include('../partials/scripts'); %>
+    <script src="/js/shoppingCart.js"></script>
+</body>
+
 </html>
