@@ -39,87 +39,101 @@ body {
   display: flex;
 }
 
-
 .encabezado__nav {
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: #000;
-    display: block;
-  }
-  
-  .link--logo {
-    border-radius: 50%;
-  }
-  
-  .image {
-    width: 100%;
-    display: block;
-  }
-  
-  .lista {
-    list-style: none;
-  }
-  
-  .lista {
-    gap: 25px;
-  }
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .color-letras {
-    color: #eeba0b;
-  }
-  
-  .boton {
-    display: block;
-    border: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .boton--hamburguesa {
-    background-color: transparent;
-    padding: 0;
-    font-size: 22px;
-  }
-  
-  /* .seccion--vistas {
-    padding: 0 43px;
-  } */
-  
-  .link--vistas {
-    font-size: 20px;
-  }
+.link {
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
 
-  .foto-perfil{
-    display: flex;
-    align-items: center;
-  }
+.link--logo {
+  border-radius: 50%;
+}
 
-  .contenedor--migadepan {
-    padding: 20px;
-  }
+.image {
+  width: 100%;
+  display: block;
+}
 
-  .lista--migadepan {
-    gap: inherit;
-    padding: 20px 0;
-    color: #666;
-  }
-  
-  .lista--migadepan .item__lista {
-    padding: 0 10px;
-    border-right: 1px solid #666;
-  }
-  
-  .lista--migadepan .item__lista:last-child {
-    border-right: 0;
-  }
-  
+.lista {
+  list-style: none;
+}
 
+.lista {
+  gap: 25px;
+}
+
+.color-letras {
+  color: #eeba0b;
+}
+
+.boton {
+  display: block;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.boton--hamburguesa {
+  background-color: transparent;
+  padding: 0;
+  font-size: 22px;
+}
+
+/* .seccion--vistas {
+  padding: 0 43px;
+} */
+
+.link--vistas {
+  font-size: 20px;
+}
+
+.foto-perfil{
+  display: flex;
+  align-items: center;
+}
+
+.contenedor--migadepan {
+  padding: 20px;
+}
+
+.lista--migadepan {
+  gap: inherit;
+  padding: 20px 0;
+  color: #666;
+}
+
+.lista--migadepan .item__lista {
+  padding: 0 10px;
+  border-right: 1px solid #666;
+}
+
+.lista--migadepan .item__lista:last-child {
+  border-right: 0;
+}
+
+.cart-number {
+  position: relative;
+  
+}
+
+.cart-number{
+  position: absolute;
+  display: inline-block;
+  padding: 0 2px;
+  font-size: 12px;
+  border-radius: 17%;
+  text-align: center;
+  left: 8px;
+  top: -4px;
+  background-color: #eeba0b;
+}
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> FOOTER <<<<<<<< */
 
 .pie {

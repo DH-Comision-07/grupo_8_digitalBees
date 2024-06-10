@@ -25,10 +25,7 @@ body {
 }
 
 .title{
-    display: flex;
-    justify-content: center;
-    text-decoration: underline;
-    padding-top: 15px;
+    padding-left: 10px;
 }
 
 .form-create {
