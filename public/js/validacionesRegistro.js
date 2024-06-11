@@ -1,4 +1,4 @@
-window.addEventListener("load", function(){
+/*window.addEventListener("load", function(){
 
 
     document.querySelector('.boton_registrar').addEventListener('click', function(event) {
@@ -147,4 +147,11 @@ window.addEventListener("load", function(){
         }
     });
 });
+*/
+
+//seleccion de todos los inputs
+const inputs = document.querySelectorAll('input')
+const paswordInput = document.getElementById('password')
+
+//reglas de validacion para la contraseña
 
