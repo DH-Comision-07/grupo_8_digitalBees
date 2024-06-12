@@ -91,9 +91,9 @@
                                     <% } %>
                                     <div id="city_error" class="error"></div>
                                     </br>
-                                    <% if(locals.errors && errors.city){ %>
+                                    <% if(locals.errors && locals.errors.city){ %>
                                         <div class="text-danger">
-                                            <%= errors.city.msg %>
+                                            <%= locals.errors.city.msg %>
                                         </div>
                                     <% } %>
                                     
@@ -165,7 +165,7 @@
 
     <%- include('../partials/footer'); %>
         <%- include('../partials/scripts'); %>
-            <script src="/js/validacionesRegistro.js"></script>
+            <!--<script src="/js/validacionesRegistro.js"></script>-->
 
 </body>
 </html>
