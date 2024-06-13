@@ -17,12 +17,13 @@
       <section class="contenedor contenedor--box">
         <div class="contenedor-formulario">
           <h2 class="titulo-registro">Mi Cuenta</h2>
-          <form action="/usuarios/login" method="POST" class="form-container">
+          <form action="/usuarios/login" method="POST" class="form-container" id="loginForm">
             <div>
               <label for="">
                 <input
                   type="text"
                   name="email"
+                  id="email"
                   placeholder="E-mail"
                   class="input-text"
                 />
@@ -38,6 +39,7 @@
               <input
                 type="password"
                 placeholder="Ingrese su contraseña"
+                id="password"
                 name="password"
                 class="input-password"
                 />
@@ -68,6 +70,6 @@
 
   <%- include('../partials/footer'); %>
     <%- include('../partials/scripts'); %>
-
+      <script src="/js/validacionesLogin.js"></script>
 </body>
 </html>

@@ -4,7 +4,6 @@ window.addEventListener("load", function(){
     document.querySelector('.boton_registrar').addEventListener('click', function(event) {
         event.preventDefault(); // Evitar que el formulario se envíe automáticamente
     
-        // Validar campos aquí
         let valid = true; // Variable para almacenar el estado de validación
 
         // validación de nombre
@@ -23,16 +22,16 @@ window.addEventListener("load", function(){
     
         // validación de apellido
         let lastName = document.getElementById('last_name').value;
-        let lastNameError = document.querySelector('#last_name_error'); // Elemento de error asociado al campo apellido
+        let lastNameError = document.querySelector('#last_name_error'); 
                 
         if (lastName.trim() === '') {
             lastNameError.innerHTML = 'El campo apellido es obligatorio';
-            valid = false; // Marcar como no válido
+            valid = false; 
         } else if (lastName.trim().length <= 3) {
             lastNameError.innerHTML = 'El campo debe tener más de 3 caracteres';
-            valid = false; // Marcar como no válido
+            valid = false; 
         } else {
-            lastNameError.innerHTML = ''; // Limpiar mensaje de error si es válido
+            lastNameError.innerHTML = ''; 
         }
         
         // validación de email
@@ -99,6 +98,20 @@ window.addEventListener("load", function(){
          } else {
              phoneError.innerHTML = ''; 
          }
+         //validacion de imagen
+        let profilePicture = document.querySelector('input[name="profile_picture"]').files[0];
+        let profilePictureError = document.querySelector('#profile_picture_error');
+
+        if (!profilePicture) {
+            profilePictureError.innerHTML = 'Por favor selecciona una imagen de perfil';
+            valid = false; // Marcar como no válido
+        } else if (!isValidImageType(profilePicture.type)) {
+            profilePictureError.innerHTML = 'Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)';
+            valid = false; // Marcar como no válido
+        } else {
+            profilePictureError.innerHTML = ''; // Limpiar mensaje de error si es válido
+        }
+
  
         // validación contraseña
         let password = document.getElementById('password').value;
@@ -147,4 +160,3 @@ window.addEventListener("load", function(){
         }
     });
 });
-

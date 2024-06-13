@@ -21,7 +21,7 @@
                     <h2 class="titulo-registro">Registrate</h2>
     
                     <section>
-                        <form method="POST" action="/usuarios/registro" class="form-container" enctype="multipart/form-data">
+                        <form method="POST" action="/usuarios/registro" class="form-container" id="registerForm" enctype="multipart/form-data">
                             <div>
                                 <div>
                                     <label for="first_name">
@@ -67,36 +67,32 @@
                                 </div>
                                 <!--***************-->
                                 <div>
-                                    <select name="country" id= "country" class="input-text" onchange="this.form.submit()">
+                                    <select name="country" id="country" class="input-text">
                                         <option value="">Seleccione un país</option>
-                                        <option value="Argentina" <%= locals.selectedCountry === 'Argentina' ? 'selected' : '' %>>Argentina</option>
-                                        <option value="Colombia" <%= locals.selectedCountry === 'Colombia' ? 'selected' : '' %>>Colombia</option>
-                                        <option value="Mexico" <%= locals.selectedCountry === 'Mexico' ? 'selected' : '' %>>Mexico</option>
-                                    </select></br>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Mexico">Mexico</option>
+                                    </select>
+                                    <br/>
                                     <div id="country_error" class="error"></div>
-                                    <% if(locals.errors && errors.country){ %>
+                                    <!-- Errores de validación del servidor -->
+                                    <% if(locals.errors && locals.errors.country){ %>
                                         <div class="text-danger">
-                                            <%= errors.country.msg %>
+                                            <%= locals.errors.country.msg %>
                                         </div>
                                     <% } %>
                                 </div>
-                                <div>
-                                    <% if(locals.selectedCountry) { %>
-                                        <select name="city" id="city" class="input-text">
-                                            <option value="">Seleccione una ciudad</option>
-                                            <% locals.cities.forEach(function(city) { %>
-                                            <option value="<%= city %>"><%= city %></option>
-                                            <% }); %>
-                                        </select>
-                                    <% } %>
+                                <div id="city-container" style="display: none;">
+                                    <select name="city" id="city" class="input-text">
+                                        <option value="">Seleccione una ciudad</option>
+                                    </select>
+                                    <br/>
                                     <div id="city_error" class="error"></div>
-                                    </br>
                                     <% if(locals.errors && locals.errors.city){ %>
                                         <div class="text-danger">
                                             <%= locals.errors.city.msg %>
                                         </div>
                                     <% } %>
-                                    
                                 </div>
                                 <!--**************-->
                                 <div> 
@@ -126,7 +122,7 @@
                                 <div>
                                     <label for="profile_picture">Imagen de perfil</label>
                                     <input type="file" name="profile_picture" />
-                                    
+                                    <div id="profile_picture_error" class="error"></div>
                                     <% if(locals.errors && errors.profile_picture){ %>
                                         <div class="text-danger">
                                             <%= errors.profile_picture.msg %>
@@ -138,7 +134,7 @@
                                 <div>
                                     <label for="password">
                                         <input type="password" class="input-password <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-                                        name="password" placeholder="Contraseña" />
+                                        name="password" id="password" placeholder="Contraseña" />
                                     </label>
                                     <div id="password_error" class="error"></div>
                                         
@@ -165,7 +161,9 @@
 
     <%- include('../partials/footer'); %>
         <%- include('../partials/scripts'); %>
-            <!--<script src="/js/validacionesRegistro.js"></script>-->
+            <script src="/js/ciudades.js"></script>
+            <script src="/js/validacionesRegistro.js"></script>
+            
 
 </body>
 </html>

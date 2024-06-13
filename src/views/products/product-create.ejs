@@ -17,13 +17,14 @@
                 <section class="contenedor contenedor--box">
                     <div class="contenedor-formulario">
                         <h2 class="title">Crear producto</h2>
-                        <form action="/productos" method="POST" class="form-create" enctype="multipart/form-data">
+                        <form action="/productos" method="POST" class="form-create" id="productForm" enctype="multipart/form-data">
                             <div>
                                 <div>
                                     <label for="title">Nombre del producto
                                         <input type="text" class="input-text <%= locals.errors && errors.title ? 'is-invalid' : null %>"" placeholder="Nombre del producto" name="title"
                                             id="title" value="<%= locals.oldData ? oldData.title : null %>" />
                                     </label>
+                                    <div id="title_error" class="error"></div>
                                     <% if(locals.errors && errors.title){ %>
                                         <div class="text-danger">
                                             <%= errors.title.msg %>
@@ -35,6 +36,7 @@
                                         <input type="text" class="input-text <%= locals.errors && errors.description ? 'is-invalid' : null %>"" placeholder="Descripcion" name="description"
                                             id="description" value="<%= locals.oldData ? oldData.description : null %>" />
                                     </label>
+                                    <div id="description_error" class="error"></div>
                                     <% if(locals.errors && errors.description){ %>
                                         <div class="text-danger">
                                             <%= errors.description.msg %>
@@ -58,12 +60,13 @@
                                    
                                 <label for="categoriaID">Categoría: </label>
                                     <p>
-                                        <select name="categoria_id" class="form-label" id="">
+                                        <select name="categoria_id" class="form-label" id="categoria_id">
                                             <option value="" disabled selected>- selecciona categoria - </option>
                                             <% categorias.forEach(categoria => { %>
                                             <option value="<%= categoria.id %>"><%= categoria.name %></option>
                                             <% }); %>
                                         </select>
+                                        <div id="categoria_id_error" class="error"></div>
                                         <% if(locals.errors && errors.categoria_id){ %>
                                             <div class="text-danger">
                                                 <%= errors.categoria_id.msg %>
@@ -75,6 +78,7 @@
                                         <input type="number" class="input-text <%= locals.errors && errors.cost ? 'is-invalid' : null %>"" placeholder="Precio" name="cost" id="cost"
                                             value="<%= locals.oldData ? oldData.cost : null %>" />
                                     </label>
+                                    <div id="cost_error" class="error"></div>
                                     <% if(locals.errors && errors.cost){ %>
                                         <div class="text-danger">
                                             <%= errors.cost.msg %>
@@ -86,12 +90,13 @@
                                     <label for="img">Foto de producto</label>
                                     <input type="file" name="img" />
                                 </div>
+                                <div id="img_error" class="error"></div>
                                 <% if(locals.errors && errors.img){ %>
                                     <div class="text-danger">
                                         <%= errors.img.msg %>
                                     </div>
                                 <% } %>
-                                <button type="submit" class="submit">Agregar producto</button>
+                                <button type="submit" class="submit agregar_producto">Agregar producto</button>
                             </div>
         
                         </form>
@@ -101,6 +106,7 @@
         </main>
         <%- include('../partials/footer'); %>
             <%- include('../partials/scripts'); %>
+            <script src="/js/validacionesProductos.js"></script>
 </body>
 
 </html>
