@@ -137,6 +137,8 @@ body{
     .contenedor-perfil{
         display: flex;
         flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
     }
     
     .pie-pagina__seccion2 h4 {
@@ -175,6 +177,12 @@ body{
     margin-top: 3rem;
     padding: 20px;
 }
+
+.card-header{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
