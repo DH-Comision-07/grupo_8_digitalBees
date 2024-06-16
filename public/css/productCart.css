@@ -412,6 +412,9 @@ body{
 
   .section--productos {
     margin: 0px auto 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
   }
 
   .compra:last-child {

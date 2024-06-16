@@ -78,13 +78,17 @@ h1 {
   margin-bottom: 40px;
 }
 
+.detalle-container{
+  padding: 20px;
+}
+
 .detalle-cantidad {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.detalle-cantidad > .precio-producto {
+.detalle-cantidad .precio-producto {
   margin-bottom: 0;
 }
 
@@ -158,6 +162,9 @@ h1 {
   }
   .detalle-container{
     display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 21px rgb(100, 100, 100, 0.5);
   }
   .stock-productos p{
     margin: 0;

@@ -3,8 +3,8 @@ const slides = [
 	{
 		url:
 			"https://mexico.burtsbees.com/wp-content/uploads/sites/12/2019/09/Header_NotaAbejas-ESTA-OPCI%C3%93N-VA.jpg",
-		heading: "Great Food",
-		tagline: "Enjoy our famed selection of World Class Meals"
+		heading: "Digital Bees",
+		tagline: "Aquí podrás encontrar los mejores productos de apicultura"
 	},
 	{
 		url:
