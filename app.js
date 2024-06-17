@@ -16,7 +16,7 @@ app.use(session({
     saveUninitialized:false,
 }));
 
-const port = 3030;
+const port = 3000;
 
 app.use(cookies());
 
