@@ -1,63 +1,63 @@
 <h2 class="mt-5 mb-3 h2 text-center"> Resumen del pedido <%= pedido.id %> </h2><br>
-                <div class="card my-5">
-                    <div class="card-body">
-                        <table class="table table-responsive-md mb-0">
-                            <thead>
-                                <tr>
-                                    <th style="width: 50px;">
-                                        <strong>numero</strong>
-                                    </th>
-                                    <th class="th-lg">
-                                        <strong>Producto</strong>
-                                    </th>
-                                    <th class="text-center">
-                                      <strong>Cantidad</strong>
-                                    </th>
-                                    <th class="th-lg ">
-                                        <strong>Precio</strong>
-                                    </th>
-                                    <th class="th-lg ">
-                                      <strong>Subtotal</strong>
-                                  </th>
-                                    <th style="width: 50px;"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="cartRows">
-                                <% if (pedido && detallePedido && producto) { %>
-                                    <% detallePedido.forEach((detalle, index) => { %>
-                                        <tr>
-                                            <th scope="row">
-                                                <%= index + 1 %>
-                                            </th>
-                                            <td>
-                                                <%= producto[index].title %>
-                                            </td>
-                                            <td class="text-center">
-                                                <%= detalle.quantity %>
-                                            </td>
-                                            <td>
-                                                $ <%= detalle.cost  %>
-                                            </td>
-                                            <td class="text-center">$
-                                                <%= detalle.subtotal %>
-                                            </td>
-                                        </tr>
-                                    <% }); %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="5">No hay detalles del pedido disponibles.</td>
-                                    </tr>
-                                <% } %>
-                            </tbody>
-                        </table>
 
-          </div>
-          <div class="contenedor__pago">
-            <h3 class="pago__titulo">Resumen del pedido</h3>
-            <h2>Subtotal: <span class="totalSubAmount">$ <% let subtotal = 0; 
-                detallePedido.forEach(detalle => subtotal += detalle.subtotal); 
-                %> <%= subtotal %></span></h2>
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-responsive-md mb-0">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">
+                        <strong>numero</strong>
+                    </th>
+                    <th class="th-lg">
+                        <strong>Producto</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>Cantidad</strong>
+                    </th>
+                    <th class="th-lg ">
+                        <strong>Precio</strong>
+                    </th>
+                    <th class="th-lg ">
+                        <strong>Subtotal</strong>
+                    </th>
+                    <th style="width: 50px;"></th>
+                </tr>
+            </thead>
+            <tbody class="cartRows">
+                <% if (pedido && detallePedido && producto) { %>
+                    <% detallePedido.forEach((detalle, index) => { %>
+                        <tr>
+                            <th scope="row">
+                                <%= index + 1 %>
+                            </th>
+                            <td>
+                                <%= producto[index].title %>
+                            </td>
+                            <td class="text-center">
+                                <%= detalle.quantity %>
+                            </td>
+                            <td>
+                                $ <%= detalle.cost  %>
+                            </td>
+                            <td class="text-center">$
+                                <%= detalle.subtotal %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">No hay detalles del pedido disponibles.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>  
 
-            <h2>Total: <span class="totalAmount">$<%= pedido.total %></span></h2>
-            
-          </div>
+    <div class="contenedor__pago">
+        <h3 class="pago__titulo">Resumen del pedido</h3>
+        <h2>Subtotal: <span class="totalSubAmount">$ <% let subtotal = 0; 
+            detallePedido.forEach(detalle => subtotal += detalle.subtotal); 
+            %> <%= subtotal %></span></h2>
+        <h2>Total: <span class="totalAmount">$<%= pedido.total %></span></h2>
+    </div>
+</div>
