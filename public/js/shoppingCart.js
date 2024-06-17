@@ -1,9 +1,21 @@
 //const { JSON } = require("sequelize");
-
+let carrito = [];
+function removeItem(index) {
+    if (carrito.length > 1) {
+      carrito.splice(index, 1);
+      products.splice(index, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      document.getElementById(`row${index}`).remove();
+    } else {
+      localStorage.removeItem("carrito");
+      products = [];
+      setCarritoVacio();
+    }
+}
 function setCarritoVacio() {
     cartRows.innerHTML = cartRows.innerHTML = `
     <tr>     
-        <td colspan="5"><div class="alert alert-warning my-2 text-center">No tienes products en el carrito</div></td>
+        <td colspan="5"><div class="alert alert-warning my-2 text-center">No tienes productos en el carrito</div></td>
     </tr>            
     `;
 }
@@ -23,10 +35,12 @@ function updateSubtotal() {
     const subtotalElement = document.querySelector('.totalSubAmount');
     subtotalElement.textContent = `$ ${calcularTotal(products).toFixed(2)}`;
 }
+
 let products = [];
+let cartRows = document.querySelector('.cartRows');
 window.addEventListener("load", function(){
 
-let cartRows = document.querySelector('.cartRows')
+//let cartRows = document.querySelector('.cartRows')
 
 if (localStorage.carrito) {
     let carrito = JSON.parse(localStorage.carrito)
@@ -59,7 +73,8 @@ if (localStorage.carrito) {
                         
                     })
                 } else {
-                    //si no esta el producto en bd lo borro en localStorage
+                    //si no esta el producto en bd lo borro en localStorage del carrito
+                    //splice modifica el contenido de un array eliminando o reemplazando elementos existentes
                     carrito.splice(index, 1)
                     localStorage.setItem("carrito", JSON.stringify(carrito))
                 }
@@ -72,6 +87,8 @@ if (localStorage.carrito) {
             })
     })
 }
+
+//pedidos realizados 
 
 let checkoutCart = document.querySelector('#checkoutCart')
 

@@ -7,6 +7,42 @@ body{
   justify-content: space-between;
 }
 
+/* Estilos generales tabla */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f0f0f0;
+}
+
+.th-lg {
+  width: 30%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cartRows td {
+  vertical-align: middle;
+}
+
+.cartRows td:nth-child(1) {
+  width: 50px;
+}
+
+.cartRows td:nth-child(6) {
+  width: 50px;
+}
+
 .section--productos {
   display: flex;
   flex-wrap: wrap;
