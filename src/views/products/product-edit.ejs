@@ -31,20 +31,14 @@
                                 </label>
                             </div>
                             <div>
+                                <label>Destacado</label>
                                 
-                                <label>Destacado </label>   
-                                <!--variable que activa la propiedad checked en una etiqueta-->
-                                <% let checked = producto.popular ? "checked" : "" %>                      
-
-                                    <div class="checkbox-container yellow">
-
-                                        <input type="checkbox" name="popular" <%= checked %> id="toggle" />
-                                        <label for="toggle"></label>
-
-                                    </div>
-
-                                    
-
+                                <% let checked = producto.popular ? "1" : "0" %>
+                                
+                                <div class="checkbox-container yellow">
+                                    <input type="checkbox" name="popular" <%= producto.popular ? "checked" : "" %> id="toggle" />
+                                    <label for="toggle"></label>
+                                </div>
                             </div>
                             <p>
                                 <label for="categoria_id" class="form-label">Categoria: </label>
