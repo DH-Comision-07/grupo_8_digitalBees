@@ -37,7 +37,7 @@
 
 ### Iniciar servidor
  npm start
- para levantar el server se requiere node con una versión 20 o en adelante e intalar el .env con npm i env --save
+ para levantar el server se requiere node con una versión 20 o en adelante,  una version de sql 8.0 o anteriores e intalar el .env con npm i env --save
 
  cuando se haga deploy hay que cambiar el package.json para hacer el npm test
 
