@@ -1,3 +1,8 @@
+function isValidImageType(type) {
+    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    return validTypes.includes(type);
+  }
+
 window.addEventListener("load", function(){
 
 

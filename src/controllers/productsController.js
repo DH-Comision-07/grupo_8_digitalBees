@@ -105,13 +105,13 @@ module.exports ={
 				}
 				await productService.update(product,req.params.id)
             	productos = await productService.getAll(); 
-            	res.render('products/product-detail', {listaDeProductos: productos})
+            	return res.render('users/admin/admin', {listaDeProductos: productos})
 			}else{
 				productos = await productService.getAll();
 			}
-            res.render("products/product-detail", {listaDeProductos: productos})	
+            return res.render('users/admin/admin', {listaDeProductos: productos})	
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             res.send("Ha ocurrido un error inesperado al guardar el producto").status(500);
         }
     },
