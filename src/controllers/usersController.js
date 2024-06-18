@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 const productService= require("../model/service/productService");
 const userService = require("../model/service/userService");
 const roleService = require("../model/service/roleService");
+const orderService = require('../model/service/orderService');
 
 module.exports = {
 	//USUARIOS CLIENTES
@@ -83,10 +84,10 @@ module.exports = {
 			
 				let isOkThePassword = bcryptjs.compareSync(req.body.password, userToSession.password);
 				//let isOkThePassword = req.body.password === userToSession.password;
-				console.log("isOkThePassword: ",isOkThePassword);
+	
 				if (isOkThePassword) {
 					userToLogin.last_login = new Date();
-					console.log("userToLogin: ",userToLogin);
+					
 					await userService.update(userToLogin, userToSession.user_id);
 					delete userToSession.password;
 					req.session.userLogged = userToSession;
@@ -122,8 +123,15 @@ module.exports = {
 
 	profile: async (req, res) => {
 		try {
+			let pedidosEnPerfil = await orderService.getAllOrders(req.session.userLogged.user_id);
+			if (pedidosEnPerfil == undefined) {
+				pedidosEnPerfil = []
+			}
 			let listaDeProductos = await productService.getMain();
-			res.render("users/userProfile", { usuario: req.session.userLogged, 'listaDeProductos': listaDeProductos });
+			res.render("users/userProfile", { usuario: req.session.userLogged, 
+				'listaDeProductos': listaDeProductos,
+				'pedidosEnPerfil': pedidosEnPerfil
+			});
 		} catch (error) {
 			console.error("Error al ingresar al perfil:", error);
 			return res.status(500).send("Hubo un error en el servidor.");
@@ -160,6 +168,7 @@ module.exports = {
 	logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
+		//localStorage.removeItem('userEmail')
 		return res.redirect('/')
 	},
 	/************************************************/

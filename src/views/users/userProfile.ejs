@@ -1,107 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!--head partial-->
     <%- include('../partials/head', {css:'/css/profile-client.css'}); %>
     <!--fin partial-->
+
 </head>
-  <body class="cuerpo">
-      <%- include('../partials/header'); %>
+
+<body class="cuerpo">
+
+    <%- include('../partials/header'); %>
+
     <main class="principal">
-      
+
         <section class="principal__section section--migadepan">
-          <div class="contenedor contenedor--migadepan">
-            <ol class="lista lista--migadepan">
-                <li class="item__lista"><i class="fa-solid fa-house"></i></li>
-                <li class="item__lista">detalle Usuario</li>
-            </ol> 
-          </div>
+            <div class="contenedor contenedor--migadepan">
+                <ol class="lista lista--migadepan">
+                    <li class="item__lista"><i class="fa-solid fa-house"></i></li>
+                    <li class="item__lista">detalle Usuario</li>
+                </ol>
+            </div>
         </section>
 
         <div class="contenedor contenedor--crear">
-          <h2 class="titleOne">Bienvenid@ <%= usuario.first_name  %></h2>
-          
-         <div class="contenedor-perfil">
-            <section class="info-perfil">
-              <div>
-                <img class="profile-img" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
-              </div>
-            
-              <div>
-                <section>
-                  <h3>Nombre:<%= usuario.first_name %></h3> 
-                  <h3>Apellido: <%= usuario.last_name %></h3>
-                  <h3>email: <%= usuario.email %></h3>
-                  <h3>Telefono: <%= usuario.phone_number %></h3>
-                </section><br>
-                <button class="productos__button"><a href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT" class="button-profile-edit">Editar Perfil<i class="compra__icon fa-solid fa-pen-to-square"></i></a></button>
-              </div>
-            </section>
+            <h2 class="titleOne">Hola <%= usuario.first_name %>
+            </h2>
 
-            <article class="lista__productos productos--scrolls">
-              <div class="productos__item productos--size">
-                <section class="productos__item-col item--header">
-                  <p>Producto</p>
+            <div class="contenedor-perfil">
+                <section class="info-perfil">
+                    <div>
+                        <img class="profile-img" src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
+                    </div>
+                
+                    <div>
+                        <section>
+                            <h3>Nombre:<%= usuario.first_name %>
+                            </h3>
+                            <h3>Apellido: <%= usuario.last_name %>
+                            </h3>
+                            <h3>email: <%= usuario.email %>
+                            </h3>
+                            <h3>Telefono: <%= usuario.phone_number %>
+                            </h3>
+                        </section><br>
+                        <button class="productos__button">
+                            <a
+                                href="/usuarios/perfil/edit/<%=usuario.user_id%>?_method=PUT"
+                                class="button-profile-edit">Editar Perfil<i
+                                class="compra__icon fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </button>
+                    </div>
                 </section>
-                <section class="productos__item-col item--header">
-                  <p>Precio</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>imagen</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>Cantidad</p>
-                </section>
-                <section class="productos__item-col item--header">
-                  <p>Total</p>
-                </section>
-              </div>
-
-              <% listaDeProductos.forEach((producto) => { %>
-              <div class="productos__item productos--size">
-                <section class="productos__item-col">
-                  <p><%= producto.title %></p>
-                </section>
-                <section class="productos__item-col">
-                  <p><%= producto.cost %></p>
-                </section>
-                <section class="productos__item-col">
-                  <picture class="compra__imagen">
-                    <img class="image imagen--productos" src="/<%= producto.img %>" alt="Miel">
-                  </picture>
-                </section>
-                <section class="productos__item-col">
-                  <p>7</p>
-                </section>
-                <section class="productos__item-col">
-                  <p><%= producto.cost %></p>
-                </section>
-              </div>
-              <%})%>
-
-            </article>
-          </div>
-        </div>
-          
-          
-        <!--
-        <section>
-          <div class="container" style="margin-top: 40px;">
-            <div class="row">
-              <div class="col-md-3">
-                <h2>Hola <%= usuario.first_name  %></h2>
-                <img src="/img/imgUsers/<%= usuario.profile_picture %>" alt="">
-                <br>
-                <br>
-                <div class="alert alert-success"><%= usuario.email %></div>
-              </div>
+                
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Pedidos
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Fecha</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Total</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% pedidosEnPerfil.forEach((pedido,index)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= new Intl.DateTimeFormat('es-ES', { year: 'numeric' ,
+                                                month: 'numeric' , day: '2-digit' ,hour: 'numeric' ,
+                                                minute: 'numeric' }).format(pedido.createdAt) %>
+                                        </td>
+                                        <td>$ <%= pedido.total %> </td>
+                                        <td><a class="btn btn-warning btn-sm"
+                                                href="<%= `/productos/pedido/${pedido.id}` %> ">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>  
-        </section> 
-        -->
+        </div>
 
-        
     </main>
     <%- include('../partials/footer'); %>
-  </body>
+    <%- include('../partials/scripts'); %>
+    <script src="/js/shoppingCart.js"></script>
+</body>
+
 </html>

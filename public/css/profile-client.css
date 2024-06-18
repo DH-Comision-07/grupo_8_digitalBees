@@ -137,6 +137,8 @@ body{
     .contenedor-perfil{
         display: flex;
         flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
     }
     
     .pie-pagina__seccion2 h4 {
@@ -163,4 +165,84 @@ body{
       overflow-x: inherit;
       max-width: none;
     }
+}
+
+
+/* ------------------FALTA DARLE ESTILO COMO LA WEB--------------------------------------------------------------------------------------------------------------*/
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 3rem;
+    padding: 20px;
+}
+
+.card-header{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.table th {
+    background-color: #f2f2f2;
+}
+.table-responsive-md {
+    overflow-x: auto;
+}
+.contenedor__pago {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.pago__titulo {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.pago__subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.pago__texto {
+    margin: 0;
+}
+.pago__line {
+    flex-grow: 1;
+    margin: 0 10px;
+    border-top: 1px solid #ddd;
+}
+.pago__costo {
+    margin: 0;
+}
+.texto--total {
+    font-weight: bold;
+}
+.costo--total {
+    font-weight: bold;
+}
+.pago__boton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #eeba0b;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.pago__boton:hover {
+    background-color: #ffcf2e;
 }

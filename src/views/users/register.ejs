@@ -16,49 +16,49 @@
                    <%- include('../partials/breadcrumbUsers', {local: 'Registro'}); %> 
                 </div>
               </section>
-             <!-- <% if(locals.errors) { %>
-
-                <% for(let oneError in errors ) { %>
-                
-                    <p><%= errors[oneError].msg %></p>
-                  
-                  <% }%>
-
-              <% } %>-->
             <section class="contenedor contenedor--box">
                 <div class="contenedor-formulario">
                     <h2 class="titulo-registro">Registrate</h2>
     
                     <section>
-                        <form method="POST" action="/usuarios/registro" class="form-container" enctype="multipart/form-data">
+                        <form method="POST" action="/usuarios/registro" class="form-container" id="registerForm" enctype="multipart/form-data">
                             <div>
                                 <div>
                                     <label for="first_name">
                                         <input type="text" class="input-text <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"  placeholder="Nombre"
                                             name="first_name" id="first_name" value="<%= locals.oldData ? oldData.first_name : null %>" />
                                     </label>
+                            
+                                     <div id="first_name_error" class="error"></div>
+
                                     <% if(locals.errors && errors.first_name){ %>
                                         <div class="text-danger">
                                             <%= errors.first_name.msg %>
                                         </div>
                                     <% } %>
+
                                 </div>
                                 <div>
                                     <label for="last_name">
                                         <input type="text" class="input-text <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" placeholder="Apellido"
                                             name="last_name" id="last_name" value="<%= locals.oldData ? oldData.last_name : null %>" />
                                     </label>
+                                    <div id="last_name_error" class="error"></div>
+
                                     <% if(locals.errors && errors.last_name){ %>
                                         <div class="text-danger">
                                             <%= errors.last_name.msg %>
                                         </div>
                                     <% } %>
+                                    
                                 </div>
                                 <div>
                                     <label for="email">
                                         <input type="email" class="input-email <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="E-mail" 
                                         name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>"/>
                                     </label>
+                                    <div id="email_error" class="error"></div>
+                                    
                                     <% if(locals.errors && errors.email){ %>
                                         <div class="text-danger">
                                             <%= errors.email.msg %>
@@ -67,30 +67,30 @@
                                 </div>
                                 <!--***************-->
                                 <div>
-                                    <select name="country" id= "country" class="input-text" onchange="this.form.submit()">
+                                    <select name="country" id="country" class="input-text">
                                         <option value="">Seleccione un país</option>
-                                        <option value="Argentina" <%= locals.selectedCountry === 'Argentina' ? 'selected' : '' %>>Argentina</option>
-                                        <option value="Colombia" <%= locals.selectedCountry === 'Colombia' ? 'selected' : '' %>>Colombia</option>
-                                        <option value="Mexico" <%= locals.selectedCountry === 'Mexico' ? 'selected' : '' %>>Mexico</option>
-                                    </select></br>
-                                    <% if(locals.errors && errors.country){ %>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Mexico">Mexico</option>
+                                    </select>
+                                    <br/>
+                                    <div id="country_error" class="error"></div>
+                                    <!-- Errores de validación del servidor -->
+                                    <% if(locals.errors && locals.errors.country){ %>
                                         <div class="text-danger">
-                                            <%= errors.country.msg %>
+                                            <%= locals.errors.country.msg %>
                                         </div>
                                     <% } %>
                                 </div>
-                                <div>
-                                    <% if(locals.selectedCountry) { %>
-                                        <select name="city" id="city" class="input-text">
-                                            <option value="">Seleccione una ciudad</option>
-                                            <% locals.cities.forEach(function(city) { %>
-                                            <option value="<%= city %>"><%= city %></option>
-                                            <% }); %>
-                                        </select>
-                                    <% } %></br>
-                                    <% if(locals.errors && errors.city){ %>
+                                <div id="city-container" style="display: none;">
+                                    <select name="city" id="city" class="input-text">
+                                        <option value="">Seleccione una ciudad</option>
+                                    </select>
+                                    <br/>
+                                    <div id="city_error" class="error"></div>
+                                    <% if(locals.errors && locals.errors.city){ %>
                                         <div class="text-danger">
-                                            <%= errors.city.msg %>
+                                            <%= locals.errors.city.msg %>
                                         </div>
                                     <% } %>
                                 </div>
@@ -100,6 +100,7 @@
                                         <input type="text" class="input-text <%= locals.errors && errors.address ? 'is-invalid' : null %>" placeholder="Domicilio" name="address"
                                             id="address" value="<%= locals.oldData ? oldData.address : null %>" />
                                     </label>
+                                    <div id="address_error" class="error"></div>
                                     <% if(locals.errors && errors.address){ %>
                                         <div class="text-danger">
                                             <%= errors.address.msg %>
@@ -111,6 +112,7 @@
                                         <input type="text" class="input-text <%= locals.errors && errors.phone_number ? 'is-invalid' : null %>" placeholder="Teléfono" name="phone_number"
                                             id="phone_number" value="<%= locals.oldData ? oldData.phone_number : null %>"/>
                                     </label>
+                                    <div id="phone_number_error" class="error"></div>
                                     <% if(locals.errors && errors.phone_number){ %>
                                         <div class="text-danger">
                                             <%= errors.phone_number.msg %>
@@ -120,6 +122,7 @@
                                 <div>
                                     <label for="profile_picture">Imagen de perfil</label>
                                     <input type="file" name="profile_picture" />
+                                    <div id="profile_picture_error" class="error"></div>
                                     <% if(locals.errors && errors.profile_picture){ %>
                                         <div class="text-danger">
                                             <%= errors.profile_picture.msg %>
@@ -131,8 +134,18 @@
                                 <div>
                                     <label for="password">
                                         <input type="password" class="input-password <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-                                        name="password" placeholder="Contraseña" />
+                                        name="password" id="password" placeholder="Contraseña" />
                                     </label>
+                                    <div class="hidden_item help-message" id="help_password">
+                                        <ul class="error_list">
+                                            <li id="length" class="invalid">Debe tener al menos 8 caracteres.</li>
+                                            <li id="uppercase" class="invalid">Debe incluir una letra mayúscula.</li>
+                                            <li id="lowercase" class="invalid">Debe incluir una letra minúscula.</li>
+                                            <li id="number" class="invalid">Debe incluir un número.</li>
+                                            <li id="special" class="invalid">Debe incluir un símbolo especial.</li>
+                                        </ul>
+                                    </div>
+                                        
                                     <% if(locals.errors && errors.password){ %>
                                         <div class="text-danger">
                                             <%= errors.password.msg %>
@@ -141,7 +154,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="submit">ENVIAR</button>
+                                <button type="submit" class="boton_registrar">ENVIAR</button>
                             </div>
         
                             <p class="link-register-login">¿Ya tienes cuenta? Inicia sesión<a href="/usuarios/login"> acá</a></p>
@@ -155,6 +168,10 @@
     </main>
 
     <%- include('../partials/footer'); %>
+        <%- include('../partials/scripts'); %>
+            <script src="/js/ciudades.js"></script>
+            <script src="/js/validacionesRegistro.js"></script>
+            
 
 </body>
 </html>
