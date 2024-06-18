@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes)=>{
             foreignKey: 'productos_id'
         });
         DetallePedido.belongsTo(models.Pedidos, {
-            as: 'pedidosDetallePedidos',
+            as: 'pedidos',
             foreignKey: 'pedido_id'
         }); 
     };

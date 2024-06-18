@@ -92,6 +92,30 @@ button:hover {
     border: 2px solid #9D2A11;
   }
 
+  /*-------------------------Inicia estilos de validacion----------------*/
+.hidden_item {
+    display: none;
+}
+.visible_item {
+    display: block;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    height: auto;
+    padding: 5px;
+    margin-bottom: 15px; 
+}
+.help-message {
+    padding: 5px 0;
+}
+.valid {
+    color: green;
+    border-color: green;
+}
+.invalid {
+    color: red;
+    border-color: red;
+}
+
 @media (min-width: 750px) {
 
     .input-text,

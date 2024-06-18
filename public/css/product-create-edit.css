@@ -25,10 +25,7 @@ body {
 }
 
 .title{
-    display: flex;
-    justify-content: center;
-    text-decoration: underline;
-    padding-top: 15px;
+    padding-left: 10px;
 }
 
 .form-create {
@@ -78,6 +75,10 @@ button:hover {
 .link-register-login a{
     color: orangered;
     margin-left: 5px;
+}
+
+.text-danger{
+    color: #9D2A11;
 }
 
 .recuerdame {

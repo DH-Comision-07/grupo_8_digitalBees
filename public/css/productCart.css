@@ -7,6 +7,42 @@ body{
   justify-content: space-between;
 }
 
+/* Estilos generales tabla */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f0f0f0;
+}
+
+.th-lg {
+  width: 30%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cartRows td {
+  vertical-align: middle;
+}
+
+.cartRows td:nth-child(1) {
+  width: 50px;
+}
+
+.cartRows td:nth-child(6) {
+  width: 50px;
+}
+
 .section--productos {
   display: flex;
   flex-wrap: wrap;
@@ -374,6 +410,35 @@ body{
   text-align: center;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  overflow: auto;
+}
+
+.productos--order{
+  margin: auto;
+}
+
+.contenedor__pago > h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.pago__titulo {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.totalAmount,
+.totalSubAmount {
+  font-weight: 300;
+  font-size: 18px;
+}
 
 @media (768px <= width) {
   body {
@@ -399,6 +464,7 @@ body{
   .imagen--compra {
     max-width: 80px;
   }
+  
 }
 
 @media (1024px <= width) {
@@ -416,6 +482,10 @@ body{
 
   .compra:last-child {
     margin-bottom: 0;
+  }
+
+  .card {
+    flex-direction: row;
   }
 }
 

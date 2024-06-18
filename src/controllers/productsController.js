@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const productService= require("../model/service/productService");
 const categoryService = require("../model/service/categoryService");
 
@@ -46,26 +47,37 @@ module.exports ={
 
 	create: async function(req,res){
         try {
-            let categoria = await categoryService.getAllCategories(); 
-            let isChecked = 0;   
-			res.render('products/product-create', {categorias: categoria, isChecked: isChecked})
+           
+            let categorias = await categoryService.getAllCategories(); 
+            let isChecked = 0; 
+			res.render('products/product-create', {categorias: categorias, isChecked: isChecked})
         } catch (error) {
             res.send("Ha ocurrido un error inesperado").status(500);
         }
     },
 	store: async function(req,res){
         try {
-			let productos;
+            const resultValidation = validationResult(req);
+
+            if(resultValidation.errors.length > 0){
+                let categorias = await categoryService.getAllCategories();
+                
+                return res.render('products/product-create', {
+					errors: resultValidation.mapped(),
+					oldData: req.body,
+                    categorias: categorias
+                });
+            }
+
 			if (req.file) {
 				let product ={
 					...req.body,
 					img : 'img/groups/' + req.file.filename,
                     popular: req.body.popular === 'on' ? 1 : 0 
 				}
-                console.log("PRODUCTO---> " ,product);
                 await productService.save(product)
 			}
-            productos = await productService.getAll(); 
+            let productos = await productService.getAll(); 
             res.render('users/admin/admin', {listaDeProductos: productos})	
         } catch (error) {
             console.log(error);
@@ -93,13 +105,13 @@ module.exports ={
 				}
 				await productService.update(product,req.params.id)
             	productos = await productService.getAll(); 
-            	res.render('products/product-detail', {listaDeProductos: productos})
+            	return res.render('users/admin/admin', {listaDeProductos: productos})
 			}else{
 				productos = await productService.getAll();
 			}
-            res.render("products/product-detail", {listaDeProductos: productos})	
+            return res.render('users/admin/admin', {listaDeProductos: productos})	
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             res.send("Ha ocurrido un error inesperado al guardar el producto").status(500);
         }
     },

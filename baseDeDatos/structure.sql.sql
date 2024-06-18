@@ -123,8 +123,8 @@ ENGINE = InnoDB;
 -- valores ejemplo, estos valores vienen de la seleccion del usuario desde el boton comprar
 
 INSERT INTO pedido (date_sale, total, usuarios_user_id) VALUES
-('2024-4-11', 360000, 2),
-('2024-4-11', 56000, 3);
+-- ('2024-4-11', 360000, 2),
+-- ('2024-4-11', 56000, 3);
 
 -- -----------------------------------------------------
 -- Table `digitalBees`.`detalle_factura_venta`
@@ -153,8 +153,8 @@ ENGINE = InnoDB;
 
 
 -- valores ejemplo, estos valores vienen de la seleccion del usuario desde el boton comprar
-INSERT INTO detalle_pedido (quantity, cost, subtotal, pedido_id, productos_id) VALUES
-(1, 10000, 10000, 1, 1),
-(5, 70000, 350000, 1, 4),
-(2, 23000, 46000, 2, 1),
-(1, 10000, 10000, 2, 1);
+-- INSERT INTO detalle_pedido (quantity, cost, subtotal, pedido_id, productos_id) VALUES
+-- (1, 10000, 10000, 1, 1),
+-- (5, 70000, 350000, 1, 4),
+-- (2, 23000, 46000, 2, 1),
+-- (1, 10000, 10000, 2, 1);

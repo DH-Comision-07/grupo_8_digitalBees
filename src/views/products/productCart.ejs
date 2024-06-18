@@ -17,37 +17,12 @@
         </div>
       </section>
       <section class="principal__section section--productos">
-        <div class="contenedor__productos">
+        <div class="contenedor__productos productos--order">
 
-          <% listaDeCarrito.filter(function(product){
-            return product.popular == true
-         }).forEach(function(product){ %>
-           <%- include('../partials/products-shopping-cart', {producto: product}); %>
-         <% }); %>
-          
+           <%- include('../partials/products-shopping-cart'); %>
+        
         </div>
-        <div class="contenedor__pago">
-          <h3 class="pago__titulo">Resumen del pedido</h3>
-          <div class="pago__subtotal">
-            <p class="pago__texto">Subtotal</p>
-            <hr class="pago__line">
-            <h4 class="pago__costo">$5000</h4>
-          </div>
-
-          <div class="pago__subtotal">
-            <p class="pago__texto">Promo</p>
-            <hr class="pago__line">
-            <h4 class="pago__costo">$0</h4>
-          </div>
-
-          <div class="pago__subtotal">            
-            <p class="pago__texto texto--total">Total</p>
-            <hr class="pago__line">
-            <h4 class="pago__costo costo--total">$5000</h4>
-          </div>
-
-          <button class="pago__boton">Pagar</button>
-        </div>
+        
       </section>
       <section class="principal__section section--destacados">
       <div class="contenedor contenedor--tarjetas">
@@ -65,6 +40,7 @@
   </main>
 
   <%- include('../partials/footer'); %>
-
+    <%- include('../partials/scripts'); %>
+    <script src="/js/shoppingCart.js"></script>
 </body>
 </html>

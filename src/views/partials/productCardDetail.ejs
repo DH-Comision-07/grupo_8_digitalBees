@@ -2,7 +2,7 @@
     <section class="detalle-container">
       
         <div class="contenedor-image">
-            <img class="image" src="/<%= producto.img %>" alt="Miel">
+            <img class="image" src="<%= producto.img %>" alt="Miel">
         </div>
         <div class="detalle-producto">
           <h1><%= producto.title %></h1>
@@ -24,7 +24,7 @@
 
             <div class="boton-agregar-carro">
               <a class="link" href="/productos/carrito">
-                <button class="tarjeta__boton boton--buy boton">
+                <button class="tarjeta__boton boton--buy boton agregar_carrito" data-id="<%= producto.id %>">
                   <i class="icono icono--carrito fa-solid fa-cart-shopping"></i>
                   Agregar al carro
                 </button>
