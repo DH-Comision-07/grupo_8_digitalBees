@@ -8,7 +8,6 @@ module.exports = {
 
   },
   checkout: async function (req, res) {
-    console.log("REQ.BODY---> ", req.body);
     let order = await db.Pedidos.create(
       { ...req.body, usuarios_user_id: req.session.userLogged.user_id }
     )
@@ -30,7 +29,6 @@ module.exports = {
       ))  
     }
 
-    console.log("ORDER--->> ", order);
     res.json({ ok: true, status: 200, order, orderDetail })
   }
 }

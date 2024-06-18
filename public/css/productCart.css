@@ -6,21 +6,28 @@ body{
   flex-direction: column;
   justify-content: space-between;
 }
-
 /* Estilos generales tabla */
 .table {
-  border-collapse: collapse;
   width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Ocultar los bordes internos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  border-spacing: 0; /* Espaciado entre las celdas */
 }
 
 .table th, .table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 14px; /* Aumento del padding para hacer los campos un poco más grandes */
   text-align: left;
+  background-color: #f2f2f2; /* Fondo gris muy claro */
+  color: #333; /* Color de texto gris oscuro */
+  font-size: 14px; /* Tamaño de fuente */
 }
 
 .table th {
-  background-color: #f0f0f0;
+  background-color: #CF5C36; /* Fondo naranja */
+  color: #ffffff; /* Color de texto blanco */
+  font-weight: bold;
 }
 
 .th-lg {
@@ -35,12 +42,21 @@ body{
   vertical-align: middle;
 }
 
-.cartRows td:nth-child(1) {
+.cartRows td:nth-child(1),
+.cartRows td:nth-child(6) {
   width: 50px;
 }
 
-.cartRows td:nth-child(6) {
-  width: 50px;
+/* Estilos para filas alternadas */
+.table tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* Fondo gris claro más suave para filas pares */
+}
+
+/* Estilos para hover sobre filas */
+.table tbody tr:hover {
+  background-color: #eeba0b; /* Fondo amarillo al hacer hover */
+  color: #ffffff; /* Texto blanco al hacer hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
 }
 
 .section--productos {
