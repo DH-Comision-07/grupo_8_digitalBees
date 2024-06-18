@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const productService= require("../model/service/productService");
 const categoryService = require("../model/service/categoryService");
+const { EagerLoadingError } = require('sequelize');
 
 module.exports ={
 	getAll: async function(req,res){
@@ -97,22 +98,21 @@ module.exports ={
     },
 	update: async function(req, res) {
         try {
-			let productos;
-			if (req.file) {
-				let product ={
-					...req.body,
-					img : 'img/groups/' + req.file.filename
-				}
-				await productService.update(product,req.params.id)
-            	productos = await productService.getAll(); 
-            	return res.render('users/admin/admin', {listaDeProductos: productos})
-			}else{
-				productos = await productService.getAll();
-			}
-            return res.render('users/admin/admin', {listaDeProductos: productos})	
+            if (req.file) {
+                let product = req.body;
+                product.img = 'img/groups/' + req.file.filename;
+                product.popular = req.body.popular === 'on' ? 1 : 0;
+    
+                await productService.update(product, req.params.id);
+            } else {
+                // Si no hay archivo adjunto, simplemente actualiza el producto sin modificar la imagen
+                await productService.update(req.body, req.params.id);
+            }
+    
+            res.redirect('/productos/admin');
         } catch (error) {
-            //console.log(error);
-            res.send("Ha ocurrido un error inesperado al guardar el producto").status(500);
+            console.error(error);
+            return res.status(500).send("Ha ocurrido un error inesperado al guardar el producto");
         }
     },
 	destroy: async function(req,res){

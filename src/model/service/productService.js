@@ -86,7 +86,7 @@ function Producto({title, cost, img, description, popular, stock, categoria_id})
     this.cost = cost;
     this.img = img;
     this.description = description;
-    this.popular = popular;
+    this.popular = popular === 'on' ? 1 : 0;
     this.stock = stock;
     this.categoria_id = categoria_id;
 }
