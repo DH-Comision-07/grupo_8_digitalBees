@@ -51,3 +51,9 @@
   DB_USER= user
 
 *sin comillas el user y constraseña*
+
+### Pruebas
+
+La ejecución y prueba de las api's de usuario y producto se hizo por medio de la aplicacion postman:
+
+[![Run in Postman](https://bold-zodiac-487680.postman.co/workspace/Team-Workspace~e4d01d65-bbc7-4efa-80a6-74909c4724b5/collection/17863004-c7eed604-122e-4ee3-916b-fb26ceff6ed9?action=share&creator=17863004)
