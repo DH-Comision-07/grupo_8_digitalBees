@@ -14,6 +14,7 @@ body{
   overflow: hidden; /* Ocultar los bordes internos */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   border-spacing: 0; /* Espaciado entre las celdas */
+  background-color: #f2f2f2;
 }
 
 .table th, .table td {
@@ -160,6 +161,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
 .pago__boton {
@@ -430,6 +432,8 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .card-body {
@@ -440,9 +444,14 @@ body{
   margin: auto;
 }
 
+.contenedor__pago h3{
+  padding-bottom: 20px;
+}
+
 .contenedor__pago > h2 {
   font-size: 20px;
   margin-bottom: 4px;
+  padding-bottom: 20px;
 }
 
 .pago__titulo {
@@ -450,10 +459,20 @@ body{
   margin-bottom: 4px;
 }
 
+td.text-center {
+  text-align: center;
+}
+
 .totalAmount,
 .totalSubAmount {
   font-weight: 300;
   font-size: 18px;
+}
+
+section.tarjeta__pie-seccion.seccion--informacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (768px <= width) {
@@ -485,7 +504,7 @@ body{
 
 @media (1024px <= width) {
   .contenedor__productos{
-    width: calc(100% - 320px);
+    width: calc(100% - 240px);
   }
 
   .contenedor__pago {
