@@ -11,19 +11,10 @@ body{
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  border-radius: 8px; /* Bordes redondeados */
-  overflow: hidden; /* Ocultar los bordes internos */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  border-spacing: 0; /* Espaciado entre las celdas */
-  background-color: #f2f2f2;
-}
-
-.table th, .table td {
-  padding: 14px; /* Aumento del padding para hacer los campos un poco más grandes */
-  text-align: left;
-  background-color: #f2f2f2; /* Fondo gris muy claro */
-  color: #333; /* Color de texto gris oscuro */
-  font-size: 14px; /* Tamaño de fuente */
+  background-color: #eee; /* Color de fondo de la tabla */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .table thead {
@@ -166,7 +157,6 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
 }
 
 .pago__boton {
@@ -437,8 +427,6 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 10px;
 }
 
 .card-body {
@@ -449,14 +437,9 @@ body{
   margin: auto;
 }
 
-.contenedor__pago h3{
-  padding-bottom: 20px;
-}
-
 .contenedor__pago > h2 {
   font-size: 20px;
   margin-bottom: 4px;
-  padding-bottom: 20px;
 }
 
 .pago__titulo {
@@ -464,20 +447,10 @@ body{
   margin-bottom: 4px;
 }
 
-td.text-center {
-  text-align: center;
-}
-
 .totalAmount,
 .totalSubAmount {
   font-weight: 300;
   font-size: 18px;
-}
-
-section.tarjeta__pie-seccion.seccion--informacion {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 @media (768px <= width) {
@@ -509,7 +482,7 @@ section.tarjeta__pie-seccion.seccion--informacion {
 
 @media (1024px <= width) {
   .contenedor__productos{
-    width: calc(100% - 240px);
+    width: calc(100% - 320px);
   }
 
   .contenedor__pago {
