@@ -9,6 +9,7 @@ body{
 /* Estilos generales tabla */
 .table {
   width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
   border-radius: 8px; /* Bordes redondeados */
   overflow: hidden; /* Ocultar los bordes internos */
@@ -25,39 +26,43 @@ body{
   font-size: 14px; /* Tamaño de fuente */
 }
 
+.table thead {
+  background-color: #CF5C36; /* Color de fondo para el encabezado */
+  color: #fff; /* Color del texto en el encabezado */
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: end;
+  border-bottom: 1px solid #dee2e6; /* Color del borde entre filas */
+}
+
 .table th {
-  background-color: #CF5C36; /* Fondo naranja */
-  color: #ffffff; /* Color de texto blanco */
   font-weight: bold;
 }
 
-.th-lg {
-  width: 30%;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.cartRows td {
-  vertical-align: middle;
-}
-
-.cartRows td:nth-child(1),
-.cartRows td:nth-child(6) {
-  width: 50px;
-}
-
-/* Estilos para filas alternadas */
-.table tbody tr:nth-child(even) {
-  background-color: #f7f7f7; /* Fondo gris claro más suave para filas pares */
-}
-
-/* Estilos para hover sobre filas */
 .table tbody tr:hover {
-  background-color: #eeba0b; /* Fondo amarillo al hacer hover */
-  color: #ffffff; /* Texto blanco al hacer hover */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+  background-color: #dee2e6; /* Nuevo color de fondo al pasar el mouse */
+}
+
+.table tbody .action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/***BOTON BASURA***/
+/* Estilos para el ícono dentro del botón */
+.table .btn i.fas {
+  margin-right: 5px; 
+  font-size: 14px; 
+  border: none; 
+  outline: none;
+}
+
+.table .btn.btn-danger i.fas {
+  color: #CF5C36; /* Color del ícono */
+  outline: none
 }
 
 .section--productos {
@@ -508,7 +513,7 @@ section.tarjeta__pie-seccion.seccion--informacion {
   }
 
   .contenedor__pago {
-    max-width: 300px;
+    max-width: 276px;
   }
 
   .section--productos {
