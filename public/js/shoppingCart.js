@@ -33,7 +33,7 @@ function calcularTotal(products) {
 
 function updateSubtotal() {
     const subtotalElement = document.querySelector('.totalSubAmount');
-    subtotalElement.textContent = `$ ${calcularTotal(products).toFixed(2)}`;
+    subtotalElement.textContent = `$ ${calcularTotal(products)}`;
 }
 
 let products = [];
@@ -60,8 +60,8 @@ if (localStorage.carrito) {
                     <td class="text-center">$ ${parseFloat(
                             product.cost * item.quantity,
                             2
-                        ).toFixed(2)}</td>
-                    <td><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
+                        )}</td>
+                    <td class="text-center"><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
                 </tr>            
                 `;
                     products.push({
