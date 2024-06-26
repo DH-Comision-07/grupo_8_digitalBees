@@ -116,11 +116,6 @@ body{
     margin: auto;
 }
 
-.card-body {
-    overflow: auto;
-    max-height: 340px;
-}
-
 /*             MEDIA  */
 
 @media (768px <= width) {
@@ -129,7 +124,6 @@ body{
         flex-direction: column;
         justify-content: space-between;
         margin: 0;
-        padding: 30px 0;
     }
     
     .pie{
@@ -180,15 +174,13 @@ body{
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
-    margin: 25px;
+    margin-top: 3rem;
     padding: 20px;
-    max-height: 427px;
 }
 
 .card-header{
     font-size: 20px;
     font-weight: bold;
-    padding-bottom: 15px;
 }
 
 .table {
