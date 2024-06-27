@@ -64,6 +64,10 @@ button:hover {
     background-color: #EEBA0B;
 }
 
+form button a{
+    color: black;
+}
+
 .link-register-login{
     display: flex;
     justify-content: center;

@@ -121,6 +121,10 @@ body{
     max-height: 340px;
 }
 
+.btn-sm{
+    color: #CF5C36;
+}
+
 /*             MEDIA  */
 
 @media (768px <= width) {
