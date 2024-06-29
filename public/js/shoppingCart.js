@@ -33,13 +33,14 @@ function calcularTotal(products) {
 
 function updateSubtotal() {
     const subtotalElement = document.querySelector('.totalSubAmount');
-    subtotalElement.textContent = `$ ${calcularTotal(products)}`;
+    subtotalElement.textContent = `$ ${calcularTotal(products).toFixed(2)}`;
 }
 
 let products = [];
 let cartRows = document.querySelector('.cartRows');
-
 window.addEventListener("load", function(){
+
+//let cartRows = document.querySelector('.cartRows')
 
 if (localStorage.carrito) {
     let carrito = JSON.parse(localStorage.carrito)
@@ -59,8 +60,8 @@ if (localStorage.carrito) {
                     <td class="text-center">$ ${parseFloat(
                             product.cost * item.quantity,
                             2
-                        )}</td>
-                    <td class="text-center"><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
+                        ).toFixed(2)}</td>
+                    <td><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
                 </tr>            
                 `;
                     products.push({
@@ -87,6 +88,36 @@ if (localStorage.carrito) {
     })
 }
 
+//pedidos realizados 
+
+let checkoutCart = document.querySelector('#checkoutCart')
+
+checkoutCart.onsubmit = (e) => {
+    e.preventDefault();
+    const currentDate = new Date();
+    const formData = {
+        detallePedidos: products,
+        date_sale: currentDate,
+        total: calcularTotal(products),
+    }
+
+    fetch('/api/checkout', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+        .then(r => r.json())
+        .then((res) => {
+            if (res.ok) {
+                vaciarCarrito()
+                location.href =`/productos/pedido/${res.order.id}`
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
 
 })
-

@@ -123,10 +123,12 @@ module.exports = {
 
 	profile: async (req, res) => {
 		try {
+			
 			let pedidosEnPerfil = await orderService.getAllOrders(req.session.userLogged.user_id);
 			if (pedidosEnPerfil == undefined) {
 				pedidosEnPerfil = []
 			}
+			
 			let listaDeProductos = await productService.getMain();
 			res.render("users/userProfile", { usuario: req.session.userLogged, 
 				'listaDeProductos': listaDeProductos,
@@ -149,16 +151,20 @@ module.exports = {
 	updateProfile: async (req, res) => {
 		try {
 			let listaDeProductos = await productService.getMain();
-			let userRol = req.session.userLogged.user_role;
-			
+			let pedidosEnPerfil = await orderService.getAllOrders(req.params.id);
+			console.log("REQ FILE--->> ", req.file);
 			if (req.file) {
 				let user = req.body;
 				user.profile_picture = req.file.filename;
-				let updatedUser = await userService.update(req.body, req.params.id, userRol);
-				res.render('users/userProfile', { 'usuario': updatedUser, 'listaDeProductos': listaDeProductos });
+				let updatedUser = await userService.update(req.body, req.params.id);
+				
+					if (pedidosEnPerfil == undefined) {
+						pedidosEnPerfil = []
+					}
+				res.render('users/userProfile', { 'usuario': updatedUser,'pedidosEnPerfil': pedidosEnPerfil, 'listaDeProductos': listaDeProductos });
 			} else {
 				let updatedUser = await userService.update(req.body, req.params.id);
-				res.render('users/userProfile', { 'usuario': updatedUser, 'listaDeProductos': listaDeProductos });
+				res.render('users/userProfile', { 'usuario': updatedUser,'pedidosEnPerfil': pedidosEnPerfil, 'listaDeProductos': listaDeProductos });
 			}
 		} catch (error) {
 			console.error("Error al actualizar el perfil:", error);

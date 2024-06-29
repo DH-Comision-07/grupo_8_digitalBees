@@ -48,6 +48,15 @@ body{
   width: 50px;
 }
 
+.cartRows2 td {
+  vertical-align: middle;
+}
+
+.cartRows2 td:nth-child(1),
+.cartRows2 td:nth-child(6) {
+  width: 50px;
+}
+
 /* Estilos para filas alternadas */
 .table tbody tr:nth-child(even) {
   background-color: #f7f7f7; /* Fondo gris claro más suave para filas pares */
