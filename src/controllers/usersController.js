@@ -154,6 +154,7 @@ module.exports = {
 			let pedidosEnPerfil = await orderService.getAllOrders(req.params.id);
 			console.log("REQ FILE--->> ", req.file);
 			if (req.file) {
+				
 				let user = req.body;
 				user.profile_picture = req.file.filename;
 				let updatedUser = await userService.update(req.body, req.params.id);

@@ -137,14 +137,6 @@
                                         name="password" id="password" placeholder="Contraseña" />
                                     </label>
                                     <div class="hidden_item help-message" id="password_error">
-                                        <ul class="error_list">
-                                            <li id="length" class="invalid">Debe tener al menos 8 caracteres.</li>
-                                            <li id="uppercase" class="invalid">Debe incluir una letra mayúscula.</li>
-                                            <li id="lowercase" class="invalid">Debe incluir una letra minúscula.</li>
-                                            <li id="number" class="invalid">Debe incluir un número.</li>
-                                            <li id="special" class="invalid">Debe incluir un símbolo especial.</li>
-                                        </ul>
-                                    </div>
                                         
                                     <% if(locals.errors && errors.password){ %>
                                         <div class="text-danger">
