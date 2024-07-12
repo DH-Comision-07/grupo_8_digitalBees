@@ -6,21 +6,29 @@ body{
   flex-direction: column;
   justify-content: space-between;
 }
-
 /* Estilos generales tabla */
 .table {
-  border-collapse: collapse;
   width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Ocultar los bordes internos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  border-spacing: 0; /* Espaciado entre las celdas */
+  background-color: #f2f2f2;
 }
 
 .table th, .table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 14px; /* Aumento del padding para hacer los campos un poco más grandes */
   text-align: left;
+  background-color: #f2f2f2; /* Fondo gris muy claro */
+  color: #333; /* Color de texto gris oscuro */
+  font-size: 14px; /* Tamaño de fuente */
 }
 
 .table th {
-  background-color: #f0f0f0;
+  background-color: #CF5C36; /* Fondo naranja */
+  color: #ffffff; /* Color de texto blanco */
+  font-weight: bold;
 }
 
 .th-lg {
@@ -35,12 +43,30 @@ body{
   vertical-align: middle;
 }
 
-.cartRows td:nth-child(1) {
+.cartRows td:nth-child(1),
+.cartRows td:nth-child(6) {
   width: 50px;
 }
 
-.cartRows td:nth-child(6) {
+.cartRows2 td {
+  vertical-align: middle;
+}
+
+.cartRows2 td:nth-child(1),
+.cartRows2 td:nth-child(6) {
   width: 50px;
+}
+
+/* Estilos para filas alternadas */
+.table tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* Fondo gris claro más suave para filas pares */
+}
+
+/* Estilos para hover sobre filas */
+.table tbody tr:hover {
+  background-color: #eeba0b; /* Fondo amarillo al hacer hover */
+  color: #ffffff; /* Texto blanco al hacer hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
 }
 
 .section--productos {
@@ -144,6 +170,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
 .pago__boton {
@@ -255,6 +282,10 @@ body{
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.btn-sm{
+  border: none;
 }
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> FOOTER <<<<<<<< */
 
@@ -414,6 +445,8 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .card-body {
@@ -424,9 +457,14 @@ body{
   margin: auto;
 }
 
+.contenedor__pago h3{
+  padding-bottom: 20px;
+}
+
 .contenedor__pago > h2 {
   font-size: 20px;
   margin-bottom: 4px;
+  padding-bottom: 20px;
 }
 
 .pago__titulo {
@@ -434,10 +472,20 @@ body{
   margin-bottom: 4px;
 }
 
+td.text-center {
+  text-align: center;
+}
+
 .totalAmount,
 .totalSubAmount {
   font-weight: 300;
   font-size: 18px;
+}
+
+section.tarjeta__pie-seccion.seccion--informacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (768px <= width) {
@@ -469,7 +517,7 @@ body{
 
 @media (1024px <= width) {
   .contenedor__productos{
-    width: calc(100% - 320px);
+    width: calc(100% - 240px);
   }
 
   .contenedor__pago {

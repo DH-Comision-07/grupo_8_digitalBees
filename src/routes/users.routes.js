@@ -22,7 +22,7 @@ router.get("/login" ,guestMid,usersController.login);
 router.post("/login", usersController.loginProcess);
 
 //perfil de usuario
-router.get("/perfil", authMid,usersController.profile);
+router.get("/perfil", uploadMulter.single('profile_picture'),authMid,usersController.profile);
 
 //editar perfil usuario
 router.get('/perfil/edit/:id', usersController.editProfile); 
