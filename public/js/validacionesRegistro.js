@@ -105,10 +105,7 @@ window.addEventListener("load", function(){
         if (!profilePicture) {
             profilePictureError.innerHTML = 'Por favor selecciona una imagen de perfil';
             valid = false; // Marcar como no válido
-        } else if (!isValidImageType(profilePicture.type)) {
-            profilePictureError.innerHTML = 'Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)';
-            valid = false; // Marcar como no válido
-        } else {
+        }else {
             profilePictureError.innerHTML = ''; // Limpiar mensaje de error si es válido
         }
 
@@ -126,7 +123,7 @@ window.addEventListener("load", function(){
             valid = false; 
         } else {
        
-            passwordError.innerHTML = '';
+           // passwordError.innerHTML = '';
 
             // Verificar si la contraseña incluye al menos una letra mayúscula
             let uppercaseRule = /[A-Z]/;

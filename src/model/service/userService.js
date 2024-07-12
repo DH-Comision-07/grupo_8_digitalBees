@@ -39,9 +39,10 @@ module.exports ={
 
     update: async function (body, id){
         try {
-            console.log("update body", body);
             let usuario = new Usuario(body);
             await db.Usuarios.update(usuario, {where: {user_id: id}});
+            body.id = id     
+            return body
         } catch (error) {
             console.log(error);
             throw new Error("Un error");
