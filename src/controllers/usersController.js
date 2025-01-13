@@ -14,6 +14,7 @@ module.exports = {
 		try {
 			// Array de validaciones
 			const resultValidation = validationResult(req);
+			console.log(resultValidation.errors);
 			const countryCities = {
 				Argentina: ['Buenos Aires', 'Córdoba', 'Rosario'],
 				Colombia: ['Bogotá', 'Medellín', 'Cali'],
@@ -33,7 +34,7 @@ module.exports = {
 					oldData: req.body
 				});
 			}
-	
+			console.log("BODY---->>> ", req.body.email);
 			// Buscar usuario por email
 			let userInDb = await userService.findByField( req.body.email);
 	
@@ -47,7 +48,9 @@ module.exports = {
 					oldData: req.body
 				});
 			}
-	
+			
+			
+			
 			// Crear usuario
 			let userToCreate = {
 				...req.body,
@@ -56,8 +59,10 @@ module.exports = {
 				account_status: 1,
 				user_role_id: 1
 			};
-	
+			
 			let userCreated = await userService.save(userToCreate);
+			
+			
 	
 			return res.redirect("/usuarios/login");
 		} catch (error) {
