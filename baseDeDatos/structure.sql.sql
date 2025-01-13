@@ -149,7 +149,6 @@ CREATE TABLE IF NOT EXISTS `digitalBees`.`detalle_pedido` (
     REFERENCES `digitalBees`.`productos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- valores ejemplo, estos valores vienen de la seleccion del usuario desde el boton comprar
